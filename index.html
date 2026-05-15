@@ -1583,9 +1583,10 @@
   </div>
 </footer>
 
+<script src="config.js"></script>
 <script>
-  const AIRTABLE_TOKEN = 'REDACTED';
-  const AIRTABLE_BASE  = 'appXw2FtHrig9teCL';
+  const AIRTABLE_TOKEN = window.AIRTABLE_TOKEN;
+  const AIRTABLE_BASE  = window.AIRTABLE_BASE;
   const AIRTABLE_TABLE = 'Leads';
 
   async function handleSubmit(e) {

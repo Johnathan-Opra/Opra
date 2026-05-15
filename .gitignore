@@ -1,0 +1,5 @@
+# Local config (contains secrets — never commit)
+config.js
+.env
+.env.*
+*.local
