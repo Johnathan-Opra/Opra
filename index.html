@@ -1,0 +1,1593 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Primary SEO -->
+<title>Opra — Operational Systems, Automation & Dashboards | Johannesburg</title>
+<meta name="description" content="Opra builds operational infrastructure for growing businesses in Johannesburg and across South Africa. Websites, workflow automation, dashboards, client portals, and AI systems that reduce manual work and give you full visibility.">
+<meta name="keywords" content="business automation Johannesburg, workflow automation South Africa, operational dashboards, client portal development, CRM integration, business systems Johannesburg, SMB automation, operational website South Africa, Opra">
+<meta name="author" content="Opra">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://www.opra.co.za/">
+
+<!-- Open Graph — LinkedIn, WhatsApp, Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.opra.co.za/">
+<meta property="og:title" content="Opra — Operational Systems & Automation | Johannesburg">
+<meta property="og:description" content="We modernise business operations through automation, dashboards, and AI. Johannesburg-based, remote across SA and internationally.">
+<meta property="og:image" content="https://www.opra.co.za/og-image.png">
+<meta property="og:site_name" content="Opra">
+<meta property="og:locale" content="en_ZA">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Opra — Operational Systems & Automation">
+<meta name="twitter:description" content="We modernise business operations through automation, dashboards, and AI. Johannesburg-based, remote across SA.">
+<meta name="twitter:image" content="https://www.opra.co.za/og-image.png">
+
+<!-- Schema.org structured data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "Opra",
+  "alternateName": "Opra",
+  "description": "We modernise business operations through automation, dashboards, and AI. Johannesburg-based operational systems studio serving SMBs across South Africa.",
+  "url": "https://www.opra.co.za",
+  "logo": "https://www.opra.co.za/logo.png",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Johannesburg",
+    "addressCountry": "ZA"
+  },
+  "areaServed": ["Johannesburg", "South Africa"],
+  "serviceType": ["Workflow Automation", "Business Dashboards", "Client Portals", "AI Systems", "Operational Websites"],
+  "priceRange": "Contact for quote"
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Syne:wght@400;500;600;700&family=Outfit:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ash:        #16202A;
+    --ash-mid:    #1E2C38;
+    --ash-light:  #253444;
+    --teal:       #2AACA0;
+    --teal-dim:   #1E7D74;
+    --teal-dark:  #155C55;
+    --teal-light: #B8D4D1;
+    --teal-tint:  #E4F0EF;
+    --offwhite:   #EBF0EF;
+    --white:      #F5FAF9;
+    --mid:        #5C7A76;
+    --subtle:     #8AACAA;
+    --border-dark: rgba(255,255,255,0.08);
+    --border-light: #D0DEDD;
+    --ff-mark: 'Bebas Neue', sans-serif;
+    --ff-head: 'Syne', sans-serif;
+    --ff-body: 'Outfit', sans-serif;
+    --ff-mono: 'JetBrains Mono', monospace;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--offwhite);
+    color: var(--ash);
+    font-family: var(--ff-body);
+    font-size: 15px;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── NAVIGATION ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: var(--ash);
+    height: 60px;
+    display: flex;
+    align-items: center;
+    padding: 0 48px;
+    border-bottom: 0.5px solid var(--border-dark);
+  }
+
+  .nav-brand {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    text-decoration: none;
+  }
+
+  .mark {
+    position: relative;
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+  }
+  .mark .sq-b {
+    position: absolute;
+    bottom: 0; right: 0;
+    width: 12px; height: 12px;
+    background: rgba(255,255,255,0.12);
+  }
+  .mark .sq-f {
+    position: absolute;
+    top: 0; left: 0;
+    width: 12px; height: 12px;
+    background: var(--teal);
+  }
+
+  .nav-wordmark {
+    font-family: var(--ff-mark);
+    font-size: 20px;
+    letter-spacing: 0.1em;
+    color: var(--offwhite);
+    line-height: 1;
+  }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    margin-left: auto;
+  }
+
+  .nav-link {
+    font-family: var(--ff-body);
+    font-size: 13px;
+    font-weight: 300;
+    color: rgba(235,240,239,0.45);
+    text-decoration: none;
+    letter-spacing: 0.02em;
+    transition: color 0.2s;
+  }
+  .nav-link:hover { color: var(--offwhite); }
+
+  .nav-cta {
+    font-family: var(--ff-body);
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    color: #fff;
+    background: var(--teal);
+    padding: 10px 22px;
+    text-decoration: none;
+    transition: background 0.2s;
+  }
+  .nav-cta:hover { background: var(--teal-dim); }
+
+  /* ── HERO ── */
+  .hero {
+    background: var(--ash);
+    min-height: 100vh;
+    padding: 140px 80px 100px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(42,172,160,0.045) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(42,172,160,0.045) 1px, transparent 1px);
+    background-size: 48px 48px;
+  }
+
+  .hero-content { position: relative; z-index: 1; }
+
+  .hero-label {
+    font-family: var(--ff-mono);
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.2);
+    margin-bottom: 36px;
+  }
+
+  .hero-heading {
+    font-family: var(--ff-mark);
+    font-size: 72px;
+    letter-spacing: 0.03em;
+    color: var(--offwhite);
+    line-height: 1.0;
+    margin-bottom: 28px;
+  }
+
+  .hero-heading span { color: var(--teal); }
+
+  .hero-sub {
+    font-family: var(--ff-body);
+    font-size: 16px;
+    font-weight: 400;
+    color: rgba(235,240,239,0.75);
+    line-height: 1.75;
+    max-width: 480px;
+    margin-bottom: 12px;
+  }
+
+  .hero-ai-note {
+    font-family: var(--ff-body);
+    font-size: 12px;
+    font-weight: 400;
+    color: rgba(235,240,239,0.45);
+    margin-bottom: 44px;
+  }
+
+  .hero-btns {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    font-family: var(--ff-body);
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    color: #fff;
+    background: var(--teal);
+    padding: 15px 34px;
+    text-decoration: none;
+    display: inline-block;
+    transition: background 0.2s;
+  }
+  .btn-primary:hover { background: var(--teal-dim); }
+
+  .btn-ghost {
+    font-family: var(--ff-body);
+    font-size: 13px;
+    font-weight: 300;
+    letter-spacing: 0.04em;
+    color: rgba(255,255,255,0.35);
+    text-decoration: underline;
+    text-decoration-color: rgba(255,255,255,0.15);
+    text-underline-offset: 4px;
+    padding: 15px 0;
+    transition: color 0.2s;
+  }
+  .btn-ghost:hover { color: rgba(255,255,255,0.6); }
+
+  /* Hero right — system visual */
+  .hero-visual {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+  }
+
+  .system-card {
+    background: var(--ash-mid);
+    border: 0.5px solid var(--border-dark);
+    padding: 20px 24px;
+  }
+
+  .sc-label {
+    font-family: var(--ff-mono);
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 8px;
+  }
+
+  .sc-title {
+    font-family: var(--ff-head);
+    font-size: 14px;
+    font-weight: 600;
+    color: #EBF0EF;
+    margin-bottom: 6px;
+  }
+
+  .sc-desc {
+    font-family: var(--ff-body);
+    font-size: 12px;
+    font-weight: 400;
+    color: rgba(235,240,239,0.7);
+    line-height: 1.6;
+  }
+
+  .sc-bar {
+    margin-top: 14px;
+    height: 2px;
+    background: var(--ash-light);
+    position: relative;
+    overflow: hidden;
+  }
+  .sc-bar-fill {
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    background: var(--teal);
+    animation: barFill 3s ease-in-out infinite alternate;
+  }
+  .sc-bar-fill.b1 { width: 72%; animation-delay: 0s; }
+  .sc-bar-fill.b2 { width: 55%; animation-delay: 0.4s; }
+  .sc-bar-fill.b3 { width: 88%; animation-delay: 0.8s; }
+
+  @keyframes barFill {
+    from { opacity: 0.4; }
+    to { opacity: 1; }
+  }
+
+  /* ── SECTION WRAPPER ── */
+  section { padding: 100px 80px; }
+
+  .section-label {
+    font-family: var(--ff-mono);
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--teal-dark);
+    margin-bottom: 48px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 0.5px;
+    background: var(--border-light);
+  }
+
+  .section-label.dark { color: var(--teal); }
+  .section-label.dark::after { background: var(--border-dark); }
+
+  /* ── WHO THIS IS FOR ── */
+  .who-section {
+    background: var(--white);
+    border-top: 0.5px solid var(--border-light);
+    border-bottom: 0.5px solid var(--border-light);
+  }
+
+  .who-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: start;
+  }
+
+  .who-heading {
+    font-family: var(--ff-head);
+    font-size: 38px;
+    font-weight: 700;
+    color: var(--ash);
+    line-height: 1.15;
+    margin-bottom: 28px;
+  }
+
+  .who-body {
+    font-family: var(--ff-body);
+    font-size: 15px;
+    font-weight: 300;
+    color: var(--mid);
+    line-height: 1.8;
+    margin-bottom: 36px;
+  }
+
+  .who-sign {
+    font-family: var(--ff-head);
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--teal-dark);
+    letter-spacing: 0.04em;
+  }
+
+  .pain-list {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+  }
+
+  .pain-item {
+    background: var(--offwhite);
+    border: 0.5px solid var(--border-light);
+    padding: 18px 22px;
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .pain-icon {
+    width: 6px;
+    height: 6px;
+    background: var(--teal);
+    flex-shrink: 0;
+    margin-top: 8px;
+  }
+
+  .pain-text {
+    font-family: var(--ff-body);
+    font-size: 13px;
+    font-weight: 300;
+    color: var(--mid);
+    line-height: 1.6;
+  }
+
+  /* ── SERVICES ── */
+  .services-section { background: var(--ash); }
+
+  .services-header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: end;
+    margin-bottom: 48px;
+  }
+
+  .services-heading {
+    font-family: var(--ff-head);
+    font-size: 42px;
+    font-weight: 700;
+    color: var(--offwhite);
+    line-height: 1.1;
+  }
+
+  .services-sub {
+    font-family: var(--ff-body);
+    font-size: 14px;
+    font-weight: 300;
+    color: rgba(235,240,239,0.4);
+    line-height: 1.75;
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3px;
+    margin-bottom: 3px;
+  }
+
+  .services-grid-2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3px;
+    margin-bottom: 3px;
+  }
+
+  .service-card {
+    background: var(--ash-mid);
+    border: 0.5px solid var(--border-dark);
+    padding: 36px 32px;
+    transition: background 0.2s;
+  }
+  .service-card:hover { background: var(--ash-light); }
+
+  .svc-number {
+    font-family: var(--ff-mono);
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    color: rgba(255,255,255,0.35);
+    margin-bottom: 28px;
+  }
+
+  .svc-icon {
+    width: 36px;
+    height: 36px;
+    margin-bottom: 20px;
+    position: relative;
+  }
+  .svc-icon .si-b {
+    position: absolute;
+    bottom: 0; right: 0;
+    width: 20px; height: 20px;
+    background: rgba(42,172,160,0.15);
+  }
+  .svc-icon .si-f {
+    position: absolute;
+    top: 0; left: 0;
+    width: 20px; height: 20px;
+    background: var(--teal);
+    opacity: 0.7;
+  }
+
+  .svc-name {
+    font-family: var(--ff-head);
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--offwhite);
+    margin-bottom: 10px;
+    line-height: 1.2;
+  }
+
+  .svc-desc {
+    font-family: var(--ff-body);
+    font-size: 13px;
+    font-weight: 400;
+    color: rgba(235,240,239,0.72);
+    line-height: 1.7;
+    margin-bottom: 24px;
+  }
+
+  .svc-items {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding-top: 20px;
+    border-top: 0.5px solid var(--border-dark);
+  }
+
+  .svc-items li {
+    font-family: var(--ff-body);
+    font-size: 12px;
+    font-weight: 400;
+    color: rgba(235,240,239,0.6);
+    padding-left: 16px;
+    position: relative;
+  }
+  .svc-items li::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    color: var(--teal);
+    opacity: 0.5;
+    font-size: 10px;
+    top: 2px;
+  }
+
+  .svc-custom {
+    background: var(--ash-light);
+    border: 0.5px solid var(--border-dark);
+    padding: 22px 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .svc-custom-text {
+    font-family: var(--ff-body);
+    font-size: 13px;
+    font-weight: 400;
+    color: rgba(235,240,239,0.6);
+    font-style: italic;
+  }
+
+  .svc-custom-label {
+    display: none;
+  }
+
+  /* ── PROCESS ── */
+  .process-section { background: var(--offwhite); }
+
+  .process-heading {
+    font-family: var(--ff-head);
+    font-size: 42px;
+    font-weight: 700;
+    color: var(--ash);
+    line-height: 1.1;
+    max-width: 500px;
+    margin-bottom: 60px;
+  }
+
+  .process-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 3px;
+  }
+
+  .process-step {
+    background: var(--white);
+    border: 0.5px solid var(--border-light);
+    padding: 32px 24px;
+    position: relative;
+  }
+
+  .process-step::after {
+    content: '';
+    position: absolute;
+    top: 42px;
+    right: -3px;
+    width: 3px;
+    height: 2px;
+    background: var(--teal);
+    opacity: 0.4;
+  }
+  .process-step:last-child::after { display: none; }
+
+  .step-num {
+    font-family: var(--ff-mono);
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    color: var(--teal-dark);
+    margin-bottom: 20px;
+  }
+
+  .step-name {
+    font-family: var(--ff-head);
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--ash);
+    margin-bottom: 10px;
+    line-height: 1.2;
+  }
+
+  .step-desc {
+    font-family: var(--ff-body);
+    font-size: 12px;
+    font-weight: 300;
+    color: var(--mid);
+    line-height: 1.65;
+  }
+
+  /* ── PORTFOLIO ── */
+  .portfolio-section { background: var(--white); border-top: 0.5px solid var(--border-light); }
+
+  .portfolio-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin-bottom: 48px;
+  }
+
+  .portfolio-heading {
+    font-family: var(--ff-head);
+    font-size: 42px;
+    font-weight: 700;
+    color: var(--ash);
+    line-height: 1.1;
+  }
+
+  .portfolio-note {
+    font-family: var(--ff-mono);
+    font-size: 9px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--subtle);
+  }
+
+  .portfolio-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 3px;
+    margin-bottom: 3px;
+  }
+
+  .portfolio-grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 3px;
+  }
+
+  .project-card {
+    background: var(--offwhite);
+    border: 0.5px solid var(--border-light);
+    padding: 36px 32px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 260px;
+  }
+
+  .project-card.dark {
+    background: var(--ash);
+    border-color: var(--border-dark);
+  }
+
+  .proj-top {}
+
+  .proj-tag {
+    font-family: var(--ff-mono);
+    font-size: 9px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--teal-dark);
+    margin-bottom: 14px;
+  }
+
+  .project-card.dark .proj-tag { color: var(--teal); }
+
+  .proj-title {
+    font-family: var(--ff-head);
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--ash);
+    line-height: 1.2;
+    margin-bottom: 10px;
+  }
+
+  .project-card.dark .proj-title { color: var(--offwhite); }
+
+  .proj-desc {
+    font-family: var(--ff-body);
+    font-size: 13px;
+    font-weight: 300;
+    color: var(--mid);
+    line-height: 1.65;
+  }
+
+  .project-card.dark .proj-desc { color: rgba(235,240,239,0.65); }
+
+  .proj-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 28px;
+    padding-top: 20px;
+    border-top: 0.5px solid var(--border-light);
+  }
+
+  .project-card.dark .proj-footer { border-top-color: var(--border-dark); }
+
+  .proj-meta {
+    font-family: var(--ff-mono);
+    font-size: 9px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--subtle);
+  }
+
+  .project-card.dark .proj-meta { color: rgba(255,255,255,0.4); }
+
+  .proj-badge {
+    font-family: var(--ff-mono);
+    font-size: 9px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--teal-dark);
+    background: rgba(42,172,160,0.12);
+    padding: 5px 10px;
+  }
+
+  .project-card.dark .proj-badge { color: var(--teal); background: rgba(42,172,160,0.15); }
+
+  /* Dashboard preview inside a card */
+  .dash-preview {
+    margin-top: 16px;
+    background: var(--ash-light);
+    padding: 16px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+  }
+
+  .dash-metric {
+    background: var(--ash-mid);
+    padding: 10px 12px;
+  }
+
+  .dash-metric-label {
+    font-family: var(--ff-mono);
+    font-size: 8px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.2);
+    margin-bottom: 4px;
+  }
+
+  .dash-metric-value {
+    font-family: var(--ff-head);
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--teal);
+  }
+
+  /* Automation flow visual */
+  .flow-preview {
+    margin-top: 16px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .flow-node {
+    background: var(--ash-light);
+    border: 0.5px solid var(--border-dark);
+    padding: 8px 10px;
+    font-family: var(--ff-mono);
+    font-size: 8px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.3);
+    flex-shrink: 0;
+  }
+
+  .flow-arrow {
+    font-family: var(--ff-mono);
+    font-size: 10px;
+    color: var(--teal);
+    opacity: 0.4;
+  }
+
+  /* ── FAQ ── */
+  .faq-section { background: var(--offwhite); }
+
+  .faq-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3px;
+  }
+
+  .faq-item {
+    background: var(--white);
+    border: 0.5px solid var(--border-light);
+    padding: 32px 32px;
+  }
+
+  .faq-q {
+    font-family: var(--ff-head);
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--ash);
+    margin-bottom: 14px;
+    line-height: 1.3;
+  }
+
+  .faq-a {
+    font-family: var(--ff-body);
+    font-size: 13px;
+    font-weight: 300;
+    color: var(--mid);
+    line-height: 1.75;
+  }
+
+  /* ── CONTACT ── */
+  .contact-section {
+    background: var(--ash);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: start;
+  }
+
+  .contact-heading {
+    font-family: var(--ff-mark);
+    font-size: 56px;
+    letter-spacing: 0.04em;
+    color: var(--offwhite);
+    line-height: 1.0;
+    margin-bottom: 24px;
+  }
+
+  .contact-heading span { color: var(--teal); }
+
+  .contact-sub {
+    font-family: var(--ff-body);
+    font-size: 14px;
+    font-weight: 300;
+    color: rgba(235,240,239,0.4);
+    line-height: 1.8;
+    margin-bottom: 36px;
+  }
+
+  .contact-detail {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .cd-item {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+  }
+
+  .cd-label {
+    font-family: var(--ff-mono);
+    font-size: 9px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.18);
+    min-width: 80px;
+    padding-top: 2px;
+  }
+
+  .cd-value {
+    font-family: var(--ff-body);
+    font-size: 13px;
+    font-weight: 300;
+    color: rgba(235,240,239,0.4);
+  }
+
+  /* Form */
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+  }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3px;
+  }
+
+  .form-field {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .form-label {
+    font-family: var(--ff-mono);
+    font-size: 9px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.2);
+    padding: 0 0 6px;
+    display: block;
+  }
+
+  .form-input, .form-select, .form-textarea {
+    background: var(--ash-mid);
+    border: 0.5px solid var(--border-dark);
+    color: var(--offwhite);
+    font-family: var(--ff-body);
+    font-size: 13px;
+    font-weight: 300;
+    padding: 14px 16px;
+    width: 100%;
+    outline: none;
+    appearance: none;
+    transition: border-color 0.2s;
+  }
+
+  .form-select {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='rgba(42,172,160,0.5)' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 16px center;
+    cursor: pointer;
+  }
+
+  .form-input:focus, .form-select:focus, .form-textarea:focus {
+    border-color: rgba(42,172,160,0.4);
+  }
+
+  .form-input::placeholder, .form-textarea::placeholder {
+    color: rgba(255,255,255,0.12);
+  }
+
+  .form-textarea { resize: none; }
+
+  .form-submit {
+    background: var(--teal);
+    color: #fff;
+    border: none;
+    font-family: var(--ff-body);
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    padding: 16px 36px;
+    cursor: pointer;
+    width: 100%;
+    transition: background 0.2s;
+    text-align: center;
+  }
+  .form-submit:hover { background: var(--teal-dim); }
+
+  .form-note {
+    font-family: var(--ff-mono);
+    font-size: 9px;
+    letter-spacing: 0.12em;
+    color: rgba(255,255,255,0.12);
+    text-align: center;
+    padding-top: 8px;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--ash);
+    border-top: 0.5px solid var(--border-dark);
+    padding: 40px 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .footer-brand {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .footer-wordmark {
+    font-family: var(--ff-mark);
+    font-size: 18px;
+    letter-spacing: 0.1em;
+    color: var(--offwhite);
+  }
+
+  .footer-tagline {
+    font-family: var(--ff-mono);
+    font-size: 9px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.15);
+  }
+
+  .footer-links {
+    display: flex;
+    gap: 28px;
+  }
+
+  .footer-link {
+    font-family: var(--ff-body);
+    font-size: 12px;
+    font-weight: 300;
+    color: rgba(235,240,239,0.5);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .footer-link:hover { color: var(--subtle); }
+
+  .footer-meta {
+    font-family: var(--ff-mono);
+    font-size: 9px;
+    letter-spacing: 0.12em;
+    color: rgba(255,255,255,0.1);
+    text-align: right;
+    line-height: 1.8;
+  }
+
+  /* ── MOBILE NAV MENU ── */
+  .nav-mobile-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    margin-left: auto;
+    padding: 4px;
+  }
+
+  /* Scroll-triggered bar animation on hero visual */
+  @keyframes pulse {
+    0%, 100% { opacity: 0.5; }
+    50% { opacity: 1; }
+  }
+
+  @media (max-width: 1024px) {
+    .hero { grid-template-columns: 1fr; gap: 60px; padding: 120px 40px 80px; }
+    .hero-heading { font-size: 56px; }
+    .hero-visual { max-width: 540px; }
+    section { padding: 80px 40px; }
+    .who-grid { grid-template-columns: 1fr; gap: 48px; }
+    .services-header { grid-template-columns: 1fr; gap: 24px; }
+    .services-grid { grid-template-columns: 1fr; }
+    .services-grid-2 { grid-template-columns: 1fr; }
+    .process-grid { grid-template-columns: repeat(2, 1fr); }
+    .portfolio-grid { grid-template-columns: 1fr; }
+    .portfolio-grid-2 { grid-template-columns: 1fr 1fr; }
+    .faq-grid { grid-template-columns: 1fr; }
+    .contact-section { grid-template-columns: 1fr; }
+    footer { flex-direction: column; gap: 28px; text-align: center; }
+    .footer-meta { text-align: center; }
+    nav { padding: 0 24px; }
+    .nav-links { gap: 16px; }
+  }
+
+  @media (max-width: 640px) {
+    .hero { padding: 100px 24px 60px; }
+    .hero-heading { font-size: 44px; }
+    section { padding: 60px 24px; }
+    .process-grid { grid-template-columns: 1fr; }
+    .portfolio-grid-2 { grid-template-columns: 1fr; }
+    .form-row { grid-template-columns: 1fr; }
+    .nav-links { display: none; }
+    .nav-mobile-toggle { display: block; }
+    footer { padding: 32px 24px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav>
+  <a href="#" class="nav-brand">
+    <div class="mark">
+      <div class="sq-b"></div>
+      <div class="sq-f"></div>
+    </div>
+    <span class="nav-wordmark">OPRA</span>
+  </a>
+  <div class="nav-links">
+    <a href="#services" class="nav-link">Services</a>
+    <a href="#work" class="nav-link">Our Work</a>
+    <a href="#process" class="nav-link">How We Work</a>
+    <a href="#faq" class="nav-link">FAQ</a>
+    <a href="#contact" class="nav-cta">Book a Consultation</a>
+  </div>
+  <button class="nav-mobile-toggle" aria-label="Menu">
+    <svg width="20" height="14" viewBox="0 0 20 14" fill="none">
+      <rect width="20" height="1.5" fill="rgba(235,240,239,0.6)"/>
+      <rect y="6" width="14" height="1.5" fill="rgba(235,240,239,0.6)"/>
+      <rect y="12" width="20" height="1.5" fill="rgba(235,240,239,0.6)"/>
+    </svg>
+  </button>
+</nav>
+
+<!-- HERO -->
+<section class="hero" style="padding: 160px 80px 120px; grid-template-columns: 1fr; justify-items: start;">
+  <div class="hero-grid"></div>
+
+  <div class="hero-content" style="max-width: 680px;">
+    <div class="hero-label">Opra · Johannesburg</div>
+    <h1 class="hero-heading">
+      WE MODERNISE<br>
+      <span>BUSINESS</span><br>
+      OPERATIONS.
+    </h1>
+    <p class="hero-sub">
+      Opra builds the operational infrastructure that helps growing businesses run faster, with less manual work and more visibility.
+    </p>
+    <div class="hero-btns">
+      <a href="#contact" class="btn-primary">Book a Free Consultation</a>
+      <a href="#work" class="btn-ghost">View Our Work</a>
+    </div>
+  </div>
+</section>
+
+<!-- WHO THIS IS FOR -->
+<section class="who-section">
+  <div class="section-label">Who this is for</div>
+  <div class="who-grid">
+    <div>
+      <h2 class="who-heading">Your business is growing. Your operations are not keeping up.</h2>
+      <p class="who-body">
+        You are managing clients in spreadsheets and chasing updates over WhatsApp. Your team spends hours on work that should be automated. You know you need better systems. But you do not have a technical team to build them.
+      </p>
+      <p class="who-body">
+        That is exactly who we work with. Service businesses, recruitment and consulting firms, agencies, and operationally heavy SMBs with 1–50 people who are growing fast enough that manual processes are visibly costing time and money.
+      </p>
+      <p class="who-sign">That is exactly who we work with.</p>
+    </div>
+    <div>
+      <div class="pain-list">
+        <div class="pain-item">
+          <div class="pain-icon"></div>
+          <span class="pain-text">Spreadsheet chaos and manual data entry consuming your team's time</span>
+        </div>
+        <div class="pain-item">
+          <div class="pain-icon"></div>
+          <span class="pain-text">Client onboarding done manually with no automation or consistency</span>
+        </div>
+        <div class="pain-item">
+          <div class="pain-icon"></div>
+          <span class="pain-text">Disconnected systems that don't talk to each other</span>
+        </div>
+        <div class="pain-item">
+          <div class="pain-icon"></div>
+          <span class="pain-text">No reporting visibility. Decisions made without data</span>
+        </div>
+        <div class="pain-item">
+          <div class="pain-icon"></div>
+          <span class="pain-text">Slow approval workflows and internal bottlenecks</span>
+        </div>
+        <div class="pain-item">
+          <div class="pain-icon"></div>
+          <span class="pain-text">Messy client management with no central system of record</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services" class="services-section">
+  <div class="section-label dark">Services</div>
+  <div class="services-header">
+    <h2 class="services-heading">Four services.<br>One operational focus.</h2>
+    <p class="services-sub">We do not build everything. We build operational systems. The infrastructure that makes your business run. Every service we offer connects into that single goal.</p>
+  </div>
+
+  <div class="services-grid">
+    <!-- Websites -->
+    <div class="service-card">
+      <div class="svc-number">01</div>
+      <div class="svc-icon"><div class="si-b"></div><div class="si-f"></div></div>
+      <div class="svc-name">Websites</div>
+      <div class="svc-desc">Your primary entry point. Every business needs one and it is the fastest path to getting a client in the door and onto a larger engagement.</div>
+      <ul class="svc-items">
+        <li>One-page and simple business websites</li>
+        <li>Full business websites with lead capture and CRM connection</li>
+        <li>Operational websites with automation, routing, and reporting built in</li>
+      </ul>
+    </div>
+
+    <!-- Platforms -->
+    <div class="service-card">
+      <div class="svc-number">02</div>
+      <div class="svc-icon"><div class="si-b"></div><div class="si-f"></div></div>
+      <div class="svc-name">Platforms</div>
+      <div class="svc-desc">Operational web systems that go beyond a website. Portals, dashboards, and internal tools that run the business day to day.</div>
+      <ul class="svc-items">
+        <li>Client portals</li>
+        <li>Internal dashboards</li>
+        <li>Admin and ops systems</li>
+        <li>Reporting hubs</li>
+        <li>Lightweight business applications</li>
+      </ul>
+    </div>
+
+    <!-- Automation -->
+    <div class="service-card">
+      <div class="svc-number">03</div>
+      <div class="svc-icon"><div class="si-b"></div><div class="si-f"></div></div>
+      <div class="svc-name">Automation</div>
+      <div class="svc-desc">Systems that remove repetitive work and connect the tools your business already uses, so nothing falls through the cracks.</div>
+      <ul class="svc-items">
+        <li>CRM integrations</li>
+        <li>Client onboarding automation</li>
+        <li>Reporting automation</li>
+        <li>Lead capture and routing</li>
+        <li>Approval workflows and notifications</li>
+      </ul>
+    </div>
+  </div>
+
+  <div style="display:grid;grid-template-columns:1fr;gap:3px;margin-bottom:3px;">
+    <!-- AI Systems -->
+    <div class="service-card">
+      <div class="svc-number">04</div>
+      <div class="svc-icon"><div class="si-b"></div><div class="si-f"></div></div>
+      <div class="svc-name">AI Systems</div>
+      <div class="svc-desc">Practical AI built into real operational workflows. Not generic chatbots. Actual tools that do real work inside your business.</div>
+      <ul class="svc-items" style="grid-template-columns:repeat(2,1fr);display:grid;gap:8px;">
+        <li>AI proposal generation</li>
+        <li>AI document processing</li>
+        <li>AI email workflows</li>
+        <li>AI knowledge systems</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="svc-custom">
+    <span class="svc-custom-text">Have something more specific in mind? We take on custom operational projects for businesses with unique requirements, scoped individually and priced accordingly.</span>
+    <span class="svc-custom-label">Custom projects</span>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section id="process" class="process-section">
+  <div class="section-label">How we work</div>
+  <h2 class="process-heading">Five steps. Every project. No exceptions.</h2>
+
+  <div class="process-grid">
+    <div class="process-step">
+      <div class="step-num">01</div>
+      <div class="step-name">Diagnose</div>
+      <div class="step-desc">We map your current operations and find exactly where time and money are being lost.</div>
+    </div>
+    <div class="process-step">
+      <div class="step-num">02</div>
+      <div class="step-name">Design</div>
+      <div class="step-desc">We design the system that fixes it. Scoped, priced, and planned before a single line of code is written.</div>
+    </div>
+    <div class="process-step">
+      <div class="step-num">03</div>
+      <div class="step-name">Build</div>
+      <div class="step-desc">We build fast using modern tools and proven frameworks. Days, not months.</div>
+    </div>
+    <div class="process-step">
+      <div class="step-num">04</div>
+      <div class="step-name">Deploy</div>
+      <div class="step-desc">We launch, automate, and hand over with full documentation so you are never dependent on us.</div>
+    </div>
+    <div class="process-step">
+      <div class="step-num">05</div>
+      <div class="step-name">Support</div>
+      <div class="step-desc">Every project includes a 30-day support window. After that, an ongoing retainer keeps us embedded in your operations: maintaining, optimising, and building on what we created.</div>
+    </div>
+  </div>
+</section>
+
+<!-- PORTFOLIO -->
+<section id="work" class="portfolio-section">
+  <div class="section-label">Our work</div>
+  <div class="portfolio-header">
+    <h2 class="portfolio-heading">Systems we have built.</h2>
+    <span class="portfolio-note">Previous work &amp; concept showcases</span>
+  </div>
+
+  <div class="portfolio-grid-2">
+    <!-- Quote Builder -->
+    <div class="project-card dark">
+      <div class="proj-top">
+        <div class="proj-tag">Platforms &amp; Dashboards</div>
+        <div class="proj-title">Interactive Quote Builder</div>
+        <div class="proj-desc">A drag-and-drop proposal system with a full product catalogue. Add services, configure scope, and generate a fully formatted PDF proposal. Ready to send in minutes, without writing anything manually.</div>
+        <div class="dash-preview" style="margin-top:16px;">
+          <div class="dash-metric">
+            <div class="dash-metric-label">Select service</div>
+            <div class="dash-metric-value" style="font-size:13px;color:var(--teal-light);">Drag</div>
+          </div>
+          <div class="dash-metric">
+            <div class="dash-metric-label">Configure scope</div>
+            <div class="dash-metric-value" style="font-size:13px;color:var(--teal-light);">Build</div>
+          </div>
+          <div class="dash-metric">
+            <div class="dash-metric-label">Export proposal</div>
+            <div class="dash-metric-value" style="font-size:13px;color:var(--teal-light);">PDF</div>
+          </div>
+        </div>
+      </div>
+      <div class="proj-footer">
+        <span class="proj-meta">Dashboard · Automation · PDF export</span>
+        <span class="proj-badge">Previous Work</span>
+      </div>
+    </div>
+
+    <!-- Availability Dashboard -->
+    <div class="project-card">
+      <div class="proj-top">
+        <div class="proj-tag">Platforms &amp; Dashboards</div>
+        <div class="proj-title">Availability Dashboard</div>
+        <div class="proj-desc">A calendar-based dashboard showing who is open on any given slot, who shares availability across the team, and which recurring time slots are consistently free. No more back-and-forth.</div>
+        <div style="margin-top:16px;display:grid;grid-template-columns:repeat(5,1fr);gap:4px;">
+          <div style="font-family:var(--ff-mono);font-size:8px;letter-spacing:0.1em;text-transform:uppercase;color:var(--subtle);grid-column:1/-1;margin-bottom:4px;">Team availability — this week</div>
+          <div style="text-align:center;">
+            <div style="font-family:var(--ff-mono);font-size:8px;color:var(--subtle);margin-bottom:4px;">Mon</div>
+            <div style="height:36px;background:var(--offwhite);border:0.5px solid var(--border-light);display:flex;align-items:center;justify-content:center;">
+              <span style="font-family:var(--ff-mono);font-size:8px;color:var(--subtle);">—</span>
+            </div>
+          </div>
+          <div style="text-align:center;">
+            <div style="font-family:var(--ff-mono);font-size:8px;color:var(--subtle);margin-bottom:4px;">Tue</div>
+            <div style="height:36px;background:var(--teal-tint);border:0.5px solid var(--teal-light);display:flex;align-items:center;justify-content:center;">
+              <span style="font-family:var(--ff-mono);font-size:8px;color:var(--teal-dark);">Open</span>
+            </div>
+          </div>
+          <div style="text-align:center;">
+            <div style="font-family:var(--ff-mono);font-size:8px;color:var(--subtle);margin-bottom:4px;">Wed</div>
+            <div style="height:36px;background:var(--offwhite);border:0.5px solid var(--border-light);display:flex;align-items:center;justify-content:center;">
+              <span style="font-family:var(--ff-mono);font-size:8px;color:var(--subtle);">—</span>
+            </div>
+          </div>
+          <div style="text-align:center;">
+            <div style="font-family:var(--ff-mono);font-size:8px;color:var(--subtle);margin-bottom:4px;">Thu</div>
+            <div style="height:36px;background:var(--teal-tint);border:0.5px solid var(--teal-light);display:flex;align-items:center;justify-content:center;">
+              <span style="font-family:var(--ff-mono);font-size:8px;color:var(--teal-dark);">Open</span>
+            </div>
+          </div>
+          <div style="text-align:center;">
+            <div style="font-family:var(--ff-mono);font-size:8px;color:var(--subtle);margin-bottom:4px;">Fri</div>
+            <div style="height:36px;background:var(--offwhite);border:0.5px solid var(--border-light);display:flex;align-items:center;justify-content:center;">
+              <span style="font-family:var(--ff-mono);font-size:8px;color:var(--subtle);">—</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="proj-footer">
+        <span class="proj-meta">Dashboard · Scheduling · Calendar</span>
+        <span class="proj-badge">Previous Work</span>
+      </div>
+    </div>
+
+    <!-- Concept Showcase — Agency Onboarding -->
+    <div class="project-card">
+      <div class="proj-top">
+        <div class="proj-tag">Workflow Automation</div>
+        <div class="proj-title">Agency Client Onboarding System</div>
+        <div class="proj-desc">A concept showcase for a digital agency. New client signs contract → onboarding sequence triggers automatically: welcome email, brand questionnaire, kickoff scheduler, shared folder creation, and Slack channel setup. All without a single manual step.</div>
+        <div class="flow-preview" style="margin-top:16px;flex-wrap:wrap;gap:6px;">
+          <div class="flow-node" style="background:var(--ash);color:var(--teal);border-color:rgba(42,172,160,0.2);">Contract</div>
+          <div class="flow-arrow" style="color:var(--mid);">→</div>
+          <div class="flow-node" style="background:var(--ash);color:var(--offwhite);border-color:rgba(255,255,255,0.12);">Welcome</div>
+          <div class="flow-arrow" style="color:var(--mid);">→</div>
+          <div class="flow-node" style="background:var(--ash);color:var(--offwhite);border-color:rgba(255,255,255,0.12);">Brief</div>
+          <div class="flow-arrow" style="color:var(--mid);">→</div>
+          <div class="flow-node" style="background:var(--ash);color:var(--offwhite);border-color:rgba(255,255,255,0.12);">Kickoff</div>
+        </div>
+      </div>
+      <div class="proj-footer">
+        <span class="proj-meta">Agency · Automation · Onboarding</span>
+        <span class="proj-badge">Concept Showcase</span>
+      </div>
+    </div>
+
+    <!-- CTA card -->
+    <div class="project-card dark">
+      <div class="proj-top">
+        <div class="proj-tag">Websites</div>
+        <div class="proj-title">Opra Website</div>
+        <div class="proj-desc">The site you are looking at. A full operational website with structured service positioning, intake form, and CRM-ready contact flow. Built so that anyone who arrives knows what we do, who we help, and what to do next.</div>
+        <div class="flow-preview" style="margin-top:16px;">
+          <div class="flow-node" style="background:var(--ash-light);color:var(--teal);border-color:rgba(42,172,160,0.2);">Visit</div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-node" style="background:var(--ash-light);color:var(--offwhite);border-color:rgba(255,255,255,0.12);">Form</div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-node" style="background:var(--ash-light);color:var(--offwhite);border-color:rgba(255,255,255,0.12);">CRM</div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-node" style="background:var(--ash-light);color:var(--offwhite);border-color:rgba(255,255,255,0.12);">Call</div>
+        </div>
+      </div>
+      <div class="proj-footer">
+        <span class="proj-meta">Website · Lead capture · Opra</span>
+        <span class="proj-badge">Built for Opra</span>
+      </div>
+    </div>
+
+    <!-- CTA card -->
+    <div class="project-card" style="background:var(--teal-tint);border-color:var(--teal-light);">
+      <div class="proj-top">
+        <div class="proj-tag" style="color:var(--teal-dark);">Your project</div>
+        <div class="proj-title" style="color:var(--teal-dark);">We are building our portfolio. Be one of the first.</div>
+        <div class="proj-desc" style="color:var(--mid);">Early-stage clients get our full attention and best pricing. Your project becomes a case study. Your operations become the demo.</div>
+      </div>
+      <div class="proj-footer" style="border-top-color:var(--teal-light);">
+        <span class="proj-meta" style="color:var(--teal-dark);">Limited availability · Joburg</span>
+        <a href="#contact" class="proj-badge" style="color:var(--teal-dark);text-decoration:none;cursor:pointer;">Let's talk →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" class="faq-section">
+  <div class="section-label">FAQ</div>
+  <div class="faq-grid">
+    <div class="faq-item">
+      <div class="faq-q">How long does a project take?</div>
+      <div class="faq-a">Depends on scope. A simple website takes 1–2 weeks. A full operational system takes 4–8 weeks. We scope everything before we start so you always know exactly what to expect and when.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">How much does it cost?</div>
+      <div class="faq-a">We use fixed project pricing scoped per engagement. Every project is quoted individually after a free consultation. There are no packages or published rates. You will always know the full price before any work begins.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Do you offer ongoing support?</div>
+      <div class="faq-a">Yes. Every project can move into a monthly support retainer. Retainers cover maintenance, optimisation, monitoring, and ongoing improvements to everything we have built together. Retainer options are discussed at project handover.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Do I need a technical background to work with you?</div>
+      <div class="faq-a">No. We handle all the technical work. You tell us what your business needs and we build it. We document everything clearly so you understand what was built and how it works. You never need to touch a line of code.</div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="contact-section" style="section-label-color:rgba(255,255,255,0.15);">
+  <div>
+    <div style="font-family:var(--ff-mono);font-size:10px;letter-spacing:0.22em;text-transform:uppercase;color:var(--teal);margin-bottom:48px;">Book a consultation</div>
+    <h2 class="contact-heading">LET'S BUILD SOMETHING<br><span>OPERATIONAL.</span></h2>
+    <p class="contact-sub">Tell us what is broken and we will tell you what to build. No hard sell. Just a 20-minute call to understand your operations.</p>
+    <div class="contact-detail">
+      <div class="cd-item">
+        <span class="cd-label">Location</span>
+        <span class="cd-value">Johannesburg, South Africa</span>
+      </div>
+      <div class="cd-item">
+        <span class="cd-label">Coverage</span>
+        <span class="cd-value">Remote across SA and internationally</span>
+      </div>
+      <div class="cd-item">
+        <span class="cd-label">Website</span>
+        <span class="cd-value">opra.co.za</span>
+      </div>
+      <div class="cd-item">
+        <span class="cd-label">Response</span>
+        <span class="cd-value">We reply within 4 hours during business hours</span>
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <form class="contact-form" onsubmit="handleSubmit(event)">
+      <div class="form-row">
+        <div class="form-field">
+          <label class="form-label" for="name">Full name</label>
+          <input class="form-input" type="text" id="name" placeholder="Your name" required>
+        </div>
+        <div class="form-field">
+          <label class="form-label" for="business">Business name</label>
+          <input class="form-input" type="text" id="business" placeholder="Your business">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-field">
+          <label class="form-label" for="email">Email address</label>
+          <input class="form-input" type="email" id="email" placeholder="you@business.co.za" required>
+        </div>
+        <div class="form-field">
+          <label class="form-label" for="phone">Phone number</label>
+          <input class="form-input" type="tel" id="phone" placeholder="+27 __ ___ ____">
+        </div>
+      </div>
+      <div class="form-field">
+        <label class="form-label" for="service">What do you need?</label>
+        <select class="form-select form-input" id="service">
+          <option value="" style="background:var(--ash-mid);">Select a service</option>
+          <option value="website" style="background:var(--ash-mid);">Website or portal</option>
+          <option value="automation" style="background:var(--ash-mid);">Workflow automation</option>
+          <option value="ai" style="background:var(--ash-mid);">AI system</option>
+          <option value="dashboard" style="background:var(--ash-mid);">Dashboard or reporting</option>
+          <option value="custom" style="background:var(--ash-mid);">Custom operational project</option>
+          <option value="unsure" style="background:var(--ash-mid);">Not sure yet</option>
+        </select>
+      </div>
+      <div class="form-field">
+        <label class="form-label" for="problem">What is your biggest operational problem right now?</label>
+        <textarea class="form-input form-textarea" id="problem" rows="4" placeholder="Describe what is costing your team the most time..."></textarea>
+      </div>
+      <div class="form-row">
+        <div class="form-field">
+          <label class="form-label" for="budget">Approximate budget</label>
+          <select class="form-select form-input" id="budget">
+            <option value="" style="background:var(--ash-mid);">Select a range</option>
+            <option value="low" style="background:var(--ash-mid);">Small — entry-level project</option>
+            <option value="mid" style="background:var(--ash-mid);">Medium — operational system</option>
+            <option value="high" style="background:var(--ash-mid);">Larger — complex build</option>
+            <option value="unsure" style="background:var(--ash-mid);">Not sure yet</option>
+          </select>
+        </div>
+        <div class="form-field">
+          <label class="form-label" for="source">How did you hear about us?</label>
+          <select class="form-select form-input" id="source">
+            <option value="" style="background:var(--ash-mid);">Select one</option>
+            <option value="linkedin" style="background:var(--ash-mid);">LinkedIn</option>
+            <option value="referral" style="background:var(--ash-mid);">Referral</option>
+            <option value="search" style="background:var(--ash-mid);">Google search</option>
+            <option value="other" style="background:var(--ash-mid);">Other</option>
+          </select>
+        </div>
+      </div>
+      <button type="submit" class="form-submit" id="submitBtn">Book a Free Consultation</button>
+      <div class="form-note" id="formNote">No commitment. We will be in touch within 4 hours.</div>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">
+    <div class="mark">
+      <div class="sq-b"></div>
+      <div class="sq-f"></div>
+    </div>
+    <div>
+      <div class="footer-wordmark">OPRA</div>
+      <div class="footer-tagline">Systems that work.</div>
+    </div>
+  </div>
+
+  <div class="footer-links">
+    <a href="#services" class="footer-link">Services</a>
+    <a href="#work" class="footer-link">Our Work</a>
+    <a href="#process" class="footer-link">How We Work</a>
+    <a href="#contact" class="footer-link">Contact</a>
+  </div>
+
+  <div class="footer-meta">
+    Johannesburg, South Africa<br>
+    opra.co.za · 2026
+  </div>
+</footer>
+
+<script>
+  function handleSubmit(e) {
+    e.preventDefault();
+    const btn = document.getElementById('submitBtn');
+    const note = document.getElementById('formNote');
+    btn.textContent = 'Submitted — we will be in touch.';
+    btn.style.background = 'var(--teal-dim)';
+    btn.disabled = true;
+    note.textContent = 'Thank you. Expect a reply within 4 business hours.';
+    note.style.color = 'rgba(42,172,160,0.5)';
+  }
+
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const id = a.getAttribute('href').slice(1);
+      if (!id) return;
+      const el = document.getElementById(id);
+      if (el) {
+        e.preventDefault();
+        el.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
+  });
+</script>
+</body>
+</html>
