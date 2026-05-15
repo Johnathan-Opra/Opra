@@ -1583,10 +1583,7 @@
   </div>
 </footer>
 
-<script src="config.js"></script>
 <script>
-  const AIRTABLE_TOKEN = window.AIRTABLE_TOKEN;
-  const AIRTABLE_BASE  = window.AIRTABLE_BASE;
   const AIRTABLE_TABLE = 'Leads';
 
   async function handleSubmit(e) {
@@ -1616,17 +1613,11 @@
     Object.keys(fields).forEach(k => { if (!fields[k]) delete fields[k]; });
 
     try {
-      const res = await fetch(
-        `https://api.airtable.com/v0/${AIRTABLE_BASE}/${encodeURIComponent(AIRTABLE_TABLE)}`,
-        {
-          method: 'POST',
-          headers: {
-            'Authorization': `Bearer ${AIRTABLE_TOKEN}`,
-            'Content-Type':  'application/json',
-          },
-          body: JSON.stringify({ fields }),
-        }
-      );
+      const res = await fetch('/api/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ fields }),
+      });
 
       if (!res.ok) {
         const err = await res.json().catch(() => ({}));
