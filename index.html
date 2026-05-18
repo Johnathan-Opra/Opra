@@ -97,6 +97,155 @@
     align-items: center;
     padding: 0 48px;
     border-bottom: 0.5px solid var(--border-dark);
+    transition: background 0.4s ease, backdrop-filter 0.4s ease, box-shadow 0.4s ease;
+  }
+
+  nav.scrolled {
+    background: rgba(22,32,42,0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: 0 1px 0 rgba(255,255,255,0.06);
+  }
+
+  /* ── CUSTOM CURSOR ── */
+  .cursor {
+    position: fixed;
+    width: 8px;
+    height: 8px;
+    background: var(--teal);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+    transition: transform 0.1s ease, opacity 0.3s ease;
+    mix-blend-mode: normal;
+  }
+
+  .cursor-ring {
+    position: fixed;
+    width: 32px;
+    height: 32px;
+    border: 1px solid rgba(42,172,160,0.4);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9998;
+    transform: translate(-50%, -50%);
+    transition: transform 0.18s ease, width 0.2s ease, height 0.2s ease, opacity 0.3s ease, border-color 0.2s ease;
+  }
+
+  .cursor.hovering { transform: translate(-50%, -50%) scale(2.5); background: var(--teal); opacity: 0.6; }
+  .cursor-ring.hovering { width: 48px; height: 48px; border-color: rgba(42,172,160,0.25); }
+
+  /* ── SCROLL REVEAL ── */
+  .reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.65s ease, transform 0.65s ease;
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .reveal-delay-1 { transition-delay: 0.1s; }
+  .reveal-delay-2 { transition-delay: 0.2s; }
+  .reveal-delay-3 { transition-delay: 0.3s; }
+  .reveal-delay-4 { transition-delay: 0.4s; }
+  .reveal-delay-5 { transition-delay: 0.5s; }
+
+  /* ── SERVICE CARD HOVER ── */
+  .service-card {
+    transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+  }
+  .service-card:hover {
+    border-color: rgba(42,172,160,0.35);
+    transform: translateY(-2px);
+  }
+
+  /* ── PROJECT CARD HOVER ── */
+  .project-card {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .project-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+  }
+
+  /* ── PROCESS STEP ACTIVE ── */
+  .process-step {
+    transition: background 0.3s ease, border-color 0.3s ease;
+  }
+  .process-step.active {
+    background: var(--white);
+    border-color: rgba(42,172,160,0.3);
+  }
+  .process-step.active .step-num { color: var(--teal); }
+  .process-step.active .step-name { color: var(--ash); }
+
+  /* ── PAIN ITEM HOVER ── */
+  .pain-item {
+    transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+    cursor: default;
+  }
+  .pain-item:hover {
+    background: var(--white);
+    border-color: rgba(42,172,160,0.25);
+    transform: translateX(4px);
+  }
+
+  /* ── FORM FIELD FOCUS ANIMATION ── */
+  .form-field {
+    opacity: 0;
+    transform: translateY(12px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+  }
+  .form-field.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ── NAV LINK UNDERLINE ANIMATION ── */
+  .nav-link {
+    position: relative;
+  }
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: var(--teal);
+    transition: width 0.25s ease;
+  }
+  .nav-link:hover::after { width: 100%; }
+
+  /* ── HERO HEADING ANIMATION ── */
+  .hero-heading {
+    overflow: hidden;
+  }
+
+  .hero-heading .line {
+    display: block;
+    transform: translateY(100%);
+    animation: slideUp 0.7s ease forwards;
+  }
+  .hero-heading .line:nth-child(1) { animation-delay: 0.1s; }
+  .hero-heading .line:nth-child(2) { animation-delay: 0.25s; }
+  .hero-heading .line:nth-child(3) { animation-delay: 0.4s; }
+
+  @keyframes slideUp {
+    to { transform: translateY(0); }
+  }
+
+  .hero-content .hero-label { animation: fadeIn 0.6s ease 0.05s both; }
+  .hero-content .hero-sub   { animation: fadeIn 0.6s ease 0.55s both; }
+  .hero-content .hero-btns  { animation: fadeIn 0.6s ease 0.7s both; }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to   { opacity: 1; transform: translateY(0); }
   }
 
   .nav-brand {
@@ -1115,9 +1264,9 @@
   <div class="hero-content" style="max-width: 680px;">
     <div class="hero-label">Opra · Johannesburg</div>
     <h1 class="hero-heading">
-      WE MODERNISE<br>
-      <span>BUSINESS</span><br>
-      OPERATIONS.
+      <span class="line">WE MODERNISE</span>
+      <span class="line"><span style="color:var(--teal);">BUSINESS</span></span>
+      <span class="line">OPERATIONS.</span>
     </h1>
     <p class="hero-sub">
       Opra builds the operational infrastructure that helps growing businesses run faster, with less manual work and more visibility.
@@ -1134,8 +1283,8 @@
   <div class="section-label">Who this is for</div>
   <div class="who-grid">
     <div>
-      <h2 class="who-heading">Your business is growing. Your operations are not keeping up.</h2>
-      <p class="who-body">
+      <h2 class="who-heading reveal">Your business is growing. Your operations are not keeping up.</h2>
+      <p class="who-body reveal reveal-delay-1">
         You are managing clients in spreadsheets and chasing updates over WhatsApp. Your team spends hours on work that should be automated. You know you need better systems. But you do not have a technical team to build them.
       </p>
       <p class="who-body">
@@ -1144,7 +1293,7 @@
       <p class="who-sign">That is exactly who we work with.</p>
     </div>
     <div>
-      <div class="pain-list">
+      <div class="pain-list reveal reveal-delay-2">
         <div class="pain-item">
           <div class="pain-icon"></div>
           <span class="pain-text">Spreadsheet chaos and manual data entry consuming your team's time</span>
@@ -1178,11 +1327,11 @@
 <section id="services" class="services-section">
   <div class="section-label dark">Services</div>
   <div class="services-header">
-    <h2 class="services-heading">Four services.<br>One operational focus.</h2>
-    <p class="services-sub">We do not build everything. We build operational systems. The infrastructure that makes your business run. Every service we offer connects into that single goal.</p>
+    <h2 class="services-heading reveal">Four services.<br>One operational focus.</h2>
+    <p class="services-sub reveal reveal-delay-1">We do not build everything. We build operational systems. The infrastructure that makes your business run. Every service we offer connects into that single goal.</p>
   </div>
 
-  <div class="services-grid">
+  <div class="services-grid reveal reveal-delay-2">
     <!-- Websites -->
     <div class="service-card">
       <div class="svc-number">01</div>
@@ -1252,7 +1401,7 @@
 <!-- PROCESS -->
 <section id="process" class="process-section">
   <div class="section-label">How we work</div>
-  <h2 class="process-heading">Five steps. Every project. No exceptions.</h2>
+  <h2 class="process-heading reveal">Five steps. Every project. No exceptions.</h2>
 
   <div class="process-grid">
     <div class="process-step">
@@ -1287,11 +1436,11 @@
 <section id="work" class="portfolio-section">
   <div class="section-label">Our work</div>
   <div class="portfolio-header">
-    <h2 class="portfolio-heading">Systems we have built.</h2>
+    <h2 class="portfolio-heading reveal">Systems we have built.</h2>
     <span class="portfolio-note">Previous work &amp; concept showcases</span>
   </div>
 
-  <div class="portfolio-grid-2">
+  <div class="portfolio-grid-2 reveal reveal-delay-1">
     <!-- Quote Builder -->
     <div class="project-card dark">
       <div class="proj-top">
@@ -1427,7 +1576,7 @@
 <!-- FAQ -->
 <section id="faq" class="faq-section">
   <div class="section-label">FAQ</div>
-  <div class="faq-grid">
+  <div class="faq-grid reveal reveal-delay-1">
     <div class="faq-item">
       <div class="faq-q">How long does a project take?</div>
       <div class="faq-a">Depends on scope. A simple website takes 1–2 weeks. A full operational system takes 4–8 weeks. We scope everything before we start so you always know exactly what to expect and when.</div>
@@ -1451,8 +1600,8 @@
 <section id="contact" class="contact-section" style="section-label-color:rgba(255,255,255,0.15);">
   <div>
     <div style="font-family:var(--ff-mono);font-size:10px;letter-spacing:0.22em;text-transform:uppercase;color:var(--teal);margin-bottom:48px;">Book a consultation</div>
-    <h2 class="contact-heading">LET'S BUILD SOMETHING<br><span>OPERATIONAL.</span></h2>
-    <p class="contact-sub">Tell us what is broken and we will tell you what to build. No hard sell. Just a 20-minute call to understand your operations.</p>
+    <h2 class="contact-heading reveal">LET'S BUILD SOMETHING<br><span>OPERATIONAL.</span></h2>
+    <p class="contact-sub reveal reveal-delay-1">Tell us what is broken and we will tell you what to build. No hard sell. Just a 20-minute call to understand your operations.</p>
     <div class="contact-detail">
       <div class="cd-item">
         <span class="cd-label">Location</span>
@@ -1580,6 +1729,12 @@
     }
   }
 
+<!-- CUSTOM CURSOR -->
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<script>
+  // ── SMOOTH NAV SCROLL ──
   document.querySelectorAll('a[href^="#"]').forEach(a => {
     a.addEventListener('click', e => {
       const id = a.getAttribute('href').slice(1);
@@ -1591,6 +1746,132 @@
       }
     });
   });
+
+  // ── NAV BLUR ON SCROLL ──
+  const nav = document.querySelector('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 60);
+  });
+
+  // ── CUSTOM CURSOR ──
+  const cursor = document.getElementById('cursor');
+  const ring   = document.getElementById('cursorRing');
+  let mouseX = 0, mouseY = 0;
+  let ringX  = 0, ringY  = 0;
+
+  document.addEventListener('mousemove', e => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+    cursor.style.left = mouseX + 'px';
+    cursor.style.top  = mouseY + 'px';
+  });
+
+  // Smooth ring follow
+  function animateRing() {
+    ringX += (mouseX - ringX) * 0.12;
+    ringY += (mouseY - ringY) * 0.12;
+    ring.style.left = ringX + 'px';
+    ring.style.top  = ringY + 'px';
+    requestAnimationFrame(animateRing);
+  }
+  animateRing();
+
+  // Hover state on interactive elements
+  const hoverTargets = document.querySelectorAll('a, button, .service-card, .project-card, .pain-item, .process-step, .faq-item');
+  hoverTargets.forEach(el => {
+    el.addEventListener('mouseenter', () => {
+      cursor.classList.add('hovering');
+      ring.classList.add('hovering');
+    });
+    el.addEventListener('mouseleave', () => {
+      cursor.classList.remove('hovering');
+      ring.classList.remove('hovering');
+    });
+  });
+
+  // Hide cursor when leaving window
+  document.addEventListener('mouseleave', () => {
+    cursor.style.opacity = '0';
+    ring.style.opacity   = '0';
+  });
+  document.addEventListener('mouseenter', () => {
+    cursor.style.opacity = '1';
+    ring.style.opacity   = '1';
+  });
+
+  // ── SCROLL REVEAL ──
+  const revealEls = document.querySelectorAll('.reveal');
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  revealEls.forEach(el => revealObserver.observe(el));
+
+  // ── PROCESS STEP HIGHLIGHT ON SCROLL ──
+  const steps = document.querySelectorAll('.process-step');
+  const stepObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('active');
+      }
+    });
+  }, { threshold: 0.5 });
+  steps.forEach(s => stepObserver.observe(s));
+
+  // ── FORM FIELDS SEQUENTIAL ANIMATION ──
+  const formFields = document.querySelectorAll('.form-field');
+  const formObserver = new IntersectionObserver((entries) => {
+    if (entries[0].isIntersecting) {
+      formFields.forEach((field, i) => {
+        setTimeout(() => field.classList.add('visible'), i * 100);
+      });
+      formObserver.disconnect();
+    }
+  }, { threshold: 0.1 });
+  if (formFields.length) formObserver.observe(formFields[0].closest('form') || formFields[0]);
+
+  // ── HANDLE SUBMIT ──
+  async function handleSubmit(e) {
+    e.preventDefault();
+    const btn  = document.getElementById('submitBtn');
+    const note = document.getElementById('formNote');
+
+    btn.textContent  = 'Sending...';
+    btn.disabled     = true;
+
+    const fields = {
+      'Full Name':                    document.getElementById('name').value.trim(),
+      'Business Name':               document.getElementById('business').value.trim(),
+      'Email':                       document.getElementById('email').value.trim(),
+      'Biggest operational problem': document.getElementById('problem').value.trim(),
+      'How they heard about Opra':   document.getElementById('source').value,
+    };
+
+    try {
+      const res = await fetch('/api/submit', {
+        method:  'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body:    JSON.stringify({ fields }),
+      });
+
+      if (res.ok) {
+        btn.textContent      = 'Submitted — we will be in touch.';
+        btn.style.background = 'var(--teal-dim)';
+        note.textContent     = 'Thank you. Expect a reply within 4 business hours.';
+        note.style.color     = 'rgba(42,172,160,0.5)';
+      } else {
+        throw new Error('Server error');
+      }
+    } catch {
+      btn.textContent  = 'Something went wrong — please try again.';
+      btn.disabled     = false;
+      btn.style.background = '';
+    }
+  }
 </script>
 </body>
 </html>
