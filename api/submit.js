@@ -29,7 +29,7 @@ export default async function handler(req, res) {
           'Full Name':                 String(name).slice(0, 200),
           'Business Name':             String(business ?? '').slice(0, 200),
           'Email':                     String(email).slice(0, 200),
-          'Services interested in':    String(services ?? '').slice(0, 500),
+          'Service Interested In':      String(services ?? '').slice(0, 500),
           'How they heard about Opra': String(source ?? '').slice(0, 100),
         },
       }),
