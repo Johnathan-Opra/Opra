@@ -1,10 +1,9 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Opra | Operational Systems, Automation & Dashboards | Johannesburg</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Opra | Operational Systems, Automation &amp; Dashboards | Johannesburg</title>
 <meta name="description" content="Opra builds operational infrastructure for growing businesses in Johannesburg and across South Africa. Websites, workflow automation, dashboards, client portals, and AI systems that reduce manual work and give you full visibility.">
 <meta name="keywords" content="business automation Johannesburg, workflow automation South Africa, operational dashboards, client portal development, CRM integration, business systems Johannesburg, SMB automation, operational website South Africa, Opra">
 <meta name="author" content="Opra">
@@ -13,14 +12,14 @@
 
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://www.opra.co.za/">
-<meta property="og:title" content="Opra — Operational Systems & Automation | Johannesburg">
+<meta property="og:title" content="Opra — Operational Systems &amp; Automation | Johannesburg">
 <meta property="og:description" content="We modernise business operations through automation, dashboards, and AI. Johannesburg-based, remote across SA and internationally.">
 <meta property="og:image" content="https://www.opra.co.za/og-image.png">
 <meta property="og:site_name" content="Opra">
 <meta property="og:locale" content="en_ZA">
 
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Opra — Operational Systems & Automation">
+<meta name="twitter:title" content="Opra — Operational Systems &amp; Automation">
 <meta name="twitter:description" content="We modernise business operations through automation, dashboards, and AI. Johannesburg-based, remote across SA.">
 <meta name="twitter:image" content="https://www.opra.co.za/og-image.png">
 
@@ -44,1588 +43,983 @@
 }
 </script>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Syne:wght@400;500;600;700&family=Outfit:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
 
 <style>
   :root {
-    --ash:         #0F1924;
-    --ash-mid:     #162130;
-    --ash-light:   #1E2C3E;
-    --teal:        #2AACA0;
-    --teal-dim:    #1E7D74;
-    --teal-dark:   #155C55;
-    --teal-light:  #B8D4D1;
-    --teal-tint:   #E4F0EF;
-    --offwhite:    #EBF0EF;
-    --white:       #F5FAF9;
-    --mid:         #5C7A76;
-    --subtle:      #8AACAA;
-    --border-dark: rgba(255,255,255,0.07);
-    --border-light: #D0DEDD;
-    --ff-mark: 'Bebas Neue', sans-serif;
-    --ff-head: 'Syne', sans-serif;
-    --ff-body: 'Outfit', sans-serif;
-    --ff-mono: 'JetBrains Mono', monospace;
+    --bg: #07090d;
+    --bg-2: #0b0f15;
+    --ink: #e8f0fa;
+    --ink-dim: #93a3b6;
+    --ink-faint: #56657a;
+    --line: rgba(255,255,255,0.08);
+    --line-2: rgba(255,255,255,0.14);
+    --accent: #7CE3FF;
+    --serif: "Instrument Serif", "Cormorant Garamond", Georgia, serif;
+    --sans: "Geist", ui-sans-serif, system-ui, -apple-system, "Inter", sans-serif;
+    --mono: "JetBrains Mono", ui-monospace, Menlo, monospace;
   }
-
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  * { box-sizing: border-box; }
   html { scroll-behavior: smooth; }
+  html, body { margin: 0; padding: 0; }
   body {
-    background: var(--offwhite);
-    color: var(--ash);
-    font-family: var(--ff-body);
-    font-size: 15px;
-    line-height: 1.7;
-    -webkit-font-smoothing: antialiased;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--sans);
+    letter-spacing: -0.01em;
+    overflow-x: hidden;
   }
 
-  @media (hover: hover) and (pointer: fine) {
-    body, a, button { cursor: none; }
+  /* Grain overlay */
+  body::before {
+    content: ""; position: fixed; inset: 0; pointer-events: none;
+    opacity: 0.035; z-index: 60; mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)' opacity='0.85'/></svg>");
   }
 
-  /* ── CUSTOM CURSOR ── */
-  .cur-dot {
-    position: fixed;
-    top: 0; left: 0;
-    width: 8px; height: 8px;
-    background: var(--teal);
-    border-radius: 50%;
+  /* Pinned globe canvas */
+  .globe-wrap {
+    position: fixed; inset: 0;
+    z-index: 1;
     pointer-events: none;
-    z-index: 9999;
-    transform: translate(-50%,-50%);
-    opacity: 0;
-    transition: opacity 0.3s, transform 0.08s;
-    will-change: transform;
   }
-  .cur-ring {
-    position: fixed;
-    top: 0; left: 0;
-    width: 30px; height: 30px;
-    border: 1.5px solid rgba(42,172,160,0.45);
-    border-radius: 50%;
-    pointer-events: none;
-    z-index: 9998;
-    transform: translate(-50%,-50%);
-    opacity: 0;
-    transition: opacity 0.3s, width 0.25s, height 0.25s, border-color 0.25s;
-    will-change: transform;
-  }
-  .cur-dot.on { opacity: 1; }
-  .cur-ring.on { opacity: 1; }
-  .cur-ring.big { width: 48px; height: 48px; border-color: rgba(42,172,160,0.75); }
+  .globe-wrap canvas { width: 100%; height: 100%; display: block; }
 
-  /* ── NAVIGATION ── */
-  #mainNav {
-    position: fixed;
-    top: 0; left: 0; right: 0;
-    z-index: 100;
-    height: 60px;
-    display: flex;
-    align-items: center;
-    padding: 0 48px;
-    background: var(--ash);
-    border-bottom: 0.5px solid var(--border-dark);
-    animation: navDown 0.6s ease forwards;
-    transition: background 0.4s, backdrop-filter 0.4s, border-color 0.4s;
+  /* Background ambient */
+  .ambient {
+    position: fixed; inset: 0; z-index: 0; pointer-events: none;
+    background:
+      radial-gradient(120% 80% at 50% 110%, rgba(124,227,255,0.04), transparent 60%),
+      radial-gradient(80% 60% at 50% -10%, rgba(124,227,255,0.03), transparent 70%);
   }
-  #mainNav.scrolled {
-    background: rgba(15,25,36,0.82);
-    backdrop-filter: blur(18px);
-    -webkit-backdrop-filter: blur(18px);
-    border-bottom-color: rgba(42,172,160,0.1);
-  }
-  @keyframes navDown {
-    from { transform: translateY(-100%); opacity: 0; }
-    to   { transform: translateY(0);     opacity: 1; }
+  .ambient::after {
+    content: ""; position: absolute; inset: 0;
+    background:
+      linear-gradient(to right, rgba(255,255,255,0.022) 1px, transparent 1px) 0 0/72px 72px,
+      linear-gradient(to bottom, rgba(255,255,255,0.022) 1px, transparent 1px) 0 0/72px 72px;
+    mask-image: radial-gradient(ellipse at center, black 25%, transparent 80%);
+    -webkit-mask-image: radial-gradient(ellipse at center, black 25%, transparent 80%);
   }
 
-  .nav-brand {
-    display: flex; align-items: center; gap: 14px;
+  /* Top nav */
+  .nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 30;
+    padding: 22px 40px;
+    display: flex; align-items: center; justify-content: space-between;
+    background: linear-gradient(to bottom, rgba(7,9,13,0.6), rgba(7,9,13,0));
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+  }
+  .brand {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--ink);
     text-decoration: none;
   }
-  .mark {
-    position: relative; width: 20px; height: 20px; flex-shrink: 0;
-  }
-  .mark .sq-b {
-    position: absolute; bottom: 0; right: 0;
-    width: 12px; height: 12px;
-    background: rgba(255,255,255,0.1);
-    transition: transform 0.3s;
-  }
-  .mark .sq-f {
-    position: absolute; top: 0; left: 0;
-    width: 12px; height: 12px;
-    background: var(--teal);
-    transition: transform 0.3s;
-  }
-  .nav-brand:hover .mark .sq-f { transform: translate(-2px,-2px); }
-  .nav-brand:hover .mark .sq-b { transform: translate(2px,2px); }
-
-  .nav-wordmark {
-    font-family: var(--ff-mark);
-    font-size: 20px; letter-spacing: 0.1em;
-    color: var(--offwhite); line-height: 1;
-  }
-  .nav-links {
-    display: flex; align-items: center; gap: 32px; margin-left: auto;
-  }
-  .nav-link {
-    font-family: var(--ff-body); font-size: 13px; font-weight: 300;
-    color: rgba(235,240,239,0.4); text-decoration: none;
-    letter-spacing: 0.02em; transition: color 0.2s;
-  }
-  .nav-link:hover { color: var(--offwhite); }
+  .nav-links { display: flex; gap: 28px; font-size: 13px; color: var(--ink-dim); }
+  .nav-links a { color: inherit; text-decoration: none; transition: color .2s; }
+  .nav-links a:hover { color: var(--ink); }
   .nav-cta {
-    font-family: var(--ff-body); font-size: 12px; font-weight: 500;
-    letter-spacing: 0.08em; color: #fff; background: var(--teal);
-    padding: 10px 22px; text-decoration: none;
-    transition: background 0.2s;
+    font-family: var(--mono);
+    font-size: 11px; text-transform: uppercase; letter-spacing: 0.18em;
+    color: var(--ink); padding: 9px 14px;
+    border: 1px solid var(--line-2); border-radius: 999px;
+    text-decoration: none; transition: all .2s;
   }
-  .nav-cta:hover { background: var(--teal-dim); }
+  .nav-cta:hover { border-color: var(--accent); color: var(--accent); }
+
+  /* Mobile nav toggle */
   .nav-mobile-toggle {
-    display: none; background: none; border: none;
-    margin-left: auto; padding: 4px;
+    display: none;
+    background: none; border: none;
+    padding: 4px; cursor: pointer;
+    color: var(--ink-dim);
   }
 
-  /* ── HERO ── */
-  .hero {
-    background: var(--ash);
+  /* Side rail */
+  .rail {
+    position: fixed; right: 28px; top: 50%; transform: translateY(-50%);
+    z-index: 30;
+    display: flex; flex-direction: column; gap: 18px;
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+  }
+  .rail a {
+    color: var(--ink-faint);
+    text-decoration: none;
+    display: flex; align-items: center; gap: 12px;
+    transition: color .25s;
+    justify-content: flex-end;
+  }
+  .rail a:hover { color: var(--ink-dim); }
+  .rail a::after {
+    content: "";
+    width: 14px; height: 1px; background: currentColor;
+    transition: width .25s, background .25s;
+  }
+  .rail a.is-active { color: var(--ink); }
+  .rail a.is-active::after { width: 28px; background: var(--accent); }
+
+  /* Section base */
+  .sections { position: relative; z-index: 10; }
+  section {
     min-height: 100vh;
-    padding: 130px 80px 100px;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 60px;
-    align-items: center;
+    padding: 120px 40px;
+    display: flex; align-items: center;
     position: relative;
-    overflow: hidden;
   }
-  #heroCanvas {
-    position: absolute; inset: 0;
-    width: 100%; height: 100%;
-    pointer-events: none;
+  .container {
+    width: 100%;
+    max-width: 1240px;
+    margin: 0 auto;
   }
-  .hero::after {
-    content: '';
-    position: absolute; inset: 0;
-    background: radial-gradient(ellipse at 60% 50%, transparent 30%, rgba(15,25,36,0.6) 80%);
-    pointer-events: none; z-index: 0;
-  }
-  .hero-content, .hero-visual { position: relative; z-index: 1; }
 
-  .hero-label {
-    font-family: var(--ff-mono); font-size: 10px;
+  /* SECTION 01 — HERO */
+  #hero { padding-top: 140px; padding-bottom: 80px; min-height: 100vh; }
+  #hero .container {
+    display: grid;
+    grid-template-rows: 1fr auto 1fr;
+    min-height: calc(100vh - 220px);
+  }
+  .system-chip {
+    align-self: start; justify-self: center;
+    display: inline-flex; align-items: center; gap: 10px;
+    font-family: var(--mono); font-size: 11px;
     letter-spacing: 0.22em; text-transform: uppercase;
-    color: rgba(255,255,255,0.2);
-    margin-bottom: 32px;
-    display: inline-flex; align-items: center; gap: 8px;
-    opacity: 0;
-    animation: fadeUp 0.5s ease forwards 0.25s;
+    color: var(--ink-dim);
+    padding: 8px 14px;
+    border: 1px solid var(--line); border-radius: 999px;
+    background: rgba(8,12,18,0.5);
+    backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
   }
-  .hero-label .blink-cur {
-    display: inline-block; width: 2px; height: 12px;
-    background: var(--teal); margin-left: 2px;
-    animation: blink 1s step-end infinite;
-  }
-
-  @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(18px); }
-    to   { opacity: 1; transform: translateY(0); }
-  }
-
-  .hero-heading {
-    font-family: var(--ff-mark);
-    font-size: 96px; letter-spacing: 0.02em;
-    color: var(--offwhite); line-height: 1.0;
-    margin-bottom: 28px;
-  }
-  .hero-heading .hline { display: block; overflow: hidden; }
-  .hero-heading .hline-inner {
-    display: block;
-    transform: translateY(110%);
-    animation: lineUp 0.85s cubic-bezier(0.16,1,0.3,1) forwards;
-  }
-  .hero-heading .hline:nth-child(1) .hline-inner { animation-delay: 0.3s; }
-  .hero-heading .hline:nth-child(2) .hline-inner { animation-delay: 0.44s; }
-  .hero-heading .hline:nth-child(3) .hline-inner { animation-delay: 0.58s; }
-  .hero-heading span { color: var(--teal); }
-
-  @keyframes lineUp {
-    from { transform: translateY(110%); }
-    to   { transform: translateY(0); }
-  }
-
-  .hero-sub {
-    font-family: var(--ff-body); font-size: 16px; font-weight: 400;
-    color: rgba(235,240,239,0.7); line-height: 1.75;
-    max-width: 460px; margin-bottom: 40px;
-    opacity: 0;
-    animation: fadeUp 0.6s ease forwards 0.85s;
-  }
-  .hero-btns {
-    display: flex; gap: 16px; align-items: center; flex-wrap: wrap;
-    opacity: 0;
-    animation: fadeUp 0.6s ease forwards 1.0s;
-  }
-
-  .btn-primary {
-    font-family: var(--ff-body); font-size: 13px; font-weight: 500;
-    letter-spacing: 0.08em; color: #fff; background: var(--teal);
-    padding: 15px 34px; text-decoration: none; display: inline-block;
-    position: relative; overflow: hidden;
-    transition: background 0.25s;
-  }
-  .btn-primary::after {
-    content: '';
-    position: absolute; top: 0; left: -100%;
-    width: 100%; height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.13), transparent);
-    transition: left 0.5s;
-  }
-  .btn-primary:hover { background: var(--teal-dim); }
-  .btn-primary:hover::after { left: 100%; }
-
-  .btn-ghost {
-    font-family: var(--ff-body); font-size: 13px; font-weight: 300;
-    letter-spacing: 0.04em; color: rgba(255,255,255,0.35);
-    text-decoration: underline; text-decoration-color: rgba(255,255,255,0.15);
-    text-underline-offset: 4px; padding: 15px 0;
-    transition: color 0.2s;
-  }
-  .btn-ghost:hover { color: rgba(255,255,255,0.65); }
-
-  /* ── OPS PANEL (hero right) ── */
-  .ops-panel {
-    background: var(--ash-mid);
-    border: 0.5px solid rgba(42,172,160,0.18);
-    box-shadow: 0 0 80px rgba(42,172,160,0.07), inset 0 0 0 0.5px rgba(42,172,160,0.06);
-    position: relative; overflow: hidden;
-    opacity: 0;
-    animation: panelIn 0.9s cubic-bezier(0.16,1,0.3,1) forwards 0.7s;
-  }
-  @keyframes panelIn {
-    from { opacity: 0; transform: translateX(40px) translateY(8px); }
-    to   { opacity: 1; transform: none; }
-  }
-  .ops-panel::before {
-    content: '';
-    position: absolute; top: 0; left: 0; right: 0; height: 1px;
-    background: linear-gradient(90deg, transparent, var(--teal), transparent);
-    animation: topGlow 4s ease-in-out infinite;
-  }
-  @keyframes topGlow { 0%,100%{opacity:0.25} 50%{opacity:1} }
-
-  .ops-hd {
-    display: flex; align-items: center; gap: 10px;
-    padding: 13px 16px;
-    border-bottom: 0.5px solid var(--border-dark);
-    background: var(--ash);
-  }
-  .ops-hd-dot {
+  .pulse {
     width: 6px; height: 6px; border-radius: 50%;
-    background: var(--teal); flex-shrink: 0;
-    animation: pulseDot 2s ease-in-out infinite;
+    background: var(--accent);
+    animation: pulse 2.2s ease-out infinite;
   }
-  @keyframes pulseDot {
-    0%,100%{ box-shadow: 0 0 0 0 rgba(42,172,160,0.4); }
-    50%    { box-shadow: 0 0 0 5px rgba(42,172,160,0); }
-  }
-  .ops-hd-text {
-    font-family: var(--ff-mono); font-size: 9px;
-    letter-spacing: 0.2em; text-transform: uppercase;
-    color: rgba(255,255,255,0.22);
-  }
-  .ops-hd-btns { margin-left: auto; display: flex; gap: 5px; }
-  .ops-hd-btns span {
-    width: 8px; height: 8px; border-radius: 50%;
-    background: rgba(255,255,255,0.08);
+  @keyframes pulse {
+    0%   { box-shadow: 0 0 0 0 rgba(124,227,255,0.55); }
+    70%  { box-shadow: 0 0 0 8px rgba(124,227,255,0); }
+    100% { box-shadow: 0 0 0 0 rgba(124,227,255,0); }
   }
 
-  .ops-body { padding: 16px; }
-
-  .ops-metrics {
-    display: grid; grid-template-columns: 1fr 1fr; gap: 8px;
-    margin-bottom: 14px;
+  .hero-headline {
+    align-self: center; text-align: center;
+    max-width: 1100px; margin: 0 auto;
   }
-  .ops-metric {
-    background: var(--ash);
-    border: 0.5px solid var(--border-dark);
-    padding: 12px 13px;
-    position: relative; overflow: hidden;
+  .eyebrow {
+    font-family: var(--mono); font-size: 11px;
+    letter-spacing: 0.32em; text-transform: uppercase;
+    color: var(--ink-faint); margin-bottom: 22px;
   }
-  .ops-metric::after {
-    content: '';
-    position: absolute; bottom: 0; left: 0; right: 0; height: 1.5px;
-    background: var(--teal); transform: scaleX(0); transform-origin: left;
-    transition: transform 1.2s cubic-bezier(0.16,1,0.3,1);
+  h1 {
+    font-family: var(--serif); font-weight: 400;
+    font-size: clamp(48px, 7.4vw, 108px);
+    line-height: 0.98; letter-spacing: -0.025em;
+    margin: 0; color: var(--ink);
   }
-  .ops-metric.lit::after { transform: scaleX(1); }
-
-  .m-label {
-    font-family: var(--ff-mono); font-size: 8px;
-    letter-spacing: 0.14em; text-transform: uppercase;
-    color: rgba(255,255,255,0.2); margin-bottom: 6px;
-  }
-  .m-val {
-    font-family: var(--ff-head); font-size: 30px; font-weight: 700;
-    color: var(--teal); line-height: 1;
-  }
-  .m-sub {
-    font-family: var(--ff-mono); font-size: 8px;
-    color: rgba(255,255,255,0.15); margin-top: 3px;
+  .italic { font-style: italic; color: var(--accent); }
+  .sub {
+    margin: 26px auto 0; max-width: 580px;
+    font-size: 15px; line-height: 1.55;
+    color: var(--ink-dim);
   }
 
-  .ops-chart-label {
-    font-family: var(--ff-mono); font-size: 8px;
-    letter-spacing: 0.12em; text-transform: uppercase;
-    color: rgba(255,255,255,0.15); margin-bottom: 8px;
+  .hero-bottom {
+    align-self: end;
+    display: flex;
+    justify-content: space-between;
+    align-items: end; gap: 40px;
   }
-  .ops-chart-bars {
-    display: flex; align-items: flex-end; gap: 4px;
-    height: 50px; margin-bottom: 14px;
+  .cta-block { display: flex; gap: 12px; align-items: center; justify-content: center; }
+  .btn-primary, .btn-ghost {
+    font-family: var(--sans); font-size: 14px; font-weight: 500;
+    padding: 14px 22px; border-radius: 999px;
+    text-decoration: none; transition: all .2s;
+    display: inline-flex; align-items: center; gap: 8px;
+    cursor: pointer; border: none;
   }
-  .cb {
-    flex: 1; background: rgba(42,172,160,0.1);
-    position: relative; height: 100%;
-  }
-  .cbi {
-    position: absolute; bottom: 0; left: 0; right: 0;
-    background: linear-gradient(to top, var(--teal), rgba(42,172,160,0.5));
-    height: 0;
-    transition: height 0.7s cubic-bezier(0.16,1,0.3,1);
-  }
+  .btn-primary { background: var(--ink); color: var(--bg); }
+  .btn-primary:hover { background: var(--accent); }
+  .btn-ghost { background: rgba(8,12,18,0.4); color: var(--ink); border: 1px solid var(--line); backdrop-filter: blur(8px); }
+  .btn-ghost:hover { border-color: var(--line-2); }
+  .arrow { transition: transform .2s; }
+  .btn-primary:hover .arrow { transform: translateX(2px); }
 
-  .ops-feed {
-    border-top: 0.5px solid var(--border-dark);
-    padding-top: 12px; margin-bottom: 14px;
-  }
-  .feed-row {
-    display: flex; align-items: center; gap: 8px;
-    padding: 4px 0;
-    transition: opacity 0.4s;
-  }
-  .fd { width: 5px; height: 5px; border-radius: 50%; flex-shrink: 0; }
-  .fd.g  { background: #4ade80; }
-  .fd.t  { background: var(--teal); }
-  .fd.a  { background: #fbbf24; }
-  .ft {
-    font-family: var(--ff-mono); font-size: 9px;
-    color: rgba(255,255,255,0.32); flex: 1;
-    overflow: hidden; white-space: nowrap; text-overflow: ellipsis;
-  }
-  .ftt {
-    font-family: var(--ff-mono); font-size: 8px;
-    color: rgba(255,255,255,0.14); flex-shrink: 0;
-  }
-
-  .ops-systems { display: flex; gap: 8px; flex-wrap: wrap; }
-  .sys-pill {
-    display: flex; align-items: center; gap: 5px;
-    font-family: var(--ff-mono); font-size: 8px;
-    letter-spacing: 0.1em; text-transform: uppercase;
-    color: rgba(255,255,255,0.2);
-    background: var(--ash); border: 0.5px solid var(--border-dark);
-    padding: 5px 9px;
-  }
-  .sdot {
-    width: 4px; height: 4px; border-radius: 50%;
-    background: var(--teal);
-    animation: pulseDot 2.5s ease-in-out infinite;
-  }
-  .sdot:nth-child(1) { animation-delay: 0s; }
-  .sdot:nth-child(2) { animation-delay: 0.4s; }
-  .sdot:nth-child(3) { animation-delay: 0.8s; }
-
-  /* ── MARQUEE ── */
-  .marquee-strip {
-    background: var(--teal);
-    overflow: hidden; padding: 11px 0;
-  }
-  .marquee-track {
-    display: flex; white-space: nowrap;
-    animation: marqueeScroll 28s linear infinite;
-  }
-  .marquee-track .mi {
-    font-family: var(--ff-mono); font-size: 10px;
-    letter-spacing: 0.2em; text-transform: uppercase;
-    color: rgba(255,255,255,0.8); padding: 0 36px; flex-shrink: 0;
-  }
-  .marquee-track .ms {
-    font-family: var(--ff-mono); font-size: 10px;
-    color: rgba(255,255,255,0.3); flex-shrink: 0; padding: 0 4px;
-  }
-  @keyframes marqueeScroll {
-    from { transform: translateX(0); }
-    to   { transform: translateX(-50%); }
-  }
-
-  /* ── SCROLL REVEAL ── */
-  .reveal {
-    opacity: 0; transform: translateY(28px);
-    transition: opacity 0.65s ease, transform 0.65s ease;
-  }
-  .reveal.vis { opacity: 1; transform: translateY(0); }
-  .reveal-l {
-    opacity: 0; transform: translateX(-28px);
-    transition: opacity 0.65s ease, transform 0.65s ease;
-  }
-  .reveal-l.vis { opacity: 1; transform: translateX(0); }
-
-  [data-d="1"] { transition-delay: 0.08s; }
-  [data-d="2"] { transition-delay: 0.16s; }
-  [data-d="3"] { transition-delay: 0.24s; }
-  [data-d="4"] { transition-delay: 0.32s; }
-  [data-d="5"] { transition-delay: 0.40s; }
-  [data-d="6"] { transition-delay: 0.48s; }
-
-  /* ── SECTIONS ── */
-  section { padding: 100px 80px; }
-
-  .section-label {
-    font-family: var(--ff-mono); font-size: 10px;
+  .corner-tag {
+    font-family: var(--mono); font-size: 10px;
     letter-spacing: 0.22em; text-transform: uppercase;
-    color: var(--teal-dark); margin-bottom: 48px;
-    display: flex; align-items: center; gap: 20px;
+    color: var(--ink-faint);
+    justify-self: end; text-align: right; line-height: 1.7;
   }
-  .section-label::after {
-    content: ''; flex: 1; height: 0.5px;
-    background: var(--border-light);
-  }
-  .section-label.dk { color: var(--teal); }
-  .section-label.dk::after { background: var(--border-dark); }
+  .corner-tag .strong { color: var(--ink-dim); }
 
-  /* ── WHO ── */
-  .who-section {
-    background: var(--white);
-    border-top: 0.5px solid var(--border-light);
-    border-bottom: 0.5px solid var(--border-light);
+  /* SECTION 02 — PROBLEM */
+  #problem .container {
+    display: grid;
+    grid-template-columns: 1.05fr 1fr;
+    gap: 80px;
+    align-items: center;
   }
-  .who-grid {
-    display: grid; grid-template-columns: 1fr 1fr;
-    gap: 80px; align-items: start;
+  .section-label {
+    font-family: var(--mono); font-size: 11px;
+    letter-spacing: 0.28em; text-transform: uppercase;
+    color: var(--ink-faint); margin-bottom: 28px;
+    display: flex; align-items: center; gap: 12px;
   }
-  .who-heading {
-    font-family: var(--ff-head); font-size: 38px; font-weight: 700;
-    color: var(--ash); line-height: 1.15; margin-bottom: 28px;
+  .section-label::before {
+    content: ""; width: 28px; height: 1px; background: var(--accent); opacity: 0.7;
   }
-  .who-body {
-    font-family: var(--ff-body); font-size: 15px; font-weight: 300;
-    color: var(--mid); line-height: 1.8; margin-bottom: 24px;
+  .section-title {
+    font-family: var(--serif); font-weight: 400;
+    font-size: clamp(40px, 5vw, 68px);
+    line-height: 1.02; letter-spacing: -0.02em;
+    margin: 0 0 24px;
+    color: var(--ink);
+    text-wrap: pretty;
   }
-  .who-sign {
-    font-family: var(--ff-head); font-size: 13px; font-weight: 600;
-    color: var(--teal-dark); letter-spacing: 0.04em;
-  }
-  .pain-list { display: flex; flex-direction: column; gap: 3px; }
-  .pain-item {
-    background: var(--offwhite); border: 0.5px solid var(--border-light);
-    padding: 18px 22px; display: flex; align-items: flex-start; gap: 16px;
-    transition: border-color 0.2s, transform 0.25s;
-  }
-  .pain-item:hover { border-color: rgba(42,172,160,0.28); transform: translateX(5px); }
-  .pain-icon {
-    width: 6px; height: 6px; background: var(--teal);
-    flex-shrink: 0; margin-top: 8px;
-  }
-  .pain-text {
-    font-family: var(--ff-body); font-size: 13px; font-weight: 300;
-    color: var(--mid); line-height: 1.6;
+  .section-lead {
+    font-size: 16px; line-height: 1.6; color: var(--ink-dim);
+    max-width: 540px;
   }
 
-  /* ── SERVICES ── */
-  .services-section { background: var(--ash); }
-  .services-header {
-    display: grid; grid-template-columns: 1fr 1fr;
-    gap: 80px; align-items: end; margin-bottom: 48px;
+  .pain-list {
+    list-style: none; padding: 0; margin: 0;
+    display: flex; flex-direction: column; gap: 8px;
   }
-  .services-heading {
-    font-family: var(--ff-head); font-size: 42px; font-weight: 700;
-    color: var(--offwhite); line-height: 1.1;
+  .pain-list li {
+    display: flex; align-items: flex-start; gap: 16px;
+    padding: 18px 20px;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    background: rgba(11,15,21,0.55);
+    backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+    font-size: 15px; line-height: 1.45;
+    color: var(--ink-dim);
   }
-  .services-sub {
-    font-family: var(--ff-body); font-size: 14px; font-weight: 300;
-    color: rgba(235,240,239,0.4); line-height: 1.75;
+  .pain-num {
+    font-family: var(--mono); font-size: 11px;
+    color: var(--ink-faint); min-width: 32px; padding-top: 3px;
   }
-  .services-grid {
-    display: grid; grid-template-columns: repeat(3,1fr);
-    gap: 3px; margin-bottom: 3px;
+  .pain-text strong { color: var(--ink); font-weight: 500; }
+
+  /* SECTION 03 — SERVICES */
+  #services .container {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+  .services-intro { max-width: 480px; }
+  .services-list {
+    display: flex; flex-direction: column; gap: 8px;
   }
   .service-card {
-    background: var(--ash-mid);
-    border: 0.5px solid var(--border-dark);
-    padding: 36px 32px;
-    position: relative; overflow: hidden;
-    transition: background 0.3s, border-color 0.3s;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 22px;
+    align-items: center;
+    padding: 24px 26px;
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    background: rgba(11,15,21,0.55);
+    backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+    transition: all .25s;
+    cursor: pointer;
   }
-  .service-card::before {
-    content: '';
-    position: absolute; inset: 0;
-    background: radial-gradient(circle at var(--mx,50%) var(--my,50%), rgba(42,172,160,0.06) 0%, transparent 65%);
-    opacity: 0; transition: opacity 0.3s; pointer-events: none;
+  .service-card:hover {
+    border-color: var(--line-2);
+    background: rgba(11,15,21,0.78);
+    transform: translateY(-1px);
+    box-shadow: 0 8px 24px rgba(124,227,255,0.07);
   }
-  .service-card:hover { background: var(--ash-light); border-color: rgba(42,172,160,0.18); }
-  .service-card:hover::before { opacity: 1; }
-  .svc-number {
-    font-family: var(--ff-mono); font-size: 10px;
-    letter-spacing: 0.18em; color: rgba(255,255,255,0.22);
-    margin-bottom: 28px;
+  .service-card.is-active {
+    border-color: var(--accent);
+    background: rgba(11,15,21,0.8);
   }
-  .svc-icon {
-    width: 36px; height: 36px; margin-bottom: 20px; position: relative;
+  .service-card.is-active .svc-num { color: var(--accent); }
+  .svc-num {
+    font-family: var(--mono); font-size: 11px;
+    color: var(--ink-faint); letter-spacing: 0.18em;
+    transition: color .25s;
   }
-  .svc-icon .si-b {
-    position: absolute; bottom: 0; right: 0;
-    width: 20px; height: 20px; background: rgba(42,172,160,0.12);
-    transition: transform 0.3s;
-  }
-  .svc-icon .si-f {
-    position: absolute; top: 0; left: 0;
-    width: 20px; height: 20px; background: var(--teal); opacity: 0.7;
-    transition: transform 0.3s;
-  }
-  .service-card:hover .si-f { transform: translate(-2px,-2px); }
-  .service-card:hover .si-b { transform: translate(2px,2px); }
-  .svc-name {
-    font-family: var(--ff-head); font-size: 18px; font-weight: 700;
-    color: var(--offwhite); margin-bottom: 10px; line-height: 1.2;
+  .svc-title {
+    font-family: var(--serif); font-size: 26px;
+    line-height: 1.1; color: var(--ink); margin: 0 0 4px;
   }
   .svc-desc {
-    font-family: var(--ff-body); font-size: 13px; font-weight: 400;
-    color: rgba(235,240,239,0.65); line-height: 1.7; margin-bottom: 24px;
+    font-size: 13px; color: var(--ink-dim); margin: 0;
+    line-height: 1.45;
   }
-  .svc-items {
-    list-style: none; display: flex; flex-direction: column; gap: 8px;
-    padding-top: 20px; border-top: 0.5px solid var(--border-dark);
+  .svc-arrow {
+    font-family: var(--mono); color: var(--ink-faint);
+    transition: color .25s, transform .25s;
   }
-  .svc-items li {
-    font-family: var(--ff-body); font-size: 12px; font-weight: 400;
-    color: rgba(235,240,239,0.55); padding-left: 16px; position: relative;
-  }
-  .svc-items li::before {
-    content: '—'; position: absolute; left: 0;
-    color: var(--teal); opacity: 0.5; font-size: 10px; top: 2px;
-  }
-  .svc-custom {
-    background: var(--ash-light); border: 0.5px solid var(--border-dark);
-    padding: 22px 32px; display: flex;
-    align-items: center; justify-content: space-between;
-  }
-  .svc-custom-text {
-    font-family: var(--ff-body); font-size: 13px; font-weight: 400;
-    color: rgba(235,240,239,0.5); font-style: italic;
+  .service-card:hover .svc-arrow {
+    color: var(--accent); transform: translateX(3px);
   }
 
-  /* ── PROCESS ── */
-  .process-section { background: var(--offwhite); }
-  .process-heading {
-    font-family: var(--ff-head); font-size: 42px; font-weight: 700;
-    color: var(--ash); line-height: 1.1; max-width: 500px; margin-bottom: 60px;
-  }
+  /* SECTION 04 — PROCESS */
+  #process .container { text-align: center; }
+  .process-header { max-width: 740px; margin: 0 auto 64px; }
   .process-grid {
-    display: grid; grid-template-columns: repeat(5,1fr); gap: 3px;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 16px;
+    position: relative;
   }
   .process-step {
-    background: var(--white); border: 0.5px solid var(--border-light);
-    padding: 32px 24px; position: relative;
-    transition: border-color 0.2s, transform 0.25s;
+    text-align: left;
+    padding: 22px 20px;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    background: rgba(11,15,21,0.55);
+    backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+    min-height: 180px;
+    display: flex; flex-direction: column;
+    transition: all .3s;
   }
-  .process-step::before {
-    content: '';
-    position: absolute; left: 0; top: 0;
-    width: 2px; height: 0; background: var(--teal);
-    transition: height 0.35s ease;
+  .process-step:hover {
+    border-color: rgba(124,227,255,0.4);
+    background: rgba(11,15,21,0.78);
+    transform: translateY(-2px);
+    box-shadow: inset 2px 0 0 var(--accent), 0 8px 28px rgba(124,227,255,0.07);
   }
-  .process-step:hover { border-color: rgba(42,172,160,0.3); transform: translateY(-4px); }
-  .process-step:hover::before { height: 100%; }
-  .process-step::after {
-    content: ''; position: absolute;
-    top: 42px; right: -3px;
-    width: 3px; height: 2px;
-    background: var(--teal); opacity: 0.4;
-  }
-  .process-step:last-child::after { display: none; }
   .step-num {
-    font-family: var(--ff-mono); font-size: 10px;
-    letter-spacing: 0.18em; color: var(--teal-dark); margin-bottom: 20px;
+    font-family: var(--mono); font-size: 11px;
+    color: var(--accent); letter-spacing: 0.18em;
+    margin-bottom: 14px;
   }
-  .step-name {
-    font-family: var(--ff-head); font-size: 16px; font-weight: 700;
-    color: var(--ash); margin-bottom: 10px; line-height: 1.2;
+  .step-title {
+    font-family: var(--serif); font-size: 22px;
+    line-height: 1.1; color: var(--ink); margin: 0 0 10px;
   }
   .step-desc {
-    font-family: var(--ff-body); font-size: 12px; font-weight: 300;
-    color: var(--mid); line-height: 1.65;
+    font-size: 13px; line-height: 1.5; color: var(--ink-dim); margin: 0;
   }
 
-  /* ── PORTFOLIO ── */
-  .portfolio-section { background: var(--white); border-top: 0.5px solid var(--border-light); }
-  .portfolio-header {
-    display: flex; align-items: flex-end;
-    justify-content: space-between; margin-bottom: 48px;
+  /* SECTION 05 — WORK */
+  #work .container {
+    display: grid;
+    grid-template-columns: 1fr 1.3fr;
+    gap: 80px;
+    align-items: center;
   }
-  .portfolio-heading {
-    font-family: var(--ff-head); font-size: 42px; font-weight: 700;
-    color: var(--ash); line-height: 1.1;
+  .work-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
   }
-  .portfolio-note {
-    font-family: var(--ff-mono); font-size: 9px;
-    letter-spacing: 0.16em; text-transform: uppercase; color: var(--subtle);
+  .work-card {
+    padding: 22px;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    background: rgba(11,15,21,0.6);
+    backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+    transition: all .25s;
+    cursor: pointer;
+    display: flex; flex-direction: column; gap: 10px;
+    min-height: 180px;
   }
-  .portfolio-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 3px; }
-  .project-card {
-    background: var(--offwhite); border: 0.5px solid var(--border-light);
-    padding: 36px 32px; display: flex; flex-direction: column;
-    justify-content: space-between; min-height: 280px;
-    transition: border-color 0.2s, transform 0.25s;
+  .work-card:hover { border-color: rgba(124,227,255,0.2); transform: translateY(-2px); box-shadow: 0 8px 32px rgba(124,227,255,0.08); }
+  .work-tag {
+    font-family: var(--mono); font-size: 10px;
+    letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--ink-faint);
   }
-  .project-card:hover { border-color: rgba(42,172,160,0.25); transform: translateY(-3px); }
-  .project-card.dark { background: var(--ash); border-color: var(--border-dark); }
-  .project-card.dark:hover { border-color: rgba(42,172,160,0.2); }
-  .proj-tag {
-    font-family: var(--ff-mono); font-size: 9px;
+  .work-title {
+    font-family: var(--serif); font-size: 22px;
+    line-height: 1.1; color: var(--ink); margin: 0;
+  }
+  .work-desc { font-size: 13px; color: var(--ink-dim); line-height: 1.5; margin: 0; }
+  .work-foot {
+    margin-top: auto; padding-top: 12px;
+    border-top: 1px solid var(--line);
+    font-family: var(--mono); font-size: 10px; color: var(--ink-faint);
     letter-spacing: 0.18em; text-transform: uppercase;
-    color: var(--teal-dark); margin-bottom: 14px;
+    display: flex; justify-content: space-between;
   }
-  .project-card.dark .proj-tag { color: var(--teal); }
-  .proj-title {
-    font-family: var(--ff-head); font-size: 20px; font-weight: 700;
-    color: var(--ash); line-height: 1.2; margin-bottom: 10px;
-  }
-  .project-card.dark .proj-title { color: var(--offwhite); }
-  .proj-desc {
-    font-family: var(--ff-body); font-size: 13px; font-weight: 300;
-    color: var(--mid); line-height: 1.65;
-  }
-  .project-card.dark .proj-desc { color: rgba(235,240,239,0.65); }
-  .proj-footer {
-    display: flex; align-items: center; justify-content: space-between;
-    margin-top: 28px; padding-top: 20px;
-    border-top: 0.5px solid var(--border-light);
-  }
-  .project-card.dark .proj-footer { border-top-color: var(--border-dark); }
-  .proj-meta {
-    font-family: var(--ff-mono); font-size: 9px;
-    letter-spacing: 0.14em; text-transform: uppercase; color: var(--subtle);
-  }
-  .project-card.dark .proj-meta { color: rgba(255,255,255,0.35); }
-  .proj-badge {
-    font-family: var(--ff-mono); font-size: 9px;
-    letter-spacing: 0.14em; text-transform: uppercase;
-    color: var(--teal-dark); background: rgba(42,172,160,0.1);
-    padding: 5px 10px;
-  }
-  .project-card.dark .proj-badge { color: var(--teal); background: rgba(42,172,160,0.15); }
-  .dash-preview {
-    margin-top: 16px; background: var(--ash-light);
-    padding: 16px; display: grid;
-    grid-template-columns: repeat(3,1fr); gap: 8px;
-  }
-  .dash-metric { background: var(--ash-mid); padding: 10px 12px; }
-  .dash-metric-label {
-    font-family: var(--ff-mono); font-size: 8px;
-    letter-spacing: 0.12em; text-transform: uppercase;
-    color: rgba(255,255,255,0.2); margin-bottom: 4px;
-  }
-  .dash-metric-value {
-    font-family: var(--ff-head); font-size: 18px; font-weight: 700;
-    color: var(--teal);
-  }
-  .flow-preview {
-    margin-top: 16px; display: flex; align-items: center;
-    gap: 6px; flex-wrap: wrap;
-  }
-  .flow-node {
-    background: var(--ash-light); border: 0.5px solid var(--border-dark);
-    padding: 8px 10px; font-family: var(--ff-mono); font-size: 8px;
-    letter-spacing: 0.1em; text-transform: uppercase;
-    color: rgba(255,255,255,0.3); flex-shrink: 0;
-  }
-  .flow-arrow { font-family: var(--ff-mono); font-size: 10px; color: var(--teal); opacity: 0.4; }
+  .work-foot .live { color: var(--accent); }
 
-  /* ── FAQ ── */
-  .faq-section { background: var(--offwhite); }
-  .faq-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3px; }
-  .faq-item {
-    background: var(--white); border: 0.5px solid var(--border-light);
-    padding: 32px; transition: border-color 0.2s;
+  /* SECTION 06 — CONTACT */
+  #contact .container {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 80px;
+    align-items: center;
   }
-  .faq-item:hover { border-color: rgba(42,172,160,0.25); }
-  .faq-q {
-    font-family: var(--ff-head); font-size: 15px; font-weight: 600;
-    color: var(--ash); margin-bottom: 14px; line-height: 1.3;
+  .contact-meta {
+    display: flex; flex-direction: column; gap: 22px;
+    margin-top: 36px;
   }
-  .faq-a {
-    font-family: var(--ff-body); font-size: 13px; font-weight: 300;
-    color: var(--mid); line-height: 1.75;
+  .meta-row {
+    display: grid; grid-template-columns: 120px 1fr; gap: 16px;
+    padding: 14px 0; border-top: 1px solid var(--line);
+    align-items: baseline;
   }
+  .meta-row:last-child { border-bottom: 1px solid var(--line); }
+  .meta-key {
+    font-family: var(--mono); font-size: 10px;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--ink-faint);
+  }
+  .meta-val { font-size: 14px; color: var(--ink); }
+  .meta-val .accent { color: var(--accent); }
 
-  /* ── CONTACT ── */
-  .contact-section {
-    background: var(--ash);
-    display: grid; grid-template-columns: 1fr 1fr;
-    gap: 80px; align-items: start;
+  form.contact {
+    padding: 32px;
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    background: rgba(11,15,21,0.7);
+    backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+    display: flex; flex-direction: column; gap: 16px;
   }
-  .contact-heading {
-    font-family: var(--ff-mark); font-size: 56px;
-    letter-spacing: 0.04em; color: var(--offwhite);
-    line-height: 1.0; margin-bottom: 24px;
+  form.contact label {
+    display: flex; flex-direction: column; gap: 6px;
+    font-family: var(--mono); font-size: 10px;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--ink-faint);
   }
-  .contact-heading span { color: var(--teal); }
-  .contact-sub {
-    font-family: var(--ff-body); font-size: 14px; font-weight: 300;
-    color: rgba(235,240,239,0.4); line-height: 1.8; margin-bottom: 36px;
+  form.contact input, form.contact textarea, form.contact select {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid var(--line-2);
+    color: var(--ink);
+    font-family: var(--sans); font-size: 14px;
+    padding: 10px 0 8px;
+    outline: none;
+    transition: border-color .2s;
   }
-  .contact-detail { display: flex; flex-direction: column; gap: 12px; }
-  .cd-item { display: flex; gap: 12px; align-items: flex-start; }
-  .cd-label {
-    font-family: var(--ff-mono); font-size: 9px;
-    letter-spacing: 0.16em; text-transform: uppercase;
-    color: rgba(255,255,255,0.18); min-width: 80px; padding-top: 2px;
+  form.contact input:focus, form.contact textarea:focus, form.contact select:focus {
+    border-color: var(--accent);
   }
-  .cd-value {
-    font-family: var(--ff-body); font-size: 13px; font-weight: 300;
-    color: rgba(235,240,239,0.4);
+  form.contact textarea { resize: vertical; min-height: 80px; }
+  form.contact select { color: var(--ink-dim); }
+  .svc-fieldset {
+    border: 1px solid var(--line); border-radius: 10px;
+    padding: 14px 16px 16px; margin: 0;
   }
-  .contact-form { display: flex; flex-direction: column; gap: 3px; }
-  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 3px; }
-  .form-field { display: flex; flex-direction: column; }
-  .form-label {
-    font-family: var(--ff-mono); font-size: 9px;
-    letter-spacing: 0.16em; text-transform: uppercase;
-    color: rgba(255,255,255,0.2); padding: 0 0 6px;
-    display: block; transition: color 0.2s;
+  .svc-fieldset legend {
+    font-family: var(--mono); font-size: 10px;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--ink-faint); padding: 0 6px;
   }
-  .form-field:focus-within .form-label { color: rgba(42,172,160,0.8); }
-  .form-input, .form-select, .form-textarea {
-    background: var(--ash-mid); border: 0.5px solid var(--border-dark);
-    color: var(--offwhite); font-family: var(--ff-body);
-    font-size: 13px; font-weight: 300; padding: 14px 16px;
-    width: 100%; outline: none; appearance: none;
-    transition: border-color 0.2s, background 0.2s;
+  .svc-options {
+    display: flex; flex-wrap: wrap; gap: 10px; margin-top: 12px;
   }
-  .form-select {
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='rgba(42,172,160,0.5)' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");
-    background-repeat: no-repeat; background-position: right 16px center;
+  .svc-check {
+    display: flex; align-items: center; gap: 8px;
+    padding: 7px 14px; border-radius: 999px;
+    border: 1px solid var(--line);
+    font-family: var(--sans); font-size: 13px; color: var(--ink-dim);
+    cursor: pointer; transition: border-color .2s, background .2s, color .2s;
+    user-select: none;
   }
-  .form-input:focus, .form-select:focus, .form-textarea:focus {
-    border-color: rgba(42,172,160,0.45); background: var(--ash-light);
+  .svc-check:hover { border-color: rgba(124,227,255,0.3); color: var(--ink); }
+  .svc-check input { display: none; }
+  .svc-check:has(input:checked) {
+    border-color: var(--accent);
+    background: rgba(124,227,255,0.08);
+    color: var(--accent);
   }
-  .form-input::placeholder, .form-textarea::placeholder { color: rgba(255,255,255,0.12); }
-  .form-textarea { resize: none; }
-  .form-submit {
-    background: var(--teal); color: #fff; border: none;
-    font-family: var(--ff-body); font-size: 13px; font-weight: 500;
-    letter-spacing: 0.08em; padding: 16px 36px; width: 100%;
-    position: relative; overflow: hidden; transition: background 0.2s;
-    text-align: center;
+  form.contact .submit {
+    margin-top: 8px;
+    background: var(--ink); color: var(--bg);
+    padding: 14px 22px; border-radius: 999px;
+    font-family: var(--sans); font-size: 14px; font-weight: 500;
+    border: none; cursor: pointer;
+    display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+    transition: background .2s, color .2s;
   }
-  .form-submit::after {
-    content: ''; position: absolute; top: 0; left: -100%;
-    width: 100%; height: 100%;
-    background: linear-gradient(90deg,transparent,rgba(255,255,255,0.1),transparent);
-    transition: left 0.45s;
-  }
-  .form-submit:hover { background: var(--teal-dim); }
-  .form-submit:hover::after { left: 100%; }
-  .form-note {
-    font-family: var(--ff-mono); font-size: 9px;
-    letter-spacing: 0.12em; color: rgba(255,255,255,0.12);
-    text-align: center; padding-top: 8px;
-  }
+  form.contact .submit:hover { background: var(--accent); }
+  form.contact .submit:disabled { opacity: 0.65; cursor: not-allowed; }
 
-  /* ── FOOTER ── */
+  /* Footer */
   footer {
-    background: var(--ash); border-top: 0.5px solid var(--border-dark);
-    padding: 40px 80px; display: flex;
-    align-items: center; justify-content: space-between;
-  }
-  .footer-brand { display: flex; align-items: center; gap: 14px; }
-  .footer-wordmark {
-    font-family: var(--ff-mark); font-size: 18px;
-    letter-spacing: 0.1em; color: var(--offwhite);
-  }
-  .footer-tagline {
-    font-family: var(--ff-mono); font-size: 9px;
+    position: relative; z-index: 10;
+    padding: 50px 40px 40px;
+    border-top: 1px solid var(--line);
+    background: var(--bg);
+    display: flex; justify-content: space-between; align-items: end;
+    flex-wrap: wrap; gap: 24px;
+    font-family: var(--mono); font-size: 11px;
     letter-spacing: 0.18em; text-transform: uppercase;
-    color: rgba(255,255,255,0.15);
+    color: var(--ink-faint);
   }
-  .footer-links { display: flex; gap: 28px; }
-  .footer-link {
-    font-family: var(--ff-body); font-size: 12px; font-weight: 300;
-    color: rgba(235,240,239,0.5); text-decoration: none; transition: color 0.2s;
-  }
-  .footer-link:hover { color: var(--subtle); }
-  .footer-meta {
-    font-family: var(--ff-mono); font-size: 9px;
-    letter-spacing: 0.12em; color: rgba(255,255,255,0.1);
-    text-align: right; line-height: 1.8;
-  }
+  footer a { color: var(--ink-dim); text-decoration: none; }
+  footer a:hover { color: var(--ink); }
+  footer .f-links { display: flex; gap: 24px; }
 
-  /* ── RESPONSIVE ── */
-  @media (max-width: 1024px) {
-    .hero { grid-template-columns: 1fr; gap: 60px; padding: 120px 40px 80px; }
-    .hero-heading { font-size: 70px; }
-    .ops-panel { max-width: 540px; }
-    section { padding: 80px 40px; }
-    .who-grid { grid-template-columns: 1fr; gap: 48px; }
-    .services-header { grid-template-columns: 1fr; gap: 24px; }
-    .services-grid { grid-template-columns: 1fr; }
-    .process-grid { grid-template-columns: repeat(2,1fr); }
-    .portfolio-grid-2 { grid-template-columns: 1fr; }
-    .faq-grid { grid-template-columns: 1fr; }
-    .contact-section { grid-template-columns: 1fr; }
-    footer { flex-direction: column; gap: 28px; text-align: center; }
-    .footer-meta { text-align: center; }
-    #mainNav { padding: 0 24px; }
-    .nav-links { gap: 16px; }
-  }
-  @media (max-width: 640px) {
-    .hero { padding: 100px 24px 60px; }
-    .hero-heading { font-size: 52px; }
-    section { padding: 60px 24px; }
-    .process-grid { grid-template-columns: 1fr; }
-    .portfolio-grid-2 { grid-template-columns: 1fr; }
-    .form-row { grid-template-columns: 1fr; }
+  /* Responsive */
+  @media (max-width: 980px) {
+    .nav { padding: 18px 22px; }
     .nav-links { display: none; }
+    .nav-cta { display: none; }
+    .nav-mobile-toggle { display: block; }
     .nav-links.open {
       display: flex; flex-direction: column;
-      position: fixed; top: 60px; left: 0; right: 0;
-      background: rgba(15,25,36,0.97);
+      position: fixed; top: 58px; left: 0; right: 0;
+      background: rgba(7,9,13,0.97);
       backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px);
-      border-bottom: 0.5px solid rgba(42,172,160,0.15);
-      padding: 24px 24px 32px;
-      gap: 0; z-index: 99;
+      border-bottom: 1px solid var(--line);
+      padding: 24px 22px 32px;
+      gap: 0; z-index: 29;
     }
-    .nav-links.open .nav-link {
-      font-size: 15px; padding: 14px 0;
-      border-bottom: 0.5px solid var(--border-dark);
-      color: rgba(235,240,239,0.55);
+    .nav-links.open a {
+      font-size: 14px; padding: 14px 0;
+      border-bottom: 1px solid var(--line);
+      color: var(--ink-dim);
     }
-    .nav-links.open .nav-cta {
-      margin-top: 20px; text-align: center;
-      padding: 14px 22px;
+    .rail { display: none; }
+    section { padding: 100px 22px; }
+    #problem .container, #services .container, #work .container, #contact .container {
+      grid-template-columns: 1fr; gap: 48px;
     }
-    .nav-mobile-toggle { display: block; }
-    footer { padding: 32px 24px; }
+    .process-grid { grid-template-columns: 1fr 1fr; }
+    .hero-bottom { flex-direction: column; align-items: flex-start; gap: 28px; }
+    .corner-tag { justify-self: start; text-align: left; }
+    .work-grid { grid-template-columns: 1fr; }
   }
+  @media (max-width: 640px) {
+    footer {
+      flex-direction: column; align-items: flex-start;
+      gap: 20px; padding: 36px 22px;
+    }
+    footer .f-links { flex-direction: column; gap: 14px; }
+  }
+  @media (max-width: 540px) {
+    .process-grid { grid-template-columns: 1fr; }
+    section { padding: 80px 22px; }
+  }
+
+  /* ── DESIGN REFINEMENTS ── */
+
+  /* Anchor scroll clearance for fixed nav */
+  section { scroll-margin-top: 72px; }
+
+  /* Nav solidifies when scrolled */
+  .nav.scrolled {
+    background: rgba(7,9,13,0.92);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--line);
+  }
+
+  /* Pain list item hover */
+  .pain-list li { transition: border-color .25s, background .25s, box-shadow .25s; }
+  .pain-list li:hover {
+    border-color: rgba(124,227,255,0.22);
+    background: rgba(11,15,21,0.78);
+    box-shadow: inset 2px 0 0 var(--accent);
+  }
+
+  /* System chip ambient glow */
+  .system-chip { box-shadow: 0 0 28px rgba(124,227,255,0.08); }
+
+  /* Scroll reveal — text elements (fade + slide) */
+  .fade-up {
+    opacity: 0;
+    transform: translateY(18px);
+    transition: opacity 0.65s ease, transform 0.65s ease;
+  }
+  .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+  /* Scroll reveal — glass cards (opacity only, avoids backdrop-filter compositor jank) */
+  .fade-in {
+    opacity: 0;
+    transition: opacity 0.55s ease;
+  }
+  .fade-in.visible { opacity: 1; }
+
+  /* Stagger delays for grouped items */
+  [data-d="1"] { transition-delay: 0.07s; }
+  [data-d="2"] { transition-delay: 0.14s; }
+  [data-d="3"] { transition-delay: 0.21s; }
+  [data-d="4"] { transition-delay: 0.28s; }
+  [data-d="5"] { transition-delay: 0.35s; }
+  [data-d="6"] { transition-delay: 0.42s; }
 </style>
 </head>
 <body>
 
-<!-- Custom cursor -->
-<div class="cur-dot" id="curDot"></div>
-<div class="cur-ring" id="curRing"></div>
+<!-- Pinned background + globe -->
+<div class="ambient"></div>
+<div class="globe-wrap"><canvas id="globe"></canvas></div>
 
-<!-- NAVIGATION -->
-<nav id="mainNav">
-  <a href="#" class="nav-brand">
-    <div class="mark"><div class="sq-b"></div><div class="sq-f"></div></div>
-    <span class="nav-wordmark">OPRA</span>
-  </a>
-  <div class="nav-links">
-    <a href="#services" class="nav-link">Services</a>
-    <a href="#work" class="nav-link">Our Work</a>
-    <a href="#process" class="nav-link">How We Work</a>
-    <a href="#faq" class="nav-link">FAQ</a>
-    <a href="#contact" class="nav-cta">Book a Consultation</a>
-  </div>
-  <button class="nav-mobile-toggle" aria-label="Menu">
+<!-- Nav -->
+<header class="nav">
+  <a class="brand" href="#hero">OPRA</a>
+  <nav class="nav-links" id="navLinks">
+    <a href="#problem">Why Opra</a>
+    <a href="#services">Services</a>
+    <a href="#process">Process</a>
+    <a href="#work">Work</a>
+    <a href="#contact">Book a Call</a>
+  </nav>
+  <a class="nav-cta" href="#contact">Book a Call →</a>
+  <button class="nav-mobile-toggle" id="navToggle" aria-label="Menu" aria-expanded="false">
     <svg width="20" height="14" viewBox="0 0 20 14" fill="none">
-      <rect width="20" height="1.5" fill="rgba(235,240,239,0.6)"/>
-      <rect y="6" width="14" height="1.5" fill="rgba(235,240,239,0.6)"/>
-      <rect y="12" width="20" height="1.5" fill="rgba(235,240,239,0.6)"/>
+      <rect width="20" height="1.5" fill="rgba(232,240,250,0.6)"/>
+      <rect y="6" width="14" height="1.5" fill="rgba(232,240,250,0.6)"/>
+      <rect y="12" width="20" height="1.5" fill="rgba(232,240,250,0.6)"/>
     </svg>
   </button>
-</nav>
+</header>
 
-<!-- HERO -->
-<section class="hero">
-  <canvas id="heroCanvas"></canvas>
+<!-- Side rail -->
+<aside class="rail" id="rail">
+  <a href="#hero" data-section="hero">01 / Intro</a>
+  <a href="#problem" data-section="problem">02 / Why</a>
+  <a href="#services" data-section="services">03 / Services</a>
+  <a href="#process" data-section="process">04 / Process</a>
+  <a href="#work" data-section="work">05 / Work</a>
+  <a href="#contact" data-section="contact">06 / Contact</a>
+</aside>
 
-  <div class="hero-content">
-    <div class="hero-label">Opra · Johannesburg</div>
-    <h1 class="hero-heading">
-      <span class="hline"><span class="hline-inner">WE MODERNISE</span></span>
-      <span class="hline"><span class="hline-inner"><span>BUSINESS</span></span></span>
-      <span class="hline"><span class="hline-inner">OPERATIONS.</span></span>
-    </h1>
-    <p class="hero-sub">Opra builds the operational infrastructure that helps growing businesses run faster, with less manual work and more visibility.</p>
-    <div class="hero-btns">
-      <a href="#contact" class="btn-primary">Book a Free Consultation</a>
-      <a href="#work" class="btn-ghost">View Our Work</a>
-    </div>
-  </div>
+<!-- Sections -->
+<main class="sections">
 
-  <!-- Animated ops dashboard -->
-  <div class="hero-visual">
-    <div class="ops-panel">
-      <div class="ops-hd">
-        <div class="ops-hd-dot"></div>
-        <span class="ops-hd-text">System Monitor · Live</span>
-        <div class="ops-hd-btns">
-          <span></span><span></span><span></span>
+  <!-- 01 HERO -->
+  <section id="hero">
+    <div class="container">
+      <div class="system-chip">
+        <span class="pulse"></span>
+        System Monitor · Live
+      </div>
+
+      <div class="hero-headline">
+        <div class="eyebrow">Opra · Johannesburg · Internationally</div>
+        <h1>We modernise<br/>business <span class="italic">operations.</span></h1>
+        <p class="sub">Operational infrastructure for growing businesses — websites, workflow automation, dashboards, client portals, and AI systems. Less manual work. Full visibility.</p>
+      </div>
+
+      <div class="hero-bottom">
+        <div class="cta-block">
+          <a href="#contact" class="btn-primary">Book a free consultation <span class="arrow">→</span></a>
+          <a href="#work" class="btn-ghost">View our work</a>
+        </div>
+
+        <div class="corner-tag">
+          <div class="strong">Scroll to explore</div>
+          <div>↓</div>
         </div>
       </div>
-      <div class="ops-body">
-        <div class="ops-metrics">
-          <div class="ops-metric" id="metric1">
-            <div class="m-label">Tasks / month</div>
-            <div class="m-val" data-count="847" id="cnt1">0</div>
-            <div class="m-sub">automated</div>
+    </div>
+  </section>
+
+  <!-- 02 PROBLEM -->
+  <section id="problem">
+    <div class="container">
+      <div>
+        <div class="section-label">02 — Who this is for</div>
+        <h2 class="section-title">Your business is growing.<br/>Your operations are <span class="italic">not keeping up.</span></h2>
+        <p class="section-lead">Service businesses, recruitment and consulting firms, agencies, and operationally heavy SMBs with 1–50 people. Growing fast enough that manual processes are visibly costing time and money.</p>
+      </div>
+      <ul class="pain-list">
+        <li><span class="pain-num">01</span><span class="pain-text"><strong>Spreadsheet chaos</strong> and manual data entry consuming your team's time</span></li>
+        <li><span class="pain-num">02</span><span class="pain-text"><strong>Client onboarding</strong> done manually with no automation or consistency</span></li>
+        <li><span class="pain-num">03</span><span class="pain-text"><strong>Disconnected systems</strong> that don't talk to each other</span></li>
+        <li><span class="pain-num">04</span><span class="pain-text"><strong>No reporting visibility.</strong> Decisions made without data</span></li>
+        <li><span class="pain-num">05</span><span class="pain-text"><strong>Slow approval workflows</strong> and internal bottlenecks</span></li>
+        <li><span class="pain-num">06</span><span class="pain-text"><strong>Messy client management</strong> with no central system of record</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 03 SERVICES -->
+  <section id="services">
+    <div class="container">
+      <div class="services-intro">
+        <div class="section-label">03 — Services</div>
+        <h2 class="section-title">Four services. <span class="italic">One</span> operational focus.</h2>
+        <p class="section-lead">We do not build everything. We build operational systems — the infrastructure that makes your business run. Every service connects into that single goal.</p>
+      </div>
+      <div class="services-list">
+        <div class="service-card" data-svc="websites">
+          <div class="svc-num">01</div>
+          <div>
+            <div class="svc-title">Websites</div>
+            <p class="svc-desc">Your primary entry point. From one-pagers to full operational sites with lead capture, CRM, and routing built in.</p>
           </div>
-          <div class="ops-metric" id="metric2">
-            <div class="m-label">Hours saved</div>
-            <div class="m-val" data-count="320" id="cnt2">0</div>
-            <div class="m-sub">per month</div>
+          <div class="svc-arrow">→</div>
+        </div>
+        <div class="service-card" data-svc="platforms">
+          <div class="svc-num">02</div>
+          <div>
+            <div class="svc-title">Platforms</div>
+            <p class="svc-desc">Portals, dashboards, admin and ops systems, reporting hubs, and lightweight business applications.</p>
+          </div>
+          <div class="svc-arrow">→</div>
+        </div>
+        <div class="service-card" data-svc="automation">
+          <div class="svc-num">03</div>
+          <div>
+            <div class="svc-title">Automation</div>
+            <p class="svc-desc">CRM integrations, onboarding flows, reporting automation, lead routing, and approval workflows.</p>
+          </div>
+          <div class="svc-arrow">→</div>
+        </div>
+        <div class="service-card" data-svc="ai">
+          <div class="svc-num">04</div>
+          <div>
+            <div class="svc-title">AI Systems</div>
+            <p class="svc-desc">Practical AI built into real workflows — proposal generation, document parsing, email triage, knowledge systems.</p>
+          </div>
+          <div class="svc-arrow">→</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 04 PROCESS -->
+  <section id="process">
+    <div class="container">
+      <div class="process-header">
+        <div class="section-label" style="justify-content: center;">04 — How we work</div>
+        <h2 class="section-title">Five steps. Every project.<br/><span class="italic">No exceptions.</span></h2>
+      </div>
+      <div class="process-grid">
+        <div class="process-step">
+          <div class="step-num">01 / Diagnose</div>
+          <h3 class="step-title">Map the gap</h3>
+          <p class="step-desc">We map your current operations and find exactly where time and money are being lost.</p>
+        </div>
+        <div class="process-step">
+          <div class="step-num">02 / Design</div>
+          <h3 class="step-title">Scope the fix</h3>
+          <p class="step-desc">Scoped, priced, and planned before a single line of code is written.</p>
+        </div>
+        <div class="process-step">
+          <div class="step-num">03 / Build</div>
+          <h3 class="step-title">Ship fast</h3>
+          <p class="step-desc">Modern tools, proven frameworks. Days, not months.</p>
+        </div>
+        <div class="process-step">
+          <div class="step-num">04 / Deploy</div>
+          <h3 class="step-title">Launch &amp; hand over</h3>
+          <p class="step-desc">Full documentation so you are never dependent on us.</p>
+        </div>
+        <div class="process-step">
+          <div class="step-num">05 / Support</div>
+          <h3 class="step-title">Stay embedded</h3>
+          <p class="step-desc">30-day support window included. Retainer keeps us in your operations.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 05 WORK -->
+  <section id="work">
+    <div class="container">
+      <div>
+        <div class="section-label">05 — Our work</div>
+        <h2 class="section-title">Systems we have <span class="italic">built.</span></h2>
+        <p class="section-lead">Previous work and concept showcases. Early-stage clients get our full attention and best pricing — your project becomes a case study.</p>
+      </div>
+      <div class="work-grid">
+        <div class="work-card">
+          <div class="work-tag">Platform · Dashboard</div>
+          <h3 class="work-title">Interactive Quote Builder</h3>
+          <p class="work-desc">Drag-and-drop proposal system with a full product catalogue. Configure scope, generate PDF — ready to send in minutes.</p>
+          <div class="work-foot"><span>Concept</span><span class="live">● PDF Export</span></div>
+        </div>
+        <div class="work-card">
+          <div class="work-tag">Platform · Scheduling</div>
+          <h3 class="work-title">Availability Dashboard</h3>
+          <p class="work-desc">Calendar-based view of who is open on any slot, shared availability, and recurring free time across the team.</p>
+          <div class="work-foot"><span>Concept</span><span class="live">● Calendar</span></div>
+        </div>
+        <div class="work-card">
+          <div class="work-tag">Automation · Agency</div>
+          <h3 class="work-title">Client Onboarding System</h3>
+          <p class="work-desc">Contract signed → welcome email, brand questionnaire, kickoff scheduler, shared folder, Slack channel. Zero manual steps.</p>
+          <div class="work-foot"><span>Concept</span><span class="live">● Onboarding</span></div>
+        </div>
+        <div class="work-card">
+          <div class="work-tag">Website · Opra</div>
+          <h3 class="work-title">Opra Website</h3>
+          <p class="work-desc">The site you are looking at. Structured service positioning, intake form, CRM-ready contact flow.</p>
+          <div class="work-foot"><span>Built for Opra</span><span class="live">● Live</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 06 CONTACT -->
+  <section id="contact">
+    <div class="container">
+      <div>
+        <div class="section-label">06 — Book a consultation</div>
+        <h2 class="section-title">Let's build something <span class="italic">operational.</span></h2>
+        <p class="section-lead">Tell us what is broken and we will tell you what to build. No hard sell. Just a 20-minute call to understand your operations.</p>
+
+        <div class="contact-meta">
+          <div class="meta-row">
+            <span class="meta-key">Location</span>
+            <span class="meta-val">Johannesburg, South Africa <span class="accent">●</span></span>
+          </div>
+          <div class="meta-row">
+            <span class="meta-key">Coverage</span>
+            <span class="meta-val">Internationally</span>
+          </div>
+          <div class="meta-row">
+            <span class="meta-key">Response</span>
+            <span class="meta-val">Within 4 hours during business hours</span>
+          </div>
+          <div class="meta-row">
+            <span class="meta-key">Email</span>
+            <span class="meta-val"><a href="mailto:johnathan@opra.co.za" style="color:inherit;text-decoration:none;border-bottom:1px solid var(--line-2);">johnathan@opra.co.za</a></span>
           </div>
         </div>
-
-        <div class="ops-chart-label">Ops volume — last 7 days</div>
-        <div class="ops-chart-bars" id="heroChart">
-          <div class="cb" style="--bar-h:42%"><div class="cbi"></div></div>
-          <div class="cb" style="--bar-h:68%"><div class="cbi"></div></div>
-          <div class="cb" style="--bar-h:54%"><div class="cbi"></div></div>
-          <div class="cb" style="--bar-h:85%"><div class="cbi"></div></div>
-          <div class="cb" style="--bar-h:72%"><div class="cbi"></div></div>
-          <div class="cb" style="--bar-h:93%"><div class="cbi"></div></div>
-          <div class="cb" style="--bar-h:79%"><div class="cbi"></div></div>
-        </div>
-
-        <div class="ops-feed" id="opsFeed">
-          <div class="feed-row"><div class="fd g"></div><span class="ft">Lead captured — Techzone SA</span><span class="ftt">0:23</span></div>
-          <div class="feed-row"><div class="fd t"></div><span class="ft">CRM sync — 14 records updated</span><span class="ftt">1:04</span></div>
-          <div class="feed-row"><div class="fd g"></div><span class="ft">Onboarding triggered</span><span class="ftt">2:17</span></div>
-        </div>
-
-        <div class="ops-systems">
-          <div class="sys-pill"><div class="sdot"></div>CRM Sync</div>
-          <div class="sys-pill"><div class="sdot"></div>Automation</div>
-          <div class="sys-pill"><div class="sdot"></div>Reporting</div>
-        </div>
       </div>
-    </div>
-  </div>
-</section>
 
-<!-- MARQUEE STRIP -->
-<div class="marquee-strip" aria-hidden="true">
-  <div class="marquee-track">
-    <span class="mi">Workflow Automation</span><span class="ms">·</span>
-    <span class="mi">Operational Dashboards</span><span class="ms">·</span>
-    <span class="mi">Client Portals</span><span class="ms">·</span>
-    <span class="mi">AI Systems</span><span class="ms">·</span>
-    <span class="mi">Business Websites</span><span class="ms">·</span>
-    <span class="mi">CRM Integration</span><span class="ms">·</span>
-    <span class="mi">Reporting Automation</span><span class="ms">·</span>
-    <span class="mi">Johannesburg</span><span class="ms">·</span>
-    <!-- duplicate for seamless loop -->
-    <span class="mi">Workflow Automation</span><span class="ms">·</span>
-    <span class="mi">Operational Dashboards</span><span class="ms">·</span>
-    <span class="mi">Client Portals</span><span class="ms">·</span>
-    <span class="mi">AI Systems</span><span class="ms">·</span>
-    <span class="mi">Business Websites</span><span class="ms">·</span>
-    <span class="mi">CRM Integration</span><span class="ms">·</span>
-    <span class="mi">Reporting Automation</span><span class="ms">·</span>
-    <span class="mi">Johannesburg</span><span class="ms">·</span>
-  </div>
-</div>
+      <form class="contact" id="contactForm">
+        <label>Full name<input type="text" name="name" required /></label>
+        <label>Business name<input type="text" name="business" /></label>
+        <label>Email address<input type="email" name="email" required /></label>
+        <fieldset class="svc-fieldset">
+          <legend>Services interested in</legend>
+          <div class="svc-options">
+            <label class="svc-check"><input type="checkbox" name="services" value="Websites" /><span>Websites</span></label>
+            <label class="svc-check"><input type="checkbox" name="services" value="Platforms" /><span>Platforms</span></label>
+            <label class="svc-check"><input type="checkbox" name="services" value="Automation" /><span>Automation</span></label>
+            <label class="svc-check"><input type="checkbox" name="services" value="AI Systems" /><span>AI Systems</span></label>
+            <label class="svc-check"><input type="checkbox" name="services" value="Custom Project" /><span>Custom Project</span></label>
+          </div>
+        </fieldset>
+        <label>How did you hear about Opra?
+          <select name="source">
+            <option value="">Select one</option>
+            <option value="LinkedIn">LinkedIn</option>
+            <option value="Referral">Referral</option>
+            <option value="Google search">Google search</option>
+            <option value="Other">Other</option>
+          </select>
+        </label>
+        <button class="submit" type="submit" id="submitBtn">Book a free consultation <span class="arrow">→</span></button>
+      </form>
+    </div>
+  </section>
+</main>
 
-<!-- WHO THIS IS FOR -->
-<section class="who-section">
-  <div class="section-label reveal">Who this is for</div>
-  <div class="who-grid">
-    <div class="reveal-l">
-      <h2 class="who-heading">Your business is growing. Your operations are not keeping up.</h2>
-      <p class="who-body">You are managing clients in spreadsheets and chasing updates over WhatsApp. Your team spends hours on work that should be automated. You know you need better systems. But you do not have a technical team to build them.</p>
-      <p class="who-body">That is exactly who we work with. Service businesses, recruitment and consulting firms, agencies, and operationally heavy SMBs with 1–50 people who are growing fast enough that manual processes are visibly costing time and money.</p>
-      <p class="who-sign">That is exactly who we work with.</p>
-    </div>
-    <div class="pain-list">
-      <div class="pain-item reveal" data-d="1"><div class="pain-icon"></div><span class="pain-text">Spreadsheet chaos and manual data entry consuming your team's time</span></div>
-      <div class="pain-item reveal" data-d="2"><div class="pain-icon"></div><span class="pain-text">Client onboarding done manually with no automation or consistency</span></div>
-      <div class="pain-item reveal" data-d="3"><div class="pain-icon"></div><span class="pain-text">Disconnected systems that don't talk to each other</span></div>
-      <div class="pain-item reveal" data-d="4"><div class="pain-icon"></div><span class="pain-text">No reporting visibility. Decisions made without data</span></div>
-      <div class="pain-item reveal" data-d="5"><div class="pain-icon"></div><span class="pain-text">Slow approval workflows and internal bottlenecks</span></div>
-      <div class="pain-item reveal" data-d="6"><div class="pain-icon"></div><span class="pain-text">Messy client management with no central system of record</span></div>
-    </div>
-  </div>
-</section>
-
-<!-- SERVICES -->
-<section id="services" class="services-section">
-  <div class="section-label dk reveal">Services</div>
-  <div class="services-header">
-    <h2 class="services-heading reveal">Four services.<br>One operational focus.</h2>
-    <p class="services-sub reveal" data-d="1">We do not build everything. We build operational systems. The infrastructure that makes your business run. Every service we offer connects into that single goal.</p>
-  </div>
-
-  <div class="services-grid">
-    <div class="service-card reveal" data-d="1">
-      <div class="svc-number">01</div>
-      <div class="svc-icon"><div class="si-b"></div><div class="si-f"></div></div>
-      <div class="svc-name">Websites</div>
-      <div class="svc-desc">Your primary entry point. Every business needs one and it is the fastest path to getting a client in the door and onto a larger engagement.</div>
-      <ul class="svc-items">
-        <li>One-page and simple business websites</li>
-        <li>Full business websites with lead capture and CRM connection</li>
-        <li>Operational websites with automation, routing, and reporting built in</li>
-      </ul>
-    </div>
-    <div class="service-card reveal" data-d="2">
-      <div class="svc-number">02</div>
-      <div class="svc-icon"><div class="si-b"></div><div class="si-f"></div></div>
-      <div class="svc-name">Platforms</div>
-      <div class="svc-desc">Operational web systems that go beyond a website. Portals, dashboards, and internal tools that run the business day to day.</div>
-      <ul class="svc-items">
-        <li>Client portals</li>
-        <li>Internal dashboards</li>
-        <li>Admin and ops systems</li>
-        <li>Reporting hubs</li>
-        <li>Lightweight business applications</li>
-      </ul>
-    </div>
-    <div class="service-card reveal" data-d="3">
-      <div class="svc-number">03</div>
-      <div class="svc-icon"><div class="si-b"></div><div class="si-f"></div></div>
-      <div class="svc-name">Automation</div>
-      <div class="svc-desc">Systems that remove repetitive work and connect the tools your business already uses, so nothing falls through the cracks.</div>
-      <ul class="svc-items">
-        <li>CRM integrations</li>
-        <li>Client onboarding automation</li>
-        <li>Reporting automation</li>
-        <li>Lead capture and routing</li>
-        <li>Approval workflows and notifications</li>
-      </ul>
-    </div>
-  </div>
-
-  <div style="display:grid;grid-template-columns:1fr;gap:3px;margin-bottom:3px;">
-    <div class="service-card reveal">
-      <div class="svc-number">04</div>
-      <div class="svc-icon"><div class="si-b"></div><div class="si-f"></div></div>
-      <div class="svc-name">AI Systems</div>
-      <div class="svc-desc">Practical AI built into real operational workflows. Not generic chatbots. Actual tools that do real work inside your business.</div>
-      <ul class="svc-items" style="display:grid;grid-template-columns:repeat(2,1fr);gap:8px;">
-        <li>AI proposal generation</li>
-        <li>AI document processing</li>
-        <li>AI email workflows</li>
-        <li>AI knowledge systems</li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="svc-custom reveal">
-    <span class="svc-custom-text">Have something more specific in mind? We take on custom operational projects for businesses with unique requirements, scoped individually and priced accordingly.</span>
-  </div>
-</section>
-
-<!-- PROCESS -->
-<section id="process" class="process-section">
-  <div class="section-label reveal">How we work</div>
-  <h2 class="process-heading reveal">Five steps. Every project. No exceptions.</h2>
-  <div class="process-grid">
-    <div class="process-step reveal" data-d="1">
-      <div class="step-num">01</div>
-      <div class="step-name">Diagnose</div>
-      <div class="step-desc">We map your current operations and find exactly where time and money are being lost.</div>
-    </div>
-    <div class="process-step reveal" data-d="2">
-      <div class="step-num">02</div>
-      <div class="step-name">Design</div>
-      <div class="step-desc">We design the system that fixes it. Scoped, priced, and planned before a single line of code is written.</div>
-    </div>
-    <div class="process-step reveal" data-d="3">
-      <div class="step-num">03</div>
-      <div class="step-name">Build</div>
-      <div class="step-desc">We build fast using modern tools and proven frameworks. Days, not months.</div>
-    </div>
-    <div class="process-step reveal" data-d="4">
-      <div class="step-num">04</div>
-      <div class="step-name">Deploy</div>
-      <div class="step-desc">We launch, automate, and hand over with full documentation so you are never dependent on us.</div>
-    </div>
-    <div class="process-step reveal" data-d="5">
-      <div class="step-num">05</div>
-      <div class="step-name">Support</div>
-      <div class="step-desc">Every project includes a 30-day support window. After that, an ongoing retainer keeps us embedded in your operations.</div>
-    </div>
-  </div>
-</section>
-
-<!-- PORTFOLIO -->
-<section id="work" class="portfolio-section">
-  <div class="section-label reveal">Our work</div>
-  <div class="portfolio-header">
-    <h2 class="portfolio-heading reveal">Systems we have built.</h2>
-    <span class="portfolio-note reveal" data-d="1">Previous work &amp; concept showcases</span>
-  </div>
-
-  <div class="portfolio-grid-2">
-    <div class="project-card dark reveal" data-d="1">
-      <div>
-        <div class="proj-tag">Platforms &amp; Dashboards</div>
-        <div class="proj-title">Interactive Quote Builder</div>
-        <div class="proj-desc">A drag-and-drop proposal system with a full product catalogue. Add services, configure scope, and generate a fully formatted PDF proposal. Ready to send in minutes, without writing anything manually.</div>
-        <div class="dash-preview">
-          <div class="dash-metric"><div class="dash-metric-label">Select service</div><div class="dash-metric-value" style="font-size:13px;color:var(--teal-light);">Drag</div></div>
-          <div class="dash-metric"><div class="dash-metric-label">Configure scope</div><div class="dash-metric-value" style="font-size:13px;color:var(--teal-light);">Build</div></div>
-          <div class="dash-metric"><div class="dash-metric-label">Export proposal</div><div class="dash-metric-value" style="font-size:13px;color:var(--teal-light);">PDF</div></div>
-        </div>
-      </div>
-      <div class="proj-footer">
-        <span class="proj-meta">Dashboard · Automation · PDF export</span>
-        <span class="proj-badge">Concept Showcase</span>
-      </div>
-    </div>
-
-    <div class="project-card reveal" data-d="2">
-      <div>
-        <div class="proj-tag">Platforms &amp; Dashboards</div>
-        <div class="proj-title">Availability Dashboard</div>
-        <div class="proj-desc">A calendar-based dashboard showing who is open on any given slot, who shares availability across the team, and which recurring time slots are consistently free. No more back-and-forth.</div>
-        <div style="margin-top:16px;display:grid;grid-template-columns:repeat(5,1fr);gap:4px;">
-          <div style="font-family:var(--ff-mono);font-size:8px;letter-spacing:0.1em;text-transform:uppercase;color:var(--subtle);grid-column:1/-1;margin-bottom:4px;">Team availability — this week</div>
-          <div style="text-align:center;"><div style="font-family:var(--ff-mono);font-size:8px;color:var(--subtle);margin-bottom:4px;">Mon</div><div style="height:36px;background:var(--offwhite);border:0.5px solid var(--border-light);display:flex;align-items:center;justify-content:center;"><span style="font-family:var(--ff-mono);font-size:8px;color:var(--subtle);">—</span></div></div>
-          <div style="text-align:center;"><div style="font-family:var(--ff-mono);font-size:8px;color:var(--subtle);margin-bottom:4px;">Tue</div><div style="height:36px;background:var(--teal-tint);border:0.5px solid var(--teal-light);display:flex;align-items:center;justify-content:center;"><span style="font-family:var(--ff-mono);font-size:8px;color:var(--teal-dark);">Open</span></div></div>
-          <div style="text-align:center;"><div style="font-family:var(--ff-mono);font-size:8px;color:var(--subtle);margin-bottom:4px;">Wed</div><div style="height:36px;background:var(--offwhite);border:0.5px solid var(--border-light);display:flex;align-items:center;justify-content:center;"><span style="font-family:var(--ff-mono);font-size:8px;color:var(--subtle);">—</span></div></div>
-          <div style="text-align:center;"><div style="font-family:var(--ff-mono);font-size:8px;color:var(--subtle);margin-bottom:4px;">Thu</div><div style="height:36px;background:var(--teal-tint);border:0.5px solid var(--teal-light);display:flex;align-items:center;justify-content:center;"><span style="font-family:var(--ff-mono);font-size:8px;color:var(--teal-dark);">Open</span></div></div>
-          <div style="text-align:center;"><div style="font-family:var(--ff-mono);font-size:8px;color:var(--subtle);margin-bottom:4px;">Fri</div><div style="height:36px;background:var(--offwhite);border:0.5px solid var(--border-light);display:flex;align-items:center;justify-content:center;"><span style="font-family:var(--ff-mono);font-size:8px;color:var(--subtle);">—</span></div></div>
-        </div>
-      </div>
-      <div class="proj-footer">
-        <span class="proj-meta">Dashboard · Scheduling · Calendar</span>
-        <span class="proj-badge">Concept Showcase</span>
-      </div>
-    </div>
-
-    <div class="project-card reveal" data-d="3">
-      <div>
-        <div class="proj-tag">Workflow Automation</div>
-        <div class="proj-title">Agency Client Onboarding System</div>
-        <div class="proj-desc">New client signs contract → onboarding sequence triggers automatically: welcome email, brand questionnaire, kickoff scheduler, shared folder creation, and Slack channel setup. All without a single manual step.</div>
-        <div class="flow-preview">
-          <div class="flow-node" style="color:var(--teal);border-color:rgba(42,172,160,0.2);">Contract</div>
-          <div class="flow-arrow">→</div>
-          <div class="flow-node">Welcome</div>
-          <div class="flow-arrow">→</div>
-          <div class="flow-node">Brief</div>
-          <div class="flow-arrow">→</div>
-          <div class="flow-node">Kickoff</div>
-        </div>
-      </div>
-      <div class="proj-footer">
-        <span class="proj-meta">Agency · Automation · Onboarding</span>
-        <span class="proj-badge">Concept Showcase</span>
-      </div>
-    </div>
-
-    <div class="project-card dark reveal" data-d="4">
-      <div>
-        <div class="proj-tag">Websites</div>
-        <div class="proj-title">Opra Website</div>
-        <div class="proj-desc">The site you are looking at. A full operational website with structured service positioning, intake form, and CRM-ready contact flow. Built so that anyone who arrives knows what we do, who we help, and what to do next.</div>
-        <div class="flow-preview">
-          <div class="flow-node" style="background:var(--ash-light);color:var(--teal);border-color:rgba(42,172,160,0.2);">Visit</div>
-          <div class="flow-arrow">→</div>
-          <div class="flow-node" style="background:var(--ash-light);">Form</div>
-          <div class="flow-arrow">→</div>
-          <div class="flow-node" style="background:var(--ash-light);">CRM</div>
-          <div class="flow-arrow">→</div>
-          <div class="flow-node" style="background:var(--ash-light);">Call</div>
-        </div>
-      </div>
-      <div class="proj-footer">
-        <span class="proj-meta">Website · Lead capture · Opra</span>
-        <span class="proj-badge">Built for Opra</span>
-      </div>
-    </div>
-
-    <div class="project-card reveal" style="background:var(--teal-tint);border-color:var(--teal-light);" data-d="5">
-      <div>
-        <div class="proj-tag" style="color:var(--teal-dark);">Your project</div>
-        <div class="proj-title" style="color:var(--teal-dark);">We are building our portfolio. Be one of the first.</div>
-        <div class="proj-desc" style="color:var(--mid);">Early-stage clients get our full attention and best pricing. Your project becomes a case study. Your operations become the demo.</div>
-      </div>
-      <div class="proj-footer" style="border-top-color:var(--teal-light);">
-        <span class="proj-meta" style="color:var(--teal-dark);">Limited availability · Joburg</span>
-        <a href="#contact" class="proj-badge" style="color:var(--teal-dark);text-decoration:none;">Let's talk →</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- FAQ -->
-<section id="faq" class="faq-section">
-  <div class="section-label reveal">FAQ</div>
-  <div class="faq-grid">
-    <div class="faq-item reveal" data-d="1">
-      <div class="faq-q">How long does a project take?</div>
-      <div class="faq-a">Depends on scope. A simple website takes 1–2 weeks. A full operational system takes 4–8 weeks. We scope everything before we start so you always know exactly what to expect and when.</div>
-    </div>
-    <div class="faq-item reveal" data-d="2">
-      <div class="faq-q">How much does it cost?</div>
-      <div class="faq-a">We use fixed project pricing scoped per engagement. Every project is quoted individually after a free consultation. There are no packages or published rates. You will always know the full price before any work begins.</div>
-    </div>
-    <div class="faq-item reveal" data-d="3">
-      <div class="faq-q">Do you offer ongoing support?</div>
-      <div class="faq-a">Yes. Every project can move into a monthly support retainer. Retainers cover maintenance, optimisation, monitoring, and ongoing improvements to everything we have built together.</div>
-    </div>
-    <div class="faq-item reveal" data-d="4">
-      <div class="faq-q">Do I need a technical background to work with you?</div>
-      <div class="faq-a">No. We handle all the technical work. You tell us what your business needs and we build it. We document everything clearly so you understand what was built and how it works. You never need to touch a line of code.</div>
-    </div>
-  </div>
-</section>
-
-<!-- CONTACT -->
-<section id="contact" class="contact-section">
-  <div class="reveal">
-    <div style="font-family:var(--ff-mono);font-size:10px;letter-spacing:0.22em;text-transform:uppercase;color:var(--teal);margin-bottom:48px;">Book a consultation</div>
-    <h2 class="contact-heading">LET'S BUILD SOMETHING<br><span>OPERATIONAL.</span></h2>
-    <p class="contact-sub">Tell us what is broken and we will tell you what to build. No hard sell. Just a 20-minute call to understand your operations.</p>
-    <div class="contact-detail">
-      <div class="cd-item"><span class="cd-label">Location</span><span class="cd-value">Johannesburg, South Africa</span></div>
-      <div class="cd-item"><span class="cd-label">Coverage</span><span class="cd-value">Internationally</span></div>
-      <div class="cd-item"><span class="cd-label">Response</span><span class="cd-value">Within 4 hours during business hours</span></div>
-    </div>
-  </div>
-
-  <div class="reveal" data-d="2">
-    <form class="contact-form" onsubmit="handleSubmit(event)">
-      <div class="form-row">
-        <div class="form-field">
-          <label class="form-label" for="name">Full name</label>
-          <input class="form-input" type="text" id="name" placeholder="Your name" required>
-        </div>
-        <div class="form-field">
-          <label class="form-label" for="business">Business name</label>
-          <input class="form-input" type="text" id="business" placeholder="Your business">
-        </div>
-      </div>
-      <div class="form-field">
-        <label class="form-label" for="email">Email address</label>
-        <input class="form-input" type="email" id="email" placeholder="you@business.co.za" required>
-      </div>
-      <div class="form-field">
-        <label class="form-label" for="problem">What is your biggest operational problem right now?</label>
-        <textarea class="form-input form-textarea" id="problem" rows="4" placeholder="Describe what is costing your team the most time..."></textarea>
-      </div>
-      <div class="form-field">
-        <label class="form-label" for="source">How did you hear about Opra?</label>
-        <select class="form-select form-input" id="source">
-          <option value="" style="background:var(--ash-mid);">Select one</option>
-          <option value="LinkedIn" style="background:var(--ash-mid);">LinkedIn</option>
-          <option value="Referral" style="background:var(--ash-mid);">Referral</option>
-          <option value="Google search" style="background:var(--ash-mid);">Google search</option>
-          <option value="Other" style="background:var(--ash-mid);">Other</option>
-        </select>
-      </div>
-      <button type="submit" class="form-submit" id="submitBtn">Book a Free Consultation</button>
-      <div class="form-note" id="formNote">No commitment. We will be in touch within 4 hours.</div>
-    </form>
-  </div>
-</section>
-
-<!-- FOOTER -->
 <footer>
-  <div class="footer-brand">
-    <div class="mark"><div class="sq-b"></div><div class="sq-f"></div></div>
-    <div>
-      <div class="footer-wordmark">OPRA</div>
-      <div class="footer-tagline">Systems that work.</div>
-    </div>
+  <div>OPRA · Systems that work.</div>
+  <div class="f-links">
+    <a href="#services">Services</a>
+    <a href="#work">Work</a>
+    <a href="#process">Process</a>
+    <a href="#contact">Contact</a>
   </div>
-  <div class="footer-links">
-    <a href="#services" class="footer-link">Services</a>
-    <a href="#work" class="footer-link">Our Work</a>
-    <a href="#process" class="footer-link">How We Work</a>
-    <a href="#contact" class="footer-link">Contact</a>
-  </div>
-  <div class="footer-meta">
-    Johannesburg, South Africa<br>
-    <a href="mailto:johnathan@opra.co.za" style="color:rgba(235,240,239,0.4);text-decoration:none;">johnathan@opra.co.za</a><br>
-    opra.co.za · 2026
-  </div>
+  <div>Johannesburg · 2026</div>
 </footer>
 
+<script src="globe.js"></script>
+<script src="scroll-controller.js"></script>
 <script>
-/* ── CANVAS PARTICLE NETWORK ── */
+/* ── MOBILE NAV ── */
 (function () {
-  const canvas = document.getElementById('heroCanvas');
-  if (!canvas) return;
-  const ctx = canvas.getContext('2d');
-  let W, H, pts, mouse = { x: -9999, y: -9999 };
-
-  function init() {
-    W = canvas.width = canvas.offsetWidth;
-    H = canvas.height = canvas.offsetHeight;
-    const isMobile = window.innerWidth < 768;
-    const n = isMobile ? Math.min(25, Math.floor(W * H / 18000)) : Math.min(65, Math.floor(W * H / 11000));
-    pts = Array.from({ length: n }, () => ({
-      x: Math.random() * W, y: Math.random() * H,
-      vx: (Math.random() - 0.5) * 0.28,
-      vy: (Math.random() - 0.5) * 0.28,
-      r: Math.random() * 2.8 + 1.5
-    }));
-  }
-
-  function draw() {
-    ctx.clearRect(0, 0, W, H);
-    pts.forEach(p => {
-      p.x += p.vx; p.y += p.vy;
-      if (p.x < 0 || p.x > W) p.vx *= -1;
-      if (p.y < 0 || p.y > H) p.vy *= -1;
-    });
-
-    for (let i = 0; i < pts.length; i++) {
-      for (let j = i + 1; j < pts.length; j++) {
-        const dx = pts[i].x - pts[j].x, dy = pts[i].y - pts[j].y;
-        const d = Math.sqrt(dx * dx + dy * dy);
-        if (d < 125) {
-          ctx.beginPath();
-          ctx.moveTo(pts[i].x, pts[i].y);
-          ctx.lineTo(pts[j].x, pts[j].y);
-          ctx.strokeStyle = `rgba(42,172,160,${0.11 * (1 - d / 125)})`;
-          ctx.lineWidth = 0.5;
-          ctx.stroke();
-        }
-      }
-      const mdx = pts[i].x - mouse.x, mdy = pts[i].y - mouse.y;
-      const md = Math.sqrt(mdx * mdx + mdy * mdy);
-      if (md < 160) {
-        ctx.beginPath();
-        ctx.moveTo(pts[i].x, pts[i].y);
-        ctx.lineTo(mouse.x, mouse.y);
-        ctx.strokeStyle = `rgba(42,172,160,${0.65 * (1 - md / 160)})`;
-        ctx.lineWidth = 1.2;
-        ctx.stroke();
-      }
-    }
-
-    pts.forEach(p => {
-      ctx.beginPath();
-      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-      ctx.fillStyle = 'rgba(42,172,160,0.7)';
-      ctx.fill();
-    });
-    requestAnimationFrame(draw);
-  }
-
-  const hero = document.querySelector('.hero');
-  if (hero) {
-    hero.addEventListener('mousemove', e => {
-      const r = canvas.getBoundingClientRect();
-      mouse.x = e.clientX - r.left;
-      mouse.y = e.clientY - r.top;
-    });
-    hero.addEventListener('mouseleave', () => { mouse.x = -9999; mouse.y = -9999; });
-  }
-
-  let resizeTimer;
-  window.addEventListener('resize', () => {
-    clearTimeout(resizeTimer);
-    resizeTimer = setTimeout(init, 200);
+  const toggle = document.getElementById('navToggle');
+  const links = document.getElementById('navLinks');
+  if (!toggle || !links) return;
+  toggle.addEventListener('click', () => {
+    const open = links.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', open);
+    toggle.innerHTML = open
+      ? `<svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M1 1l16 16M17 1L1 17" stroke="rgba(232,240,250,0.7)" stroke-width="1.5"/></svg>`
+      : `<svg width="20" height="14" viewBox="0 0 20 14" fill="none"><rect width="20" height="1.5" fill="rgba(232,240,250,0.6)"/><rect y="6" width="14" height="1.5" fill="rgba(232,240,250,0.6)"/><rect y="12" width="20" height="1.5" fill="rgba(232,240,250,0.6)"/></svg>`;
   });
-
-  init();
-  draw();
-})();
-
-/* ── CUSTOM CURSOR ── */
-(function () {
-  const mq = window.matchMedia('(hover: hover) and (pointer: fine)');
-  if (!mq.matches) return;
-  const dot = document.getElementById('curDot');
-  const ring = document.getElementById('curRing');
-  let mx = 0, my = 0, rx = 0, ry = 0;
-
-  document.addEventListener('mousemove', e => {
-    mx = e.clientX; my = e.clientY;
-    dot.classList.add('on'); ring.classList.add('on');
-    dot.style.left = mx + 'px'; dot.style.top = my + 'px';
-  });
-
-  (function animRing() {
-    rx += (mx - rx) * 0.13;
-    ry += (my - ry) * 0.13;
-    ring.style.left = rx + 'px'; ring.style.top = ry + 'px';
-    requestAnimationFrame(animRing);
-  })();
-
-  document.querySelectorAll('a, button').forEach(el => {
-    el.addEventListener('mouseenter', () => ring.classList.add('big'));
-    el.addEventListener('mouseleave', () => ring.classList.remove('big'));
+  links.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      links.classList.remove('open');
+      toggle.setAttribute('aria-expanded', false);
+      toggle.innerHTML = `<svg width="20" height="14" viewBox="0 0 20 14" fill="none"><rect width="20" height="1.5" fill="rgba(232,240,250,0.6)"/><rect y="6" width="14" height="1.5" fill="rgba(232,240,250,0.6)"/><rect y="12" width="20" height="1.5" fill="rgba(232,240,250,0.6)"/></svg>`;
+    });
   });
 })();
 
-/* ── NAV SCROLL ── */
+/* ── NAV SCROLL STATE ── */
 (function () {
-  const nav = document.getElementById('mainNav');
-  window.addEventListener('scroll', () => {
-    nav.classList.toggle('scrolled', window.scrollY > 24);
+  const nav = document.querySelector('.nav');
+  window.addEventListener('scroll', function () {
+    nav.classList.toggle('scrolled', window.scrollY > 40);
   }, { passive: true });
 })();
 
 /* ── SCROLL REVEAL ── */
 (function () {
-  const els = document.querySelectorAll('.reveal, .reveal-l');
-  const obs = new IntersectionObserver(entries => {
-    entries.forEach(e => {
-      if (e.isIntersecting) { e.target.classList.add('vis'); obs.unobserve(e.target); }
-    });
-  }, { threshold: 0.12, rootMargin: '0px 0px -36px 0px' });
-  els.forEach(el => obs.observe(el));
-})();
-
-/* ── COUNTER ANIMATION ── */
-function runCounter(el, target, dur) {
-  let start;
-  function step(ts) {
-    if (!start) start = ts;
-    const p = Math.min((ts - start) / dur, 1);
-    const ease = 1 - Math.pow(1 - p, 3);
-    el.textContent = Math.round(ease * target).toLocaleString();
-    if (p < 1) requestAnimationFrame(step);
-  }
-  requestAnimationFrame(step);
-}
-
-(function () {
-  const m1 = document.getElementById('metric1');
-  const m2 = document.getElementById('metric2');
-  const cnt1 = document.getElementById('cnt1');
-  const cnt2 = document.getElementById('cnt2');
-  if (!m1 || !m2) return;
-
-  const obs = new IntersectionObserver(entries => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        e.target.classList.add('lit');
-        const cnt = e.target === m1 ? cnt1 : cnt2;
-        const target = parseInt(cnt.dataset.count);
-        runCounter(cnt, target, 1600);
-        obs.unobserve(e.target);
-      }
-    });
-  }, { threshold: 0.6 });
-  obs.observe(m1); obs.observe(m2);
-})();
-
-/* ── CHART BAR ANIMATION ── */
-(function () {
-  const chart = document.getElementById('heroChart');
-  if (!chart) return;
-  const bars = chart.querySelectorAll('.cb');
-  const obs = new IntersectionObserver(entries => {
-    if (entries[0].isIntersecting) {
-      bars.forEach((bar, i) => {
-        setTimeout(() => {
-          bar.querySelector('.cbi').style.height = bar.style.getPropertyValue('--bar-h') || '60%';
-        }, 900 + i * 80);
-      });
-      obs.disconnect();
-    }
-  }, { threshold: 0.4 });
-  obs.observe(chart);
-})();
-
-/* ── LIVE FEED TICKER ── */
-(function () {
-  const feed = document.getElementById('opsFeed');
-  if (!feed) return;
-  const items = [
-    { text: 'Lead captured — Techzone SA', cls: 'g', time: '0:23' },
-    { text: 'Onboarding triggered — New client', cls: 'g', time: '1:04' },
-    { text: 'CRM sync — 14 records updated', cls: 't', time: '2:17' },
-    { text: 'Report generated — Ops monthly', cls: 't', time: '3:41' },
-    { text: 'Approval workflow completed', cls: 'g', time: '4:55' },
-    { text: 'AI proposal sent — Riverstone Co', cls: 'a', time: '6:02' },
-    { text: 'Dashboard refresh — 48 metrics', cls: 't', time: '7:18' },
-    { text: 'Lead qualified — Atlas Consulting', cls: 'g', time: '8:33' },
-  ];
-  let idx = 0;
-
-  function update() {
-    const rows = feed.querySelectorAll('.feed-row');
-    rows.forEach((row, i) => {
-      const item = items[(idx + i) % items.length];
-      row.querySelector('.fd').className = 'fd ' + item.cls;
-      row.querySelector('.ft').textContent = item.text;
-      row.querySelector('.ftt').textContent = item.time;
-      row.style.opacity = i === 0 ? '1' : i === 1 ? '0.55' : '0.28';
-    });
-    idx = (idx + 1) % items.length;
-  }
-
-  update();
-  setInterval(update, 2800);
-})();
-
-/* ── SERVICE CARD MOUSE GRADIENT ── */
-document.querySelectorAll('.service-card').forEach(card => {
-  card.addEventListener('mousemove', e => {
-    const r = card.getBoundingClientRect();
-    card.style.setProperty('--mx', ((e.clientX - r.left) / r.width * 100) + '%');
-    card.style.setProperty('--my', ((e.clientY - r.top) / r.height * 100) + '%');
-  });
-});
-
-/* ── SMOOTH SCROLL ── */
-document.querySelectorAll('a[href^="#"]').forEach(a => {
-  a.addEventListener('click', e => {
-    const id = a.getAttribute('href').slice(1);
-    if (!id) return;
-    const el = document.getElementById(id);
-    if (el) { e.preventDefault(); el.scrollIntoView({ behavior: 'smooth' }); }
-  });
-});
-
-/* ── MOBILE NAV ── */
-(function () {
-  const toggle = document.querySelector('.nav-mobile-toggle');
-  const links  = document.querySelector('.nav-links');
-  if (!toggle || !links) return;
-
-  toggle.addEventListener('click', () => {
-    const open = links.classList.toggle('open');
-    toggle.setAttribute('aria-expanded', open);
-    toggle.innerHTML = open
-      ? `<svg width="18" height="18" viewBox="0 0 18 18" fill="none">
-           <path d="M1 1l16 16M17 1L1 17" stroke="rgba(235,240,239,0.7)" stroke-width="1.5"/>
-         </svg>`
-      : `<svg width="20" height="14" viewBox="0 0 20 14" fill="none">
-           <rect width="20" height="1.5" fill="rgba(235,240,239,0.6)"/>
-           <rect y="6" width="14" height="1.5" fill="rgba(235,240,239,0.6)"/>
-           <rect y="12" width="20" height="1.5" fill="rgba(235,240,239,0.6)"/>
-         </svg>`;
-  });
-
-  links.querySelectorAll('a').forEach(a => {
-    a.addEventListener('click', () => {
-      links.classList.remove('open');
-      toggle.setAttribute('aria-expanded', false);
-      toggle.innerHTML = `<svg width="20" height="14" viewBox="0 0 20 14" fill="none">
-        <rect width="20" height="1.5" fill="rgba(235,240,239,0.6)"/>
-        <rect y="6" width="14" height="1.5" fill="rgba(235,240,239,0.6)"/>
-        <rect y="12" width="20" height="1.5" fill="rgba(235,240,239,0.6)"/>
-      </svg>`;
+  // Text elements in non-hero sections: fade + slide up
+  document.querySelectorAll('section:not(#hero)').forEach(function (section) {
+    section.querySelectorAll('.section-label, .section-title, .section-lead').forEach(function (el) {
+      el.classList.add('fade-up');
     });
   });
+  // Glass card elements: opacity fade only (avoids transform + backdrop-filter compositor issues)
+  document.querySelectorAll('.pain-list li, .service-card, .process-step, .work-card').forEach(function (el) {
+    el.classList.add('fade-in');
+  });
+  // Contact section text blocks
+  var cm = document.querySelector('.contact-meta');
+  var cf = document.querySelector('form.contact');
+  if (cm) cm.classList.add('fade-up');
+  if (cf) { cf.classList.add('fade-up'); cf.setAttribute('data-d', '2'); }
+  // Stagger within each card group
+  document.querySelectorAll('.pain-list, .services-list, .process-grid, .work-grid').forEach(function (parent) {
+    parent.querySelectorAll(':scope > *').forEach(function (child, i) {
+      if (i < 6) child.setAttribute('data-d', String(i + 1));
+    });
+  });
+
+  var obs = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
+    });
+  }, { threshold: 0.08, rootMargin: '0px 0px -32px 0px' });
+
+  document.querySelectorAll('.fade-up, .fade-in').forEach(function (el) { obs.observe(el); });
 })();
 
 /* ── FORM ── */
-function handleSubmit(e) {
+document.getElementById('contactForm').addEventListener('submit', async function (e) {
   e.preventDefault();
   const btn = document.getElementById('submitBtn');
-  const note = document.getElementById('formNote');
-  btn.textContent = 'Submitted — we will be in touch.';
-  btn.style.background = 'var(--teal-dim)';
+  const form = e.target;
   btn.disabled = true;
-  note.textContent = 'Thank you. Expect a reply within 4 business hours.';
-  note.style.color = 'rgba(42,172,160,0.5)';
-}
+  btn.textContent = 'Sending…';
+
+  try {
+    const res = await fetch('/api/submit', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        name:     form.name.value.trim(),
+        business: form.business.value.trim(),
+        email:    form.email.value.trim(),
+        services: Array.from(form.querySelectorAll('input[name="services"]:checked')).map(el => el.value).join(', '),
+        source:   form.source.value,
+      }),
+    });
+
+    if (res.ok) {
+      btn.textContent = 'Submitted — we will be in touch within 4 hours.';
+      btn.style.background = 'rgba(124,227,255,0.15)';
+      btn.style.color = 'var(--accent)';
+      btn.style.borderColor = 'rgba(124,227,255,0.3)';
+      form.reset();
+    } else {
+      btn.textContent = 'Something went wrong — email us directly.';
+      btn.disabled = false;
+    }
+  } catch (_) {
+    btn.textContent = 'Something went wrong — email us directly.';
+    btn.disabled = false;
+  }
+});
 </script>
 </body>
 </html>

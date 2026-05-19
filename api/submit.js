@@ -10,6 +10,12 @@ export default async function handler(req, res) {
     return res.status(500).json({ error: 'Server misconfigured' });
   }
 
+  const { name, business, email, services, source } = req.body ?? {};
+
+  if (!name || !email) {
+    return res.status(400).json({ error: 'Name and email are required' });
+  }
+
   const airtableRes = await fetch(
     `https://api.airtable.com/v0/${base}/Leads`,
     {
@@ -18,7 +24,15 @@ export default async function handler(req, res) {
         'Authorization': `Bearer ${token}`,
         'Content-Type':  'application/json',
       },
-      body: JSON.stringify(req.body),
+      body: JSON.stringify({
+        fields: {
+          'Full Name':                 String(name).slice(0, 200),
+          'Business Name':             String(business ?? '').slice(0, 200),
+          'Email':                     String(email).slice(0, 200),
+          'Services interested in':    String(services ?? '').slice(0, 500),
+          'How they heard about Opra': String(source ?? '').slice(0, 100),
+        },
+      }),
     }
   );
 
