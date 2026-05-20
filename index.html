@@ -994,10 +994,27 @@
 })();
 
 /* ── FORM ── */
+function sanitizeText(str) {
+  return String(str).trim()
+    .replace(/[\x00-\x1F\x7F]/g, '')
+    .replace(/<[^>]*>/g, '')
+    .replace(/\s+/g, ' ');
+}
+
 document.getElementById('contactForm').addEventListener('submit', async function (e) {
   e.preventDefault();
   const btn = document.getElementById('submitBtn');
   const form = e.target;
+
+  const nameVal     = sanitizeText(form.name.value);
+  const businessVal = sanitizeText(form.business.value);
+  const emailVal    = sanitizeText(form.email.value);
+
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailVal)) {
+    btn.textContent = 'Please enter a valid email address.';
+    return;
+  }
+
   btn.disabled = true;
   btn.textContent = 'Sending…';
 
@@ -1006,9 +1023,9 @@ document.getElementById('contactForm').addEventListener('submit', async function
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
-        name:     form.name.value.trim(),
-        business: form.business.value.trim(),
-        email:    form.email.value.trim(),
+        name:     nameVal,
+        business: businessVal,
+        email:    emailVal,
         services: Array.from(form.querySelectorAll('input[name="services"]:checked')).map(el => el.value).join(', '),
         source:   form.source.value,
       }),
