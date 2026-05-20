@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 46 46" width="46" height="46">
+  <!-- Back square — solid dark -->
+  <rect x="18" y="18" width="24" height="24" fill="#07090D"/>
+  <!-- Front square — Electric Blue -->
+  <rect x="4" y="4" width="24" height="24" fill="#7CE3FF"/>
+</svg>
