@@ -3,7 +3,7 @@
 (function () {
   const PRESETS = {
     hero: {
-      offsetX: 0, offsetY: 0.06, scale: 1.0, spin: 0.00045,
+      offsetX: 0, offsetY: 0.03, scale: 1.0, spin: 0.00045,
       ringOpacity: 0.9, labelOpacity: 1, lineOpacity: 1, particleAlpha: 1,
       focusAmt: 0, focusLat: -26.2041, focusLon: 28.0473,
       eventsPerSec: 0.55,
@@ -48,6 +48,7 @@
   window.addEventListener('mousemove', function (e) {
     mouseOffsetX = ((e.clientX / window.innerWidth)  - 0.5) * 0.06;
     mouseOffsetY = ((e.clientY / window.innerHeight) - 0.5) * 0.06;
+    if (window.scrollY > 0) schedule();
   }, { passive: true });
 
   function lerp(a, b, t) { return a + (b - a) * t; }
@@ -82,6 +83,14 @@
     }
 
     function onScroll() {
+      if (window.scrollY === 0) {
+        globe.setTarget(PRESETS.hero);
+        document.querySelectorAll("#rail a").forEach((a) => {
+          a.classList.toggle("is-active", a.getAttribute("data-section") === "hero");
+        });
+        return;
+      }
+
       const vpCenter = window.innerHeight / 2;
       const centers = sections.map((s) => ({ id: s.id, c: getCenter(s.el) }));
 

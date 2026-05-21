@@ -13,14 +13,14 @@
 
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://www.opra.co.za/">
-<meta property="og:title" content="Opra — Operational Systems &amp; Automation | Johannesburg">
+<meta property="og:title" content="Opra: Operational Systems &amp; Automation | Johannesburg">
 <meta property="og:description" content="We modernise business operations through automation, dashboards, and AI. Johannesburg-based, remote across SA and internationally.">
 <meta property="og:image" content="https://www.opra.co.za/og-image.png">
 <meta property="og:site_name" content="Opra">
 <meta property="og:locale" content="en_ZA">
 
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Opra — Operational Systems &amp; Automation">
+<meta name="twitter:title" content="Opra: Operational Systems &amp; Automation">
 <meta name="twitter:description" content="We modernise business operations through automation, dashboards, and AI. Johannesburg-based, remote across SA.">
 <meta name="twitter:image" content="https://www.opra.co.za/og-image.png">
 
@@ -122,7 +122,7 @@
     color: var(--ink);
     text-decoration: none;
   }
-  .nav-links { display: flex; gap: 28px; font-size: 13px; color: var(--ink-dim); }
+  .nav-links { display: flex; gap: 28px; font-size: 13px; color: var(--ink-dim); position: absolute; left: 50%; transform: translateX(-50%); }
   .nav-links a { color: inherit; text-decoration: none; transition: color .2s; }
   .nav-links a:hover { color: var(--ink); }
   .nav-cta {
@@ -182,37 +182,20 @@
   }
 
   /* SECTION 01 — HERO */
-  #hero { padding-top: 140px; padding-bottom: 80px; min-height: 100vh; }
+  #hero { padding-top: 140px; padding-bottom: 40px; min-height: 100vh; }
   #hero .container {
-    display: grid;
-    grid-template-rows: 1fr auto 1fr;
-    min-height: calc(100vh - 220px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: calc(100vh - 180px);
   }
-  .system-chip {
-    align-self: start; justify-self: center;
-    display: inline-flex; align-items: center; gap: 10px;
-    font-family: var(--mono); font-size: 11px;
-    letter-spacing: 0.22em; text-transform: uppercase;
-    color: var(--ink-dim);
-    padding: 8px 14px;
-    border: 1px solid var(--line); border-radius: 999px;
-    background: rgba(8,12,18,0.5);
-    backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
-  }
-  .pulse {
-    width: 6px; height: 6px; border-radius: 50%;
-    background: var(--accent);
-    animation: pulse 2.2s ease-out infinite;
-  }
-  @keyframes pulse {
-    0%   { box-shadow: 0 0 0 0 rgba(124,227,255,0.55); }
-    70%  { box-shadow: 0 0 0 8px rgba(124,227,255,0); }
-    100% { box-shadow: 0 0 0 0 rgba(124,227,255,0); }
-  }
-
   .hero-headline {
-    align-self: center; text-align: center;
-    max-width: 1100px; margin: 0 auto;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    max-width: 1100px; margin: 0 auto; width: 100%;
   }
   .eyebrow {
     font-family: var(--mono); font-size: 11px;
@@ -233,10 +216,11 @@
   }
 
   .hero-bottom {
-    align-self: end;
     display: flex;
     justify-content: space-between;
-    align-items: end; gap: 40px;
+    align-items: flex-end;
+    gap: 40px;
+    padding-bottom: 8px;
   }
   .cta-block { display: flex; gap: 12px; align-items: center; justify-content: center; }
   .btn-primary, .btn-ghost {
@@ -328,6 +312,14 @@
   .services-list {
     display: flex; flex-direction: column; gap: 8px;
   }
+  .services-custom {
+    grid-column: 2;
+    margin-top: -60px;
+    font-family: var(--sans); font-size: 14px; font-weight: 300;
+    color: var(--ink-dim); text-align: left;
+  }
+  .services-custom a { color: var(--accent); text-decoration: none; }
+  .services-custom a:hover { text-decoration: underline; }
   .service-card {
     display: grid;
     grid-template-columns: auto 1fr auto;
@@ -553,7 +545,7 @@
   }
   footer a { color: var(--ink-dim); text-decoration: none; }
   footer a:hover { color: var(--ink); }
-  footer .f-links { display: flex; gap: 24px; }
+  footer .f-links { display: flex; gap: 24px; position: absolute; left: 50%; transform: translateX(-50%); }
   footer .footer-brand { font-family: var(--mark); font-size: 18px; letter-spacing: 0.1em; color: var(--ink); }
 
   /* Responsive */
@@ -564,7 +556,7 @@
     .nav-mobile-toggle { display: block; }
     .nav-links.open {
       display: flex; flex-direction: column;
-      position: fixed; top: 58px; left: 0; right: 0;
+      position: fixed; top: 58px; left: 0; right: 0; transform: none;
       background: rgba(7,9,13,0.97);
       backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px);
       border-bottom: 1px solid var(--line);
@@ -614,8 +606,6 @@
     border-bottom: 1px solid var(--line);
   }
 
-  /* System chip ambient glow */
-  .system-chip { box-shadow: 0 0 28px rgba(124,227,255,0.08); }
 
 </style>
 </head>
@@ -661,15 +651,9 @@
   <!-- 01 HERO -->
   <section id="hero">
     <div class="container">
-      <div class="system-chip">
-        <span class="pulse"></span>
-        System Monitor · Live
-      </div>
-
       <div class="hero-headline">
-        <div class="eyebrow">Opra · Johannesburg · Internationally</div>
         <h1>We modernise<br/>business <span class="italic">operations.</span></h1>
-        <p class="sub"><span class="glass-txt">Operational infrastructure for growing businesses — websites, workflow automation, dashboards, client portals, and AI systems. Less manual work. Full visibility.</span></p>
+        <p class="sub"><span class="glass-txt">Operational infrastructure for growing businesses: websites, workflow automation, dashboards, client portals, and AI systems. Less manual work. Full visibility.</span></p>
       </div>
 
       <div class="hero-bottom">
@@ -690,7 +674,7 @@
   <section id="problem">
     <div class="container">
       <div>
-        <div class="section-label">02 — Who this is for</div>
+        <div class="section-label">02 · Who this is for</div>
         <h2 class="section-title">Your business is growing.<br/>Your operations are <span class="italic">not keeping up.</span></h2>
         <p class="section-lead"><span class="glass-txt">Service businesses, recruitment and consulting firms, agencies, and operationally heavy SMBs with 1–50 people. Growing fast enough that manual processes are visibly costing time and money.</span></p>
       </div>
@@ -709,9 +693,9 @@
   <section id="services">
     <div class="container">
       <div class="services-intro">
-        <div class="section-label">03 — Services</div>
+        <div class="section-label">03 · Services</div>
         <h2 class="section-title">Four services. <span class="italic">One</span> operational focus.</h2>
-        <p class="section-lead"><span class="glass-txt">We do not build everything. We build operational systems — the infrastructure that makes your business run. Every service connects into that single goal.</span></p>
+        <p class="section-lead"><span class="glass-txt">We do not build everything. We build operational systems, the infrastructure that makes your business run. Every service connects into that single goal.</span></p>
       </div>
       <div class="services-list">
         <div class="service-card" data-svc="websites">
@@ -742,11 +726,12 @@
           <div class="svc-num">04</div>
           <div>
             <div class="svc-title">AI Systems</div>
-            <p class="svc-desc">Practical AI built into real workflows — proposal generation, document parsing, email triage, knowledge systems.</p>
+            <p class="svc-desc">Practical AI built into real workflows: proposal generation, document parsing, email triage, knowledge systems.</p>
           </div>
           <div class="svc-arrow">→</div>
         </div>
       </div>
+      <p class="services-custom">Have something that doesn't fit neatly into one of these? We welcome custom projects.<br><a href="#contact">Tell us what you're building.</a></p>
     </div>
   </section>
 
@@ -754,7 +739,7 @@
   <section id="process">
     <div class="container">
       <div class="process-header">
-        <div class="section-label" style="justify-content: center;">04 — How we work</div>
+        <div class="section-label" style="justify-content: center;">04 · How we work</div>
         <h2 class="section-title">Five steps. Every project.<br/><span class="italic">No exceptions.</span></h2>
       </div>
       <div class="process-grid">
@@ -791,15 +776,15 @@
   <section id="work">
     <div class="container">
       <div>
-        <div class="section-label">05 — Our work</div>
+        <div class="section-label">05 · Our work</div>
         <h2 class="section-title">Systems we have <span class="italic">built.</span></h2>
-        <p class="section-lead"><span class="glass-txt">Previous work and concept showcases. Early-stage clients get our full attention and best pricing — your project becomes a case study.</span></p>
+        <p class="section-lead"><span class="glass-txt">Previous work and concept showcases. Early-stage clients get our full attention and best pricing. Your project becomes a case study.</span></p>
       </div>
       <div class="work-grid">
         <div class="work-card">
           <div class="work-tag">Platform · Dashboard</div>
           <h3 class="work-title">Interactive Quote Builder</h3>
-          <p class="work-desc">Drag-and-drop proposal system with a full product catalogue. Configure scope, generate PDF — ready to send in minutes.</p>
+          <p class="work-desc">Drag-and-drop proposal system with a full product catalogue. Configure scope, generate PDF and send in minutes.</p>
           <div class="work-foot"><span>Concept</span><span class="live">● PDF Export</span></div>
         </div>
         <div class="work-card">
@@ -828,7 +813,7 @@
   <section id="contact">
     <div class="container">
       <div>
-        <div class="section-label">06 — Book a consultation</div>
+        <div class="section-label">06 · Book a consultation</div>
         <h2 class="section-title">Let's build something <span class="italic">operational.</span></h2>
         <p class="section-lead"><span class="glass-txt">Tell us what is broken and we will tell you what to build. No hard sell. Just a 20-minute call to understand your operations.</span></p>
 
@@ -972,23 +957,23 @@ document.getElementById('contactForm').addEventListener('submit', async function
     });
 
     if (res.ok) {
-      btn.textContent = 'Submitted — we will be in touch within 4 hours.';
+      btn.textContent = 'Submitted. We will be in touch within 4 hours.';
       btn.style.background = 'rgba(124,227,255,0.15)';
       btn.style.color = 'var(--accent)';
       btn.style.borderColor = 'rgba(124,227,255,0.3)';
       const status = document.getElementById('formStatus');
-      if (status) status.textContent = 'Submitted — we will be in touch within 4 hours.';
+      if (status) status.textContent = 'Submitted. We will be in touch within 4 hours.';
       form.reset();
     } else {
-      btn.textContent = 'Something went wrong — email us directly.';
+      btn.textContent = 'Something went wrong. Email us directly.';
       const status = document.getElementById('formStatus');
-      if (status) status.textContent = 'Something went wrong — email us directly.';
+      if (status) status.textContent = 'Something went wrong. Email us directly.';
       btn.disabled = false;
     }
   } catch (_) {
-    btn.textContent = 'Something went wrong — email us directly.';
+    btn.textContent = 'Something went wrong. Email us directly.';
     const status = document.getElementById('formStatus');
-    if (status) status.textContent = 'Something went wrong — email us directly.';
+    if (status) status.textContent = 'Something went wrong. Email us directly.';
     btn.disabled = false;
   }
 });
