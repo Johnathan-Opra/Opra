@@ -129,9 +129,8 @@
     font-size: 11px; text-transform: uppercase; letter-spacing: 0.18em;
     color: var(--ink); padding: 9px 14px;
     border: 1px solid var(--line-2); border-radius: 999px;
-    text-decoration: none; transition: all .2s;
+    text-decoration: none;
   }
-  .nav-cta:hover { border-color: var(--accent); color: var(--accent); }
 
   /* Mobile nav toggle */
   .nav-mobile-toggle {
@@ -242,7 +241,7 @@
   .btn-primary, .btn-ghost {
     font-family: var(--sans); font-size: 14px; font-weight: 500;
     padding: 14px 22px; border-radius: 999px;
-    text-decoration: none; transition: all .2s;
+    text-decoration: none;
     display: inline-flex; align-items: center; gap: 8px;
     cursor: pointer; border: none;
   }
@@ -250,9 +249,6 @@
   .btn-primary:hover { background: var(--accent); }
   .btn-ghost { background: rgba(8,12,18,0.4); color: var(--ink); border: 1px solid var(--line); backdrop-filter: blur(8px); }
   .btn-ghost:hover { border-color: var(--line-2); }
-  .arrow { transition: transform .2s; }
-  .btn-primary:hover .arrow { transform: translateX(2px); }
-
   .corner-tag {
     font-family: var(--mono); font-size: 10px;
     letter-spacing: 0.22em; text-transform: uppercase;
@@ -306,12 +302,13 @@
   .pain-list li {
     display: flex; align-items: flex-start; gap: 16px;
     padding: 18px 20px;
-    border: 1px solid var(--line);
-    border-radius: 12px;
-    background: rgba(11,15,21,0.55);
-    backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255,255,255,0.11);
+    border-radius: 6px;
+    background: rgba(11,15,21,0.88);
+    backdrop-filter: blur(3px); -webkit-backdrop-filter: blur(3px);
     font-size: 15px; line-height: 1.45;
     color: var(--ink-dim);
+    position: relative; overflow: hidden;
   }
   .pain-num {
     font-family: var(--mono); font-size: 11px;
@@ -336,18 +333,12 @@
     gap: 22px;
     align-items: center;
     padding: 24px 26px;
-    border: 1px solid var(--line);
-    border-radius: 14px;
-    background: rgba(11,15,21,0.55);
-    backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
-    transition: all .25s;
+    border: 1px solid rgba(255,255,255,0.11);
+    border-radius: 6px;
+    background: rgba(11,15,21,0.88);
+    backdrop-filter: blur(3px); -webkit-backdrop-filter: blur(3px);
     cursor: pointer;
-  }
-  .service-card:hover {
-    border-color: var(--line-2);
-    background: rgba(11,15,21,0.78);
-    transform: translateY(-1px);
-    box-shadow: 0 8px 24px rgba(124,227,255,0.07);
+    position: relative; overflow: hidden;
   }
   .service-card.is-active {
     border-color: var(--accent);
@@ -387,19 +378,13 @@
   .process-step {
     text-align: left;
     padding: 22px 20px;
-    border: 1px solid var(--line);
-    border-radius: 12px;
-    background: rgba(11,15,21,0.55);
-    backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255,255,255,0.11);
+    border-radius: 6px;
+    background: rgba(11,15,21,0.88);
+    backdrop-filter: blur(3px); -webkit-backdrop-filter: blur(3px);
     min-height: 180px;
     display: flex; flex-direction: column;
-    transition: all .3s;
-  }
-  .process-step:hover {
-    border-color: rgba(124,227,255,0.4);
-    background: rgba(11,15,21,0.78);
-    transform: translateY(-2px);
-    box-shadow: inset 2px 0 0 var(--accent), 0 8px 28px rgba(124,227,255,0.07);
+    position: relative; overflow: hidden;
   }
   .step-num {
     font-family: var(--mono); font-size: 11px;
@@ -428,16 +413,25 @@
   }
   .work-card {
     padding: 22px;
-    border: 1px solid var(--line);
-    border-radius: 12px;
-    background: rgba(11,15,21,0.6);
-    backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
-    transition: all .25s;
+    border: 1px solid rgba(255,255,255,0.11);
+    border-radius: 6px;
+    background: rgba(11,15,21,0.88);
+    backdrop-filter: blur(3px); -webkit-backdrop-filter: blur(3px);
     cursor: pointer;
     display: flex; flex-direction: column; gap: 10px;
     min-height: 180px;
+    position: relative; overflow: hidden;
   }
-  .work-card:hover { border-color: rgba(124,227,255,0.2); transform: translateY(-2px); box-shadow: 0 8px 32px rgba(124,227,255,0.08); }
+  .accent-bar {
+    position: absolute;
+    left: 0; top: 15%; bottom: 15%;
+    width: 2px; background: var(--accent);
+    border-radius: 2px;
+    transform: scaleY(0);
+    transform-origin: center;
+    pointer-events: none;
+  }
+
   .work-tag {
     font-family: var(--mono); font-size: 10px;
     letter-spacing: 0.22em; text-transform: uppercase;
@@ -484,10 +478,10 @@
 
   form.contact {
     padding: 32px;
-    border: 1px solid var(--line);
-    border-radius: 16px;
-    background: rgba(11,15,21,0.7);
-    backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.11);
+    border-radius: 6px;
+    background: rgba(11,15,21,0.88);
+    backdrop-filter: blur(3px); -webkit-backdrop-filter: blur(3px);
     display: flex; flex-direction: column; gap: 16px;
   }
   form.contact label {
@@ -604,8 +598,11 @@
     footer .f-links { flex-direction: column; gap: 14px; }
   }
   @media (max-width: 540px) {
-    .process-grid { grid-template-columns: 1fr; }
+    .process-grid { grid-template-columns: 1fr 1fr; }
     section { padding: 80px 22px; }
+  }
+  @media (max-width: 400px) {
+    .process-grid { grid-template-columns: 1fr; }
   }
 
   /* ── DESIGN REFINEMENTS ── */
@@ -621,39 +618,9 @@
     border-bottom: 1px solid var(--line);
   }
 
-  /* Pain list item hover */
-  .pain-list li { transition: border-color .25s, background .25s, box-shadow .25s; }
-  .pain-list li:hover {
-    border-color: rgba(124,227,255,0.22);
-    background: rgba(11,15,21,0.78);
-    box-shadow: inset 2px 0 0 var(--accent);
-  }
-
   /* System chip ambient glow */
   .system-chip { box-shadow: 0 0 28px rgba(124,227,255,0.08); }
 
-  /* Scroll reveal — text elements (fade + slide) */
-  .fade-up {
-    opacity: 0;
-    transform: translateY(18px);
-    transition: opacity 0.65s ease, transform 0.65s ease;
-  }
-  .fade-up.visible { opacity: 1; transform: translateY(0); }
-
-  /* Scroll reveal — glass cards (opacity only, avoids backdrop-filter compositor jank) */
-  .fade-in {
-    opacity: 0;
-    transition: opacity 0.55s ease;
-  }
-  .fade-in.visible { opacity: 1; }
-
-  /* Stagger delays for grouped items */
-  [data-d="1"] { transition-delay: 0.07s; }
-  [data-d="2"] { transition-delay: 0.14s; }
-  [data-d="3"] { transition-delay: 0.21s; }
-  [data-d="4"] { transition-delay: 0.28s; }
-  [data-d="5"] { transition-delay: 0.35s; }
-  [data-d="6"] { transition-delay: 0.42s; }
 </style>
 </head>
 <body>
