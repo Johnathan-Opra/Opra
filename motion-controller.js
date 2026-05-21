@@ -1,5 +1,6 @@
 (function () {
   function initHovers() {
+    if (!window.Motion) return;
     const { animate } = window.Motion;
     const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (reducedMotion) return;
@@ -7,6 +8,7 @@
     function injectBar(el) {
       const bar = document.createElement('span');
       bar.className = 'accent-bar';
+      bar.setAttribute('aria-hidden', 'true');
       el.appendChild(bar);
       return bar;
     }
@@ -22,7 +24,7 @@
         if (arrow) animate(arrow, { x: 5 }, { type: 'spring', stiffness: 320, damping: 22 });
       });
       card.addEventListener('mouseleave', function () {
-        card.style.borderColor = 'rgba(255,255,255,0.11)';
+        card.style.borderColor = card.classList.contains('is-active') ? '' : 'rgba(255,255,255,0.11)';
         card.style.boxShadow = 'none';
         animate(bar, { scaleY: 0 }, { type: 'spring', stiffness: 320, damping: 22 });
         if (arrow) animate(arrow, { x: 0 }, { type: 'spring', stiffness: 320, damping: 22 });
@@ -79,6 +81,7 @@
         if (arrow) animate(arrow, { x: 3 }, { type: 'spring', stiffness: 400, damping: 22 });
       });
       btn.addEventListener('mouseleave', function () {
+        if (btn.disabled) return;
         animate(btn, { scale: 1 }, { type: 'spring', stiffness: 400, damping: 22 });
         if (arrow) animate(arrow, { x: 0 }, { type: 'spring', stiffness: 400, damping: 22 });
       });
@@ -96,6 +99,7 @@
   }
 
   function initScrollReveals() {
+    if (!window.Motion) return;
     const { animate, inView } = window.Motion;
     const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (reducedMotion) return;
@@ -158,6 +162,7 @@
   }
 
   function initCornerTag() {
+    if (!window.Motion) return;
     const { animate } = window.Motion;
     const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (reducedMotion) return;
