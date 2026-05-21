@@ -473,16 +473,15 @@
         if (ev.origin) {
           const ov = applyGlobeRot(ev.origin);
           if (v.z > -0.2 && ov.z > -0.2) {
-            const op = project(ov, R);
             const STEPS = 40;
+            const dot = ev.origin.x * ev.base.x + ev.origin.y * ev.base.y + ev.origin.z * ev.base.z;
+            const clampedDot = Math.max(-1, Math.min(1, dot));
+            const omega = Math.acos(clampedDot);
             ctx.beginPath();
             ctx.strokeStyle = accentA(fade * 0.28);
             ctx.lineWidth = 1;
             for (let s = 0; s <= STEPS; s++) {
               const tArc = s / STEPS;
-              const dot = ev.origin.x * ev.base.x + ev.origin.y * ev.base.y + ev.origin.z * ev.base.z;
-              const clampedDot = Math.max(-1, Math.min(1, dot));
-              const omega = Math.acos(clampedDot);
               let ax, ay, az;
               if (Math.abs(omega) < 1e-6) {
                 ax = ev.origin.x; ay = ev.origin.y; az = ev.origin.z;
