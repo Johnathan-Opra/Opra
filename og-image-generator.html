@@ -3,12 +3,12 @@
 <head>
 <meta charset="utf-8">
 <title>Opra — Asset Generator</title>
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Outfit:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   body { background: #1a1a1a; display: flex; flex-direction: column; align-items: center; gap: 40px; padding: 40px; font-family: sans-serif; }
   canvas { border: 1px solid rgba(255,255,255,0.1); }
   button { background: #7CE3FF; color: #07090d; border: none; padding: 12px 24px; border-radius: 6px; font-size: 14px; font-weight: 600; cursor: pointer; }
-  h2 { color: #e8f0fa; margin: 0 0 8px; font-family: 'Geist', sans-serif; }
+  h2 { color: #e8f0fa; margin: 0 0 8px; font-family: 'Outfit', sans-serif; }
   .section { display: flex; flex-direction: column; align-items: center; gap: 12px; }
 </style>
 </head>
@@ -59,14 +59,14 @@ function drawOg() {
   ctx.fillText('OPRA · JOHANNESBURG', 80, 260);
 
   ctx.fillStyle = '#e8f0fa';
-  ctx.font = '400 88px "Instrument Serif", serif';
+  ctx.font = '300 88px "Cormorant Garamond", serif';
   ctx.fillText('Operational', 80, 370);
   ctx.fillStyle = '#7CE3FF';
-  ctx.font = 'italic 400 88px "Instrument Serif", serif';
+  ctx.font = 'italic 300 88px "Cormorant Garamond", serif';
   ctx.fillText('Systems.', 80, 465);
 
   ctx.fillStyle = 'rgba(147,163,182,1)';
-  ctx.font = '400 22px "Geist", sans-serif';
+  ctx.font = '300 22px "Outfit", sans-serif';
   ctx.letterSpacing = '0';
   ctx.fillText('Automation · Dashboards · Platforms · AI', 80, 560);
 
