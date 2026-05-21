@@ -119,11 +119,41 @@
     function makeDots(n) {
       const arr = [];
       const phi = Math.PI * (3 - Math.sqrt(5));
-      for (let i = 0; i < n; i++) {
-        const y = 1 - (i / (n - 1)) * 2;
+      const base = n - 80;
+      for (let i = 0; i < base; i++) {
+        const y = 1 - (i / (base - 1)) * 2;
         const r = Math.sqrt(1 - y * y);
         const theta = phi * i;
         arr.push({ x: Math.cos(theta) * r, y, z: Math.sin(theta) * r });
+      }
+      // Africa cluster: 80 extra dots near Southern Africa (lat -30, lon 26, radius ~18°)
+      const clusterLat = -30 * (Math.PI / 180);
+      const clusterLon = 26  * (Math.PI / 180);
+      const clusterR   = 18  * (Math.PI / 180);
+      const cx = Math.cos(clusterLat) * Math.cos(clusterLon);
+      const cy = Math.sin(clusterLat);
+      const cz = Math.cos(clusterLat) * Math.sin(clusterLon);
+      for (let i = 0; i < 80; i++) {
+        const u = Math.random();
+        const v = Math.random();
+        const theta = TAU * v;
+        const phi2  = Math.acos(1 - u * (1 - Math.cos(clusterR)));
+        const sinP = Math.sin(phi2);
+        const lx = sinP * Math.cos(theta);
+        const ly = sinP * Math.sin(theta);
+        const lz = Math.cos(phi2);
+        // Rodrigues rotation: rotate local z-axis to cluster centre
+        const ax = -cy, ay = cx, az = 0;
+        const axLen = Math.sqrt(ax*ax + ay*ay + az*az);
+        if (axLen < 1e-6) { arr.push({ x: lx, y: ly, z: lz }); continue; }
+        const nx = ax/axLen, ny = ay/axLen, nz = az/axLen;
+        const cosA = cz, sinA = Math.sqrt(1 - cz*cz);
+        const d = lx*nx + ly*ny + lz*nz;
+        arr.push({
+          x: lx*cosA + (ny*lz - nz*ly)*sinA + nx*d*(1-cosA),
+          y: ly*cosA + (nz*lx - nx*lz)*sinA + ny*d*(1-cosA),
+          z: lz*cosA + (nx*ly - ny*lx)*sinA + nz*d*(1-cosA),
+        });
       }
       return arr;
     }
