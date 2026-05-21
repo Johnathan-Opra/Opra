@@ -491,6 +491,15 @@
     function easeOut(t) { return 1 - Math.pow(1 - t, 3); }
 
     function init() {
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        cfg.speed = 0;
+        cfg.particles = 0;
+        cfg.showLines = false;
+        target.spin = 0;
+        state.spin = 0;
+        target.eventsPerSec = 0;
+        state.eventsPerSec = 0;
+      }
       resize();
       dots = makeDots(cfg.dots);
       particles = makeParticles(cfg.particles);
@@ -498,6 +507,16 @@
       lastT = performance.now();
       cancelAnimationFrame(raf);
       raf = requestAnimationFrame(draw);
+
+      document.addEventListener('visibilitychange', function () {
+        if (document.hidden) {
+          cancelAnimationFrame(raf);
+          raf = 0;
+        } else {
+          lastT = performance.now();
+          raf = requestAnimationFrame(draw);
+        }
+      });
     }
 
     const onResize = () => resize();
