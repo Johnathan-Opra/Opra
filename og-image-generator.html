@@ -13,6 +13,9 @@
 </style>
 </head>
 <body>
+<div style="position:absolute;opacity:0;pointer-events:none;font-family:'Cormorant Garamond',serif;font-weight:300;">x</div>
+<div style="position:absolute;opacity:0;pointer-events:none;font-family:'Cormorant Garamond',serif;font-weight:300;font-style:italic;">x</div>
+<div style="position:absolute;opacity:0;pointer-events:none;font-family:'Outfit',sans-serif;font-weight:300;">x</div>
 <div class="section">
   <h2>og-image.png (1200×630)</h2>
   <canvas id="og" width="1200" height="630"></canvas>
@@ -25,7 +28,13 @@
 </div>
 <script>
 function waitForFonts(cb) {
-  document.fonts.ready.then(cb);
+  Promise.all([
+    document.fonts.load('300 88px "Cormorant Garamond"'),
+    document.fonts.load('italic 300 88px "Cormorant Garamond"'),
+    document.fonts.load('300 22px "Outfit"'),
+    document.fonts.load('500 18px "JetBrains Mono"'),
+    document.fonts.load('400 18px "JetBrains Mono"'),
+  ]).then(cb);
 }
 
 function drawOg() {
