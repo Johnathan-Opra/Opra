@@ -295,6 +295,7 @@
       const R = R0 * state.scale;
 
       if (cfg.glow) drawGlow(R);
+      drawLimb(R);
       if (cfg.showRings && state.ringOpacity > 0.02) drawRings(R);
       drawDots(R);
       drawParticles(R, now);
@@ -316,6 +317,24 @@
       grad.addColorStop(1, "rgba(0,0,0,0)");
       ctx.fillStyle = grad;
       ctx.fillRect(0, 0, W, H);
+    }
+
+    function drawLimb(R) {
+      const ox = state.offsetX * W;
+      const oy = state.offsetY * H;
+      const grad = ctx.createRadialGradient(
+        CX + ox, CY + oy, R * 0.82,
+        CX + ox, CY + oy, R * 1.18
+      );
+      grad.addColorStop(0,    'rgba(0,0,0,0)');
+      grad.addColorStop(0.45, accentA(0.045));
+      grad.addColorStop(0.55, accentA(0.07));
+      grad.addColorStop(0.65, accentA(0.045));
+      grad.addColorStop(1,    'rgba(0,0,0,0)');
+      ctx.fillStyle = grad;
+      ctx.beginPath();
+      ctx.arc(CX + ox, CY + oy, R * 1.18, 0, TAU);
+      ctx.fill();
     }
 
     function drawRings(R) {
