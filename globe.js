@@ -101,6 +101,7 @@
     let raf = 0;
     let lastT = performance.now();
     let eventTimer = 0;
+    let _visibilityBound = false;
 
     function resize() {
       DPR = Math.min(window.devicePixelRatio || 1, 2);
@@ -508,15 +509,18 @@
       cancelAnimationFrame(raf);
       raf = requestAnimationFrame(draw);
 
-      document.addEventListener('visibilitychange', function () {
-        if (document.hidden) {
-          cancelAnimationFrame(raf);
-          raf = 0;
-        } else {
-          lastT = performance.now();
-          raf = requestAnimationFrame(draw);
-        }
-      });
+      if (!_visibilityBound) {
+        _visibilityBound = true;
+        document.addEventListener('visibilitychange', function () {
+          if (document.hidden) {
+            cancelAnimationFrame(raf);
+            raf = 0;
+          } else {
+            lastT = performance.now();
+            if (!raf) raf = requestAnimationFrame(draw);
+          }
+        });
+      }
     }
 
     const onResize = () => resize();
