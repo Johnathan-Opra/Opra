@@ -233,6 +233,7 @@
       const base = latLonToVec(city[0], city[1]);
       events.push({
         base, city: city[2], label: ev,
+        origin: latLonToVec(-26.2041, 28.0473),
         t0: performance.now(),
         life: 4800,
         tangent: Math.random() * TAU,
@@ -467,6 +468,37 @@
         ctx.moveTo(p.x, p.y);
         ctx.lineTo(ex, ey);
         ctx.stroke();
+
+        // Great-circle arc from Johannesburg to event city
+        if (ev.origin) {
+          const ov = applyGlobeRot(ev.origin);
+          if (v.z > -0.2 && ov.z > -0.2) {
+            const op = project(ov, R);
+            const STEPS = 40;
+            ctx.beginPath();
+            ctx.strokeStyle = accentA(fade * 0.28);
+            ctx.lineWidth = 1;
+            for (let s = 0; s <= STEPS; s++) {
+              const tArc = s / STEPS;
+              const dot = ev.origin.x * ev.base.x + ev.origin.y * ev.base.y + ev.origin.z * ev.base.z;
+              const clampedDot = Math.max(-1, Math.min(1, dot));
+              const omega = Math.acos(clampedDot);
+              let ax, ay, az;
+              if (Math.abs(omega) < 1e-6) {
+                ax = ev.origin.x; ay = ev.origin.y; az = ev.origin.z;
+              } else {
+                const sinO = Math.sin(omega);
+                ax = (Math.sin((1 - tArc) * omega) / sinO) * ev.origin.x + (Math.sin(tArc * omega) / sinO) * ev.base.x;
+                ay = (Math.sin((1 - tArc) * omega) / sinO) * ev.origin.y + (Math.sin(tArc * omega) / sinO) * ev.base.y;
+                az = (Math.sin((1 - tArc) * omega) / sinO) * ev.origin.z + (Math.sin(tArc * omega) / sinO) * ev.base.z;
+              }
+              const sv = applyGlobeRot({ x: ax, y: ay, z: az });
+              const sp = project(sv, R);
+              if (s === 0) ctx.moveTo(sp.x, sp.y); else ctx.lineTo(sp.x, sp.y);
+            }
+            ctx.stroke();
+          }
+        }
 
         const label = `${ev.label}  ·  ${ev.city}`;
         const textW = ctx.measureText(label).width;
