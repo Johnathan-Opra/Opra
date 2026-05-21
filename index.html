@@ -621,7 +621,7 @@
 
 <!-- Pinned background + globe -->
 <div class="ambient"></div>
-<div class="globe-wrap"><canvas id="globe"></canvas></div>
+<div class="globe-wrap"><canvas id="globe" role="img" aria-label="Animated globe showing Opra's global network"></canvas></div>
 
 <!-- Nav -->
 <header class="nav">
@@ -854,6 +854,9 @@
         <label>Full name<input type="text" name="name" required /></label>
         <label>Business name<input type="text" name="business" /></label>
         <label>Email address<input type="email" name="email" required /></label>
+        <label>What are you trying to solve?
+          <textarea name="message" rows="3" placeholder="Briefly describe the problem or system you want built"></textarea>
+        </label>
         <fieldset class="svc-fieldset">
           <legend>Services interested in</legend>
           <div class="svc-options">
@@ -875,6 +878,7 @@
         </label>
         <button class="submit" type="submit" id="submitBtn">Book a free consultation <span class="arrow">→</span></button>
       </form>
+      <div id="formStatus" role="status" aria-live="polite" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;"></div>
     </div>
   </section>
 </main>
@@ -892,6 +896,8 @@
 
 <script src="globe.js"></script>
 <script src="scroll-controller.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/motion@12/dist/motion.js"></script>
+<script src="motion-controller.js"></script>
 <script>
 /* ── MOBILE NAV ── */
 (function () {
@@ -920,39 +926,6 @@
   window.addEventListener('scroll', function () {
     nav.classList.toggle('scrolled', window.scrollY > 40);
   }, { passive: true });
-})();
-
-/* ── SCROLL REVEAL ── */
-(function () {
-  // Text elements in non-hero sections: fade + slide up
-  document.querySelectorAll('section:not(#hero)').forEach(function (section) {
-    section.querySelectorAll('.section-label, .section-title, .section-lead').forEach(function (el) {
-      el.classList.add('fade-up');
-    });
-  });
-  // Glass card elements: opacity fade only (avoids transform + backdrop-filter compositor issues)
-  document.querySelectorAll('.pain-list li, .service-card, .process-step, .work-card').forEach(function (el) {
-    el.classList.add('fade-in');
-  });
-  // Contact section text blocks
-  var cm = document.querySelector('.contact-meta');
-  var cf = document.querySelector('form.contact');
-  if (cm) cm.classList.add('fade-up');
-  if (cf) { cf.classList.add('fade-up'); cf.setAttribute('data-d', '2'); }
-  // Stagger within each card group
-  document.querySelectorAll('.pain-list, .services-list, .process-grid, .work-grid').forEach(function (parent) {
-    parent.querySelectorAll(':scope > *').forEach(function (child, i) {
-      if (i < 6) child.setAttribute('data-d', String(i + 1));
-    });
-  });
-
-  var obs = new IntersectionObserver(function (entries) {
-    entries.forEach(function (e) {
-      if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
-    });
-  }, { threshold: 0.08, rootMargin: '0px 0px -32px 0px' });
-
-  document.querySelectorAll('.fade-up, .fade-in').forEach(function (el) { obs.observe(el); });
 })();
 
 /* ── FORM ── */
@@ -998,13 +971,19 @@ document.getElementById('contactForm').addEventListener('submit', async function
       btn.style.background = 'rgba(124,227,255,0.15)';
       btn.style.color = 'var(--accent)';
       btn.style.borderColor = 'rgba(124,227,255,0.3)';
+      const status = document.getElementById('formStatus');
+      if (status) status.textContent = 'Submitted — we will be in touch within 4 hours.';
       form.reset();
     } else {
       btn.textContent = 'Something went wrong — email us directly.';
+      const status = document.getElementById('formStatus');
+      if (status) status.textContent = 'Something went wrong — email us directly.';
       btn.disabled = false;
     }
   } catch (_) {
     btn.textContent = 'Something went wrong — email us directly.';
+    const status = document.getElementById('formStatus');
+    if (status) status.textContent = 'Something went wrong — email us directly.';
     btn.disabled = false;
   }
 });
