@@ -947,6 +947,8 @@ document.getElementById('contactForm').addEventListener('submit', async function
 
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailVal)) {
     btn.textContent = 'Please enter a valid email address.';
+    const status = document.getElementById('formStatus');
+    if (status) status.textContent = 'Please enter a valid email address.';
     return;
   }
 
@@ -961,6 +963,7 @@ document.getElementById('contactForm').addEventListener('submit', async function
         name:     nameVal,
         business: businessVal,
         email:    emailVal,
+        message:  form.message ? form.message.value.trim().slice(0, 2000) : '',
         services: Array.from(form.querySelectorAll('input[name="services"]:checked')).map(el => el.value).join(', '),
         source:   form.source.value,
       }),
