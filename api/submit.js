@@ -61,12 +61,13 @@ export default async function handler(req, res) {
     return res.status(500).json({ error: 'Server misconfigured' });
   }
 
-  const { name, business, email, services, source } = req.body ?? {};
+  const { name, business, email, services, source, message } = req.body ?? {};
 
   const cleanName     = sanitize(name, 200);
   const cleanBusiness = sanitize(business, 200);
   const cleanEmail    = sanitize(email, 200);
   const cleanSource   = sanitize(source, 100);
+  const cleanMessage  = sanitize(message, 2000);
 
   if (!cleanName || !cleanEmail) {
     return res.status(400).json({ error: 'Name and email are required' });
@@ -100,6 +101,7 @@ export default async function handler(req, res) {
             'Email':                     cleanEmail,
             'Service Interested In':     serviceList.join(', '),
             'How they heard about Opra': cleanSource,
+            'Message':                   cleanMessage,
           },
         }),
       }
