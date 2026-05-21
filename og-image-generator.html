@@ -1,0 +1,128 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Opra — Asset Generator</title>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  body { background: #1a1a1a; display: flex; flex-direction: column; align-items: center; gap: 40px; padding: 40px; font-family: sans-serif; }
+  canvas { border: 1px solid rgba(255,255,255,0.1); }
+  button { background: #7CE3FF; color: #07090d; border: none; padding: 12px 24px; border-radius: 6px; font-size: 14px; font-weight: 600; cursor: pointer; }
+  h2 { color: #e8f0fa; margin: 0 0 8px; font-family: 'Geist', sans-serif; }
+  .section { display: flex; flex-direction: column; align-items: center; gap: 12px; }
+</style>
+</head>
+<body>
+<div class="section">
+  <h2>og-image.png (1200×630)</h2>
+  <canvas id="og" width="1200" height="630"></canvas>
+  <button onclick="download('og', 'og-image.png')">Download og-image.png</button>
+</div>
+<div class="section">
+  <h2>logo.png (512×512)</h2>
+  <canvas id="logo" width="512" height="512"></canvas>
+  <button onclick="download('logo', 'logo.png')">Download logo.png</button>
+</div>
+<script>
+function waitForFonts(cb) {
+  document.fonts.ready.then(cb);
+}
+
+function drawOg() {
+  const c = document.getElementById('og');
+  const ctx = c.getContext('2d');
+  const W = 1200, H = 630;
+
+  ctx.fillStyle = '#07090d';
+  ctx.fillRect(0, 0, W, H);
+
+  ctx.strokeStyle = 'rgba(255,255,255,0.022)';
+  ctx.lineWidth = 1;
+  for (let x = 0; x < W; x += 72) { ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, H); ctx.stroke(); }
+  for (let y = 0; y < H; y += 72) { ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(W, y); ctx.stroke(); }
+
+  const grad = ctx.createRadialGradient(W/2, H, 0, W/2, H, W * 0.7);
+  grad.addColorStop(0, 'rgba(124,227,255,0.06)');
+  grad.addColorStop(1, 'rgba(0,0,0,0)');
+  ctx.fillStyle = grad;
+  ctx.fillRect(0, 0, W, H);
+
+  ctx.strokeStyle = '#7CE3FF';
+  ctx.lineWidth = 2;
+  ctx.beginPath();
+  ctx.moveTo(80, 290); ctx.lineTo(160, 290);
+  ctx.stroke();
+
+  ctx.fillStyle = 'rgba(86,101,122,1)';
+  ctx.font = '500 18px "JetBrains Mono", monospace';
+  ctx.letterSpacing = '0.28em';
+  ctx.fillText('OPRA · JOHANNESBURG', 80, 260);
+
+  ctx.fillStyle = '#e8f0fa';
+  ctx.font = '400 88px "Instrument Serif", serif';
+  ctx.fillText('Operational', 80, 370);
+  ctx.fillStyle = '#7CE3FF';
+  ctx.font = 'italic 400 88px "Instrument Serif", serif';
+  ctx.fillText('Systems.', 80, 465);
+
+  ctx.fillStyle = 'rgba(147,163,182,1)';
+  ctx.font = '400 22px "Geist", sans-serif';
+  ctx.letterSpacing = '0';
+  ctx.fillText('Automation · Dashboards · Platforms · AI', 80, 560);
+
+  ctx.fillStyle = 'rgba(86,101,122,1)';
+  ctx.font = '400 18px "JetBrains Mono", monospace';
+  ctx.letterSpacing = '0.1em';
+  ctx.fillText('opra.co.za', W - 200, 580);
+}
+
+function drawLogo() {
+  const c = document.getElementById('logo');
+  const ctx = c.getContext('2d');
+  const W = 512, H = 512;
+
+  ctx.fillStyle = '#07090d';
+  ctx.fillRect(0, 0, W, H);
+
+  ctx.strokeStyle = 'rgba(255,255,255,0.025)';
+  ctx.lineWidth = 1;
+  for (let x = 0; x < W; x += 64) { ctx.beginPath(); ctx.moveTo(x,0); ctx.lineTo(x,H); ctx.stroke(); }
+  for (let y = 0; y < H; y += 64) { ctx.beginPath(); ctx.moveTo(0,y); ctx.lineTo(W,y); ctx.stroke(); }
+
+  const grad = ctx.createRadialGradient(W/2, H/2, 0, W/2, H/2, 220);
+  grad.addColorStop(0, 'rgba(124,227,255,0.08)');
+  grad.addColorStop(1, 'rgba(0,0,0,0)');
+  ctx.fillStyle = grad;
+  ctx.fillRect(0, 0, W, H);
+
+  ctx.strokeStyle = '#7CE3FF';
+  ctx.lineWidth = 3;
+  ctx.beginPath();
+  ctx.moveTo(W/2 - 60, 248); ctx.lineTo(W/2 - 10, 248);
+  ctx.stroke();
+
+  ctx.fillStyle = '#e8f0fa';
+  ctx.font = '500 72px "JetBrains Mono", monospace';
+  ctx.textAlign = 'center';
+  ctx.fillText('OPRA', W/2, 310);
+
+  ctx.fillStyle = 'rgba(86,101,122,1)';
+  ctx.font = '400 18px "JetBrains Mono", monospace';
+  ctx.fillText('SYSTEMS', W/2, 358);
+}
+
+function download(id, filename) {
+  const c = document.getElementById(id);
+  const a = document.createElement('a');
+  a.download = filename;
+  a.href = c.toDataURL('image/png');
+  a.click();
+}
+
+waitForFonts(function() {
+  drawOg();
+  drawLogo();
+});
+</script>
+</body>
+</html>
