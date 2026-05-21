@@ -42,6 +42,14 @@
 
   const SECTION_IDS = ["hero", "problem", "services", "process", "work", "contact"];
 
+  let mouseOffsetX = 0;
+  let mouseOffsetY = 0;
+
+  window.addEventListener('mousemove', function (e) {
+    mouseOffsetX = ((e.clientX / window.innerWidth)  - 0.5) * 0.06;
+    mouseOffsetY = ((e.clientY / window.innerHeight) - 0.5) * 0.06;
+  }, { passive: true });
+
   function lerp(a, b, t) { return a + (b - a) * t; }
   function lerpPreset(a, b, t) {
     const out = {};
@@ -107,7 +115,10 @@
       }
 
       const blended = lerpPreset(PRESETS[prev.id], PRESETS[next.id], t);
-      globe.setTarget(blended);
+      globe.setTarget(Object.assign({}, blended, {
+        offsetX: (blended.offsetX || 0) + mouseOffsetX,
+        offsetY: (blended.offsetY || 0) + mouseOffsetY,
+      }));
 
       let bestId = prev.id;
       let bestDist = Math.abs(prev.c - vpCenter);
