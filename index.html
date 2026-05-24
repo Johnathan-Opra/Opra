@@ -1,0 +1,983 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Opra | Operational Systems, Automation &amp; Dashboards | Johannesburg</title>
+<meta name="description" content="Opra builds operational infrastructure for growing businesses in Johannesburg and across South Africa. Websites, workflow automation, dashboards, client portals, and AI systems that reduce manual work and give you full visibility.">
+<meta name="keywords" content="business automation Johannesburg, workflow automation South Africa, operational dashboards, client portal development, CRM integration, business systems Johannesburg, SMB automation, operational website South Africa, Opra">
+<meta name="author" content="Opra">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://www.opra.co.za/">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.opra.co.za/">
+<meta property="og:title" content="Opra: Operational Systems &amp; Automation | Johannesburg">
+<meta property="og:description" content="We modernise business operations through automation, dashboards, and AI. Johannesburg-based, remote across SA and internationally.">
+<meta property="og:image" content="https://www.opra.co.za/og-image.png">
+<meta property="og:site_name" content="Opra">
+<meta property="og:locale" content="en_ZA">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Opra: Operational Systems &amp; Automation">
+<meta name="twitter:description" content="We modernise business operations through automation, dashboards, and AI. Johannesburg-based, remote across SA.">
+<meta name="twitter:image" content="https://www.opra.co.za/og-image.png">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "Opra",
+  "alternateName": "Opra",
+  "description": "We modernise business operations through automation, dashboards, and AI. Johannesburg-based operational systems studio serving SMBs across South Africa.",
+  "url": "https://www.opra.co.za",
+  "logo": "https://www.opra.co.za/logo.png",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Johannesburg",
+    "addressCountry": "ZA"
+  },
+  "areaServed": ["Johannesburg", "South Africa"],
+  "serviceType": ["Workflow Automation", "Business Dashboards", "Client Portals", "AI Systems", "Operational Websites"],
+  "priceRange": "Contact for quote"
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Outfit:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+<style>
+  :root {
+    --bg: #07090d;
+    --bg-2: #0b0f15;
+    --ink: #e8f0fa;
+    --ink-dim: #93a3b6;
+    --ink-faint: #56657a;
+    --line: rgba(255,255,255,0.08);
+    --line-2: rgba(255,255,255,0.14);
+    --accent: #7CE3FF;
+    --mark: "Bebas Neue", sans-serif;
+    --serif: "Cormorant Garamond", Georgia, serif;
+    --sans: "Outfit", ui-sans-serif, system-ui, sans-serif;
+    --mono: "JetBrains Mono", ui-monospace, Menlo, monospace;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--sans);
+    letter-spacing: -0.01em;
+    overflow-x: hidden;
+  }
+
+  /* Grain overlay */
+  body::before {
+    content: ""; position: fixed; inset: 0; pointer-events: none;
+    opacity: 0.035; z-index: 60; mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)' opacity='0.85'/></svg>");
+  }
+
+  /* Pinned globe canvas */
+  .globe-wrap {
+    position: fixed; inset: 0;
+    z-index: 1;
+    pointer-events: none;
+  }
+  .globe-wrap canvas { width: 100%; height: 100%; display: block; }
+
+  /* Background ambient */
+  .ambient {
+    position: fixed; inset: 0; z-index: 0; pointer-events: none;
+    background:
+      radial-gradient(120% 80% at 50% 110%, rgba(124,227,255,0.04), transparent 60%),
+      radial-gradient(80% 60% at 50% -10%, rgba(124,227,255,0.03), transparent 70%);
+  }
+  .ambient::after {
+    content: ""; position: absolute; inset: 0;
+    background:
+      linear-gradient(to right, rgba(255,255,255,0.022) 1px, transparent 1px) 0 0/72px 72px,
+      linear-gradient(to bottom, rgba(255,255,255,0.022) 1px, transparent 1px) 0 0/72px 72px;
+    mask-image: radial-gradient(ellipse at center, black 25%, transparent 80%);
+    -webkit-mask-image: radial-gradient(ellipse at center, black 25%, transparent 80%);
+  }
+
+  /* Top nav */
+  .nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 30;
+    padding: 22px 40px;
+    display: flex; align-items: center; justify-content: space-between;
+    background: linear-gradient(to bottom, rgba(7,9,13,0.6), rgba(7,9,13,0));
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+  }
+  .brand {
+    font-family: var(--mark);
+    font-size: 18px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink);
+    text-decoration: none;
+  }
+  .nav-links { display: flex; gap: 28px; font-size: 13px; color: var(--ink-dim); position: absolute; left: 50%; transform: translateX(-50%); }
+  .nav-links a { color: inherit; text-decoration: none; transition: color .2s; }
+  .nav-links a:hover { color: var(--ink); }
+  .nav-cta {
+    font-family: var(--mono);
+    font-size: 11px; text-transform: uppercase; letter-spacing: 0.18em;
+    color: var(--ink); padding: 9px 14px;
+    border: 1px solid var(--line-2); border-radius: 999px;
+    text-decoration: none;
+  }
+
+  /* Mobile nav toggle */
+  .nav-mobile-toggle {
+    display: none;
+    background: none; border: none;
+    padding: 4px; cursor: pointer;
+    color: var(--ink-dim);
+  }
+
+  /* Side rail */
+  .rail {
+    position: fixed; right: 28px; top: 50%; transform: translateY(-50%);
+    z-index: 30;
+    display: flex; flex-direction: column; gap: 18px;
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+  }
+  .rail a {
+    color: var(--ink-faint);
+    text-decoration: none;
+    display: flex; align-items: center; gap: 12px;
+    transition: color .25s;
+    justify-content: flex-end;
+  }
+  .rail a:hover { color: var(--ink-dim); }
+  .rail a::after {
+    content: "";
+    width: 14px; height: 1px; background: currentColor;
+    transition: width .25s, background .25s;
+  }
+  .rail a.is-active { color: var(--ink); }
+  .rail a.is-active::after { width: 28px; background: var(--accent); }
+
+  /* Section base */
+  .sections { position: relative; z-index: 10; }
+  section {
+    min-height: 100vh;
+    padding: 120px 40px;
+    display: flex; align-items: center;
+    position: relative;
+  }
+  .container {
+    width: 100%;
+    max-width: 1240px;
+    margin: 0 auto;
+  }
+
+  /* SECTION 01 — HERO */
+  #hero { padding-top: 140px; padding-bottom: 40px; min-height: 100vh; }
+  #hero .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: calc(100vh - 180px);
+  }
+  .hero-headline {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    max-width: 1100px; margin: 0 auto; width: 100%;
+  }
+  .eyebrow {
+    font-family: var(--mono); font-size: 11px;
+    letter-spacing: 0.32em; text-transform: uppercase;
+    color: var(--ink-faint); margin-bottom: 22px;
+  }
+  h1 {
+    font-family: var(--serif); font-weight: 400;
+    font-size: clamp(48px, 7.4vw, 108px);
+    line-height: 0.98; letter-spacing: -0.025em;
+    margin: 0; color: var(--ink);
+  }
+  .italic { font-style: italic; color: var(--accent); }
+  .sub {
+    margin: 26px auto 0; max-width: 580px;
+    font-size: 15px; line-height: 1.55;
+    color: var(--ink-dim);
+  }
+
+  .hero-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 40px;
+    padding-bottom: 8px;
+  }
+  .cta-block { display: flex; gap: 12px; align-items: center; justify-content: center; }
+  .btn-primary, .btn-ghost {
+    font-family: var(--sans); font-size: 14px; font-weight: 500;
+    padding: 14px 22px; border-radius: 999px;
+    text-decoration: none;
+    display: inline-flex; align-items: center; gap: 8px;
+    cursor: pointer; border: none;
+  }
+  .btn-primary { background: var(--ink); color: var(--bg); }
+  .btn-primary:hover { background: var(--accent); }
+  .btn-ghost { background: rgba(8,12,18,0.4); color: var(--ink); border: 1px solid var(--line); backdrop-filter: blur(8px); }
+  .btn-ghost:hover { border-color: var(--line-2); }
+  .corner-tag {
+    font-family: var(--mono); font-size: 10px;
+    letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--ink-faint);
+    justify-self: end; text-align: right; line-height: 1.7;
+  }
+  .corner-tag .strong { color: var(--ink-dim); }
+
+  /* SECTION 02 — PROBLEM */
+  #problem .container {
+    display: grid;
+    grid-template-columns: 1.05fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+  .section-label {
+    font-family: var(--mono); font-size: 11px;
+    letter-spacing: 0.28em; text-transform: uppercase;
+    color: var(--ink-faint); margin-bottom: 28px;
+    display: flex; align-items: center; gap: 12px;
+  }
+  .section-label::before {
+    content: ""; width: 28px; height: 1px; background: var(--accent); opacity: 0.7;
+  }
+  .section-title {
+    font-family: var(--serif); font-weight: 400;
+    font-size: clamp(40px, 5vw, 68px);
+    line-height: 1.02; letter-spacing: -0.02em;
+    margin: 0 0 24px;
+    color: var(--ink);
+    text-wrap: pretty;
+  }
+  .section-lead {
+    font-size: 16px; line-height: 1.6; color: var(--ink-dim);
+    max-width: 540px;
+  }
+  .glass-txt {
+    display: inline;
+    background: rgba(7,9,13,0.52);
+    backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+    padding: 3px 10px;
+    border-radius: 5px;
+    box-decoration-break: clone; -webkit-box-decoration-break: clone;
+    line-height: 2;
+  }
+
+  .pain-list {
+    list-style: none; padding: 0; margin: 0;
+    display: flex; flex-direction: column; gap: 8px;
+  }
+  .pain-list li {
+    display: flex; align-items: flex-start; gap: 16px;
+    padding: 18px 20px;
+    border: 1px solid rgba(255,255,255,0.11);
+    border-radius: 6px;
+    background: rgba(11,15,21,0.88);
+    backdrop-filter: blur(3px); -webkit-backdrop-filter: blur(3px);
+    font-size: 15px; line-height: 1.45;
+    color: var(--ink-dim);
+    position: relative; overflow: hidden;
+  }
+  .pain-num {
+    font-family: var(--mono); font-size: 11px;
+    color: var(--ink-faint); min-width: 32px; padding-top: 3px;
+  }
+  .pain-text strong { color: var(--ink); font-weight: 500; }
+
+  /* SECTION 03 — SERVICES */
+  #services .container {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+  .services-intro { max-width: 480px; }
+  .services-list {
+    display: flex; flex-direction: column; gap: 8px;
+  }
+  .services-custom {
+    grid-column: 2;
+    margin-top: -60px;
+    font-family: var(--sans); font-size: 14px; font-weight: 300;
+    color: var(--ink-dim); text-align: left;
+  }
+  .services-custom a { color: var(--accent); text-decoration: none; }
+  .services-custom a:hover { text-decoration: underline; }
+  .service-card {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 22px;
+    align-items: center;
+    padding: 24px 26px;
+    border: 1px solid rgba(255,255,255,0.11);
+    border-radius: 6px;
+    background: rgba(11,15,21,0.88);
+    backdrop-filter: blur(3px); -webkit-backdrop-filter: blur(3px);
+    cursor: pointer;
+    position: relative; overflow: hidden;
+  }
+  .service-card.is-active {
+    border-color: var(--accent);
+    background: rgba(11,15,21,0.8);
+  }
+  .service-card.is-active .svc-num { color: var(--accent); }
+  .svc-num {
+    font-family: var(--mono); font-size: 11px;
+    color: var(--ink-faint); letter-spacing: 0.18em;
+  }
+  .svc-title {
+    font-family: var(--serif); font-size: 26px;
+    line-height: 1.1; color: var(--ink); margin: 0 0 4px;
+  }
+  .svc-desc {
+    font-size: 13px; color: var(--ink-dim); margin: 0;
+    line-height: 1.45;
+  }
+  .svc-arrow {
+    font-family: var(--mono); color: var(--ink-faint);
+  }
+
+  /* SECTION 04 — PROCESS */
+  #process .container { text-align: center; }
+  .process-header { max-width: 740px; margin: 0 auto 64px; }
+  .process-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 16px;
+    position: relative;
+  }
+  .process-step {
+    text-align: left;
+    padding: 22px 20px;
+    border: 1px solid rgba(255,255,255,0.11);
+    border-radius: 6px;
+    background: rgba(11,15,21,0.88);
+    backdrop-filter: blur(3px); -webkit-backdrop-filter: blur(3px);
+    min-height: 180px;
+    display: flex; flex-direction: column;
+    position: relative; overflow: hidden;
+  }
+  .step-num {
+    font-family: var(--mono); font-size: 11px;
+    color: var(--accent); letter-spacing: 0.18em;
+    margin-bottom: 14px;
+  }
+  .step-title {
+    font-family: var(--serif); font-size: 22px;
+    line-height: 1.1; color: var(--ink); margin: 0 0 10px;
+  }
+  .step-desc {
+    font-size: 13px; line-height: 1.5; color: var(--ink-dim); margin: 0;
+  }
+
+  /* SECTION 05 — WORK */
+  #work .container {
+    display: grid;
+    grid-template-columns: 1fr 1.3fr;
+    gap: 80px;
+    align-items: center;
+  }
+  .work-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+  }
+  .work-card {
+    padding: 22px;
+    border: 1px solid rgba(255,255,255,0.11);
+    border-radius: 6px;
+    background: rgba(11,15,21,0.88);
+    backdrop-filter: blur(3px); -webkit-backdrop-filter: blur(3px);
+    cursor: pointer;
+    display: flex; flex-direction: column; gap: 10px;
+    min-height: 180px;
+    position: relative; overflow: hidden;
+  }
+  .accent-bar {
+    position: absolute;
+    left: 0; top: 15%; bottom: 15%;
+    width: 2px; background: var(--accent);
+    border-radius: 2px;
+    transform: scaleY(0);
+    transform-origin: center;
+    pointer-events: none;
+  }
+
+  .work-tag {
+    font-family: var(--mono); font-size: 10px;
+    letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--ink-faint);
+  }
+  .work-title {
+    font-family: var(--serif); font-size: 22px;
+    line-height: 1.1; color: var(--ink); margin: 0;
+  }
+  .work-desc { font-size: 13px; color: var(--ink-dim); line-height: 1.5; margin: 0; }
+  .work-foot {
+    margin-top: auto; padding-top: 12px;
+    border-top: 1px solid var(--line);
+    font-family: var(--mono); font-size: 10px; color: var(--ink-faint);
+    letter-spacing: 0.18em; text-transform: uppercase;
+    display: flex; justify-content: space-between;
+  }
+  .work-foot .live { color: var(--accent); }
+
+  /* SECTION 06 — CONTACT */
+  #contact .container {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+  .contact-meta {
+    display: flex; flex-direction: column; gap: 22px;
+    margin-top: 36px;
+  }
+  .meta-row {
+    display: grid; grid-template-columns: 120px 1fr; gap: 16px;
+    padding: 14px 0; border-top: 1px solid var(--line);
+    align-items: baseline;
+  }
+  .meta-row:last-child { border-bottom: 1px solid var(--line); }
+  .meta-key {
+    font-family: var(--mono); font-size: 10px;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--ink-faint);
+  }
+  .meta-val { font-size: 14px; color: var(--ink); }
+  .meta-val .accent { color: var(--accent); }
+
+  form.contact {
+    padding: 32px;
+    border: 1px solid rgba(255,255,255,0.11);
+    border-radius: 6px;
+    background: rgba(11,15,21,0.88);
+    backdrop-filter: blur(3px); -webkit-backdrop-filter: blur(3px);
+    display: flex; flex-direction: column; gap: 16px;
+  }
+  form.contact label {
+    display: flex; flex-direction: column; gap: 6px;
+    font-family: var(--mono); font-size: 10px;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--ink-faint);
+  }
+  form.contact input, form.contact textarea, form.contact select {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid var(--line-2);
+    color: var(--ink);
+    font-family: var(--sans); font-size: 14px;
+    padding: 10px 0 8px;
+    outline: none;
+    transition: border-color .2s;
+  }
+  form.contact input:focus, form.contact textarea:focus, form.contact select:focus {
+    border-color: var(--accent);
+  }
+  form.contact textarea { resize: vertical; min-height: 80px; }
+  form.contact select { color: var(--ink-dim); }
+  .svc-fieldset {
+    border: 1px solid var(--line); border-radius: 10px;
+    padding: 14px 16px 16px; margin: 0;
+  }
+  .svc-fieldset legend {
+    font-family: var(--mono); font-size: 10px;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--ink-faint); padding: 0 6px;
+  }
+  .svc-options {
+    display: flex; flex-wrap: wrap; gap: 10px; margin-top: 12px;
+  }
+  .svc-check {
+    display: flex; align-items: center; gap: 8px;
+    padding: 7px 14px; border-radius: 999px;
+    border: 1px solid var(--line);
+    font-family: var(--sans); font-size: 13px; color: var(--ink-dim);
+    cursor: pointer; transition: border-color .2s, background .2s, color .2s;
+    user-select: none;
+  }
+  .svc-check:hover { border-color: rgba(124,227,255,0.3); color: var(--ink); }
+  .svc-check input { display: none; }
+  .svc-check:has(input:checked) {
+    border-color: var(--accent);
+    background: rgba(124,227,255,0.08);
+    color: var(--accent);
+  }
+  form.contact .submit {
+    margin-top: 8px;
+    background: var(--ink); color: var(--bg);
+    padding: 14px 22px; border-radius: 999px;
+    font-family: var(--sans); font-size: 14px; font-weight: 500;
+    border: none; cursor: pointer;
+    display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  }
+  form.contact .submit:hover { background: var(--accent); }
+  form.contact .submit:disabled { opacity: 0.65; cursor: not-allowed; }
+
+  /* Footer */
+  footer {
+    position: relative; z-index: 10;
+    padding: 50px 40px 40px;
+    border-top: 1px solid var(--line);
+    background: var(--bg);
+    display: flex; justify-content: space-between; align-items: end;
+    flex-wrap: wrap; gap: 24px;
+    font-family: var(--mono); font-size: 11px;
+    letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--ink-faint);
+  }
+  footer a { color: var(--ink-dim); text-decoration: none; }
+  footer a:hover { color: var(--ink); }
+  footer .f-links { display: flex; gap: 24px; position: absolute; left: 50%; transform: translateX(-50%); }
+  footer .footer-brand { font-family: var(--mark); font-size: 18px; letter-spacing: 0.1em; color: var(--ink); }
+
+  /* Responsive */
+  @media (max-width: 980px) {
+    .nav { padding: 18px 22px; }
+    .nav-links { display: none; }
+    .nav-cta { display: none; }
+    .nav-mobile-toggle { display: block; }
+    .nav-links.open {
+      display: flex; flex-direction: column;
+      position: fixed; top: 58px; left: 0; right: 0; transform: none;
+      background: rgba(7,9,13,0.97);
+      backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px);
+      border-bottom: 1px solid var(--line);
+      padding: 24px 22px 32px;
+      gap: 0; z-index: 29;
+    }
+    .nav-links.open a {
+      font-size: 14px; padding: 14px 0;
+      border-bottom: 1px solid var(--line);
+      color: var(--ink-dim);
+    }
+    .rail { display: none; }
+    section { padding: 100px 22px; }
+    #problem .container, #services .container, #work .container, #contact .container {
+      grid-template-columns: 1fr; gap: 48px;
+    }
+    .services-custom { grid-column: 1; margin-top: 0; }
+    .process-grid { grid-template-columns: 1fr 1fr; }
+    .hero-bottom { flex-direction: column; align-items: flex-start; gap: 28px; }
+    .corner-tag { justify-self: start; text-align: left; }
+    .work-grid { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 640px) {
+    footer {
+      flex-direction: column; align-items: flex-start;
+      gap: 20px; padding: 36px 22px;
+    }
+    footer .f-links { flex-direction: column; gap: 14px; position: static; transform: none; }
+  }
+  @media (max-width: 540px) {
+    .process-grid { grid-template-columns: 1fr 1fr; }
+    section { padding: 80px 22px; }
+  }
+  @media (max-width: 400px) {
+    .process-grid { grid-template-columns: 1fr; }
+  }
+
+  /* ── DESIGN REFINEMENTS ── */
+
+  /* Anchor scroll clearance for fixed nav */
+  section { scroll-margin-top: 72px; }
+
+  /* Nav solidifies when scrolled */
+  .nav.scrolled {
+    background: rgba(7,9,13,0.92);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--line);
+  }
+
+
+</style>
+</head>
+<body>
+
+<!-- Pinned background + globe -->
+<div class="ambient"></div>
+<div class="globe-wrap"><canvas id="globe" role="img" aria-label="Animated globe showing Opra's global network"></canvas></div>
+
+<!-- Nav -->
+<header class="nav">
+  <a class="brand" href="#hero">OPRA</a>
+  <nav class="nav-links" id="navLinks">
+    <a href="#problem">Why Opra</a>
+    <a href="#services">Services</a>
+    <a href="#process">Process</a>
+    <a href="#work">Work</a>
+    <a href="#contact">Book a Call</a>
+  </nav>
+  <a class="nav-cta" href="#contact">Book a Call →</a>
+  <button class="nav-mobile-toggle" id="navToggle" aria-label="Menu" aria-expanded="false">
+    <svg width="20" height="14" viewBox="0 0 20 14" fill="none">
+      <rect width="20" height="1.5" fill="rgba(232,240,250,0.6)"/>
+      <rect y="6" width="14" height="1.5" fill="rgba(232,240,250,0.6)"/>
+      <rect y="12" width="20" height="1.5" fill="rgba(232,240,250,0.6)"/>
+    </svg>
+  </button>
+</header>
+
+<!-- Side rail -->
+<aside class="rail" id="rail">
+  <a href="#hero" data-section="hero">01 / Intro</a>
+  <a href="#problem" data-section="problem">02 / Why</a>
+  <a href="#services" data-section="services">03 / Services</a>
+  <a href="#process" data-section="process">04 / Process</a>
+  <a href="#work" data-section="work">05 / Work</a>
+  <a href="#contact" data-section="contact">06 / Contact</a>
+</aside>
+
+<!-- Sections -->
+<main class="sections">
+
+  <!-- 01 HERO -->
+  <section id="hero">
+    <div class="container">
+      <div class="hero-headline">
+        <h1>We modernise<br/>business <span class="italic">operations.</span></h1>
+        <p class="sub"><span class="glass-txt">Operational infrastructure for growing businesses: websites, workflow automation, dashboards, client portals, and AI systems. Less manual work. Full visibility.</span></p>
+      </div>
+
+      <div class="hero-bottom">
+        <div class="cta-block">
+          <a href="#contact" class="btn-primary">Book a free consultation <span class="arrow">→</span></a>
+          <a href="#work" class="btn-ghost">View our work</a>
+        </div>
+
+        <div class="corner-tag">
+          <div class="strong">Scroll to explore</div>
+          <div>↓</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 02 PROBLEM -->
+  <section id="problem">
+    <div class="container">
+      <div>
+        <div class="section-label">02 · Who this is for</div>
+        <h2 class="section-title">Your business is growing.<br/>Your operations are <span class="italic">not keeping up.</span></h2>
+        <p class="section-lead"><span class="glass-txt">Service businesses, recruitment and consulting firms, agencies, and operationally heavy SMBs with 1–50 people. Growing fast enough that manual processes are visibly costing time and money.</span></p>
+      </div>
+      <ul class="pain-list">
+        <li><span class="pain-num">01</span><span class="pain-text"><strong>Spreadsheet chaos</strong> and manual data entry consuming your team's time</span></li>
+        <li><span class="pain-num">02</span><span class="pain-text"><strong>Client onboarding</strong> done manually with no automation or consistency</span></li>
+        <li><span class="pain-num">03</span><span class="pain-text"><strong>Disconnected systems</strong> that don't talk to each other</span></li>
+        <li><span class="pain-num">04</span><span class="pain-text"><strong>No reporting visibility.</strong> Decisions made without data</span></li>
+        <li><span class="pain-num">05</span><span class="pain-text"><strong>Slow approval workflows</strong> and internal bottlenecks</span></li>
+        <li><span class="pain-num">06</span><span class="pain-text"><strong>Messy client management</strong> with no central system of record</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 03 SERVICES -->
+  <section id="services">
+    <div class="container">
+      <div class="services-intro">
+        <div class="section-label">03 · Services</div>
+        <h2 class="section-title">Four services. <span class="italic">One</span> operational focus.</h2>
+        <p class="section-lead"><span class="glass-txt">We do not build everything. We build operational systems, the infrastructure that makes your business run. Every service connects into that single goal.</span></p>
+      </div>
+      <div class="services-list">
+        <div class="service-card" data-svc="websites">
+          <div class="svc-num">01</div>
+          <div>
+            <div class="svc-title">Websites</div>
+            <p class="svc-desc">Your primary entry point. From one-pagers to full operational sites with lead capture, CRM, and routing built in.</p>
+          </div>
+          <div class="svc-arrow">→</div>
+        </div>
+        <div class="service-card" data-svc="platforms">
+          <div class="svc-num">02</div>
+          <div>
+            <div class="svc-title">Platforms</div>
+            <p class="svc-desc">Portals, dashboards, admin and ops systems, reporting hubs, and lightweight business applications.</p>
+          </div>
+          <div class="svc-arrow">→</div>
+        </div>
+        <div class="service-card" data-svc="automation">
+          <div class="svc-num">03</div>
+          <div>
+            <div class="svc-title">Automation</div>
+            <p class="svc-desc">CRM integrations, onboarding flows, reporting automation, lead routing, and approval workflows.</p>
+          </div>
+          <div class="svc-arrow">→</div>
+        </div>
+        <div class="service-card" data-svc="ai">
+          <div class="svc-num">04</div>
+          <div>
+            <div class="svc-title">AI Systems</div>
+            <p class="svc-desc">Practical AI built into real workflows: proposal generation, document parsing, email triage, knowledge systems.</p>
+          </div>
+          <div class="svc-arrow">→</div>
+        </div>
+      </div>
+      <p class="services-custom">Have something that doesn't fit neatly into one of these? We welcome custom projects.<br><a href="#contact">Tell us what you're building.</a></p>
+    </div>
+  </section>
+
+  <!-- 04 PROCESS -->
+  <section id="process">
+    <div class="container">
+      <div class="process-header">
+        <div class="section-label" style="justify-content: center;">04 · How we work</div>
+        <h2 class="section-title">Five steps. Every project.<br/><span class="italic">No exceptions.</span></h2>
+      </div>
+      <div class="process-grid">
+        <div class="process-step">
+          <div class="step-num">01 / Diagnose</div>
+          <h3 class="step-title">Map the gap</h3>
+          <p class="step-desc">We map your current operations and find exactly where time and money are being lost.</p>
+        </div>
+        <div class="process-step">
+          <div class="step-num">02 / Design</div>
+          <h3 class="step-title">Scope the fix</h3>
+          <p class="step-desc">Scoped, priced, and planned before a single line of code is written.</p>
+        </div>
+        <div class="process-step">
+          <div class="step-num">03 / Build</div>
+          <h3 class="step-title">Ship fast</h3>
+          <p class="step-desc">Modern tools, proven frameworks. Days, not months.</p>
+        </div>
+        <div class="process-step">
+          <div class="step-num">04 / Deploy</div>
+          <h3 class="step-title">Launch &amp; hand over</h3>
+          <p class="step-desc">Full documentation so you are never dependent on us.</p>
+        </div>
+        <div class="process-step">
+          <div class="step-num">05 / Support</div>
+          <h3 class="step-title">Stay embedded</h3>
+          <p class="step-desc">30-day support window included. Retainer keeps us in your operations.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 05 WORK -->
+  <section id="work">
+    <div class="container">
+      <div>
+        <div class="section-label">05 · Our work</div>
+        <h2 class="section-title">Systems we have <span class="italic">built.</span></h2>
+        <p class="section-lead"><span class="glass-txt">Previous work and concept showcases. Early-stage clients get our full attention and best pricing. Your project becomes a case study.</span></p>
+      </div>
+      <div class="work-grid">
+        <div class="work-card">
+          <div class="work-tag">Platform · Dashboard</div>
+          <h3 class="work-title">Interactive Quote Builder</h3>
+          <p class="work-desc">Drag-and-drop proposal system with a full product catalogue. Configure scope, generate PDF and send in minutes.</p>
+          <div class="work-foot"><span>Concept</span><span class="live">● PDF Export</span></div>
+        </div>
+        <div class="work-card">
+          <div class="work-tag">Platform · Scheduling</div>
+          <h3 class="work-title">Availability Dashboard</h3>
+          <p class="work-desc">Calendar-based view of who is open on any slot, shared availability, and recurring free time across the team.</p>
+          <div class="work-foot"><span>Concept</span><span class="live">● Calendar</span></div>
+        </div>
+        <div class="work-card">
+          <div class="work-tag">Automation · Agency</div>
+          <h3 class="work-title">Client Onboarding System</h3>
+          <p class="work-desc">Contract signed → welcome email, brand questionnaire, kickoff scheduler, shared folder, Slack channel. Zero manual steps.</p>
+          <div class="work-foot"><span>Concept</span><span class="live">● Onboarding</span></div>
+        </div>
+        <div class="work-card">
+          <div class="work-tag">Website · Opra</div>
+          <h3 class="work-title">Opra Website</h3>
+          <p class="work-desc">The site you are looking at. Structured service positioning, intake form, CRM-ready contact flow.</p>
+          <div class="work-foot"><span>Built for Opra</span><span class="live">● Live</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 06 CONTACT -->
+  <section id="contact">
+    <div class="container">
+      <div>
+        <div class="section-label">06 · Book a consultation</div>
+        <h2 class="section-title">Let's build something <span class="italic">operational.</span></h2>
+        <p class="section-lead"><span class="glass-txt">Tell us what is broken and we will tell you what to build. No hard sell. Just a 20-minute call to understand your operations.</span></p>
+
+        <div class="contact-meta">
+          <div class="meta-row">
+            <span class="meta-key">Location</span>
+            <span class="meta-val">Johannesburg, South Africa <span class="accent">●</span></span>
+          </div>
+          <div class="meta-row">
+            <span class="meta-key">Coverage</span>
+            <span class="meta-val">Internationally</span>
+          </div>
+          <div class="meta-row">
+            <span class="meta-key">Response</span>
+            <span class="meta-val">Within 4 hours during business hours</span>
+          </div>
+          <div class="meta-row">
+            <span class="meta-key">Email</span>
+            <span class="meta-val"><a href="mailto:johnathan@opra.co.za" style="color:inherit;text-decoration:none;border-bottom:1px solid var(--line-2);">johnathan@opra.co.za</a></span>
+          </div>
+        </div>
+      </div>
+
+      <form class="contact" id="contactForm">
+        <label>Full name<input type="text" name="name" required /></label>
+        <label>Business name<input type="text" name="business" /></label>
+        <label>Email address<input type="email" name="email" required /></label>
+        <label>What are you trying to solve?
+          <textarea name="message" rows="3" placeholder="Briefly describe the problem or system you want built"></textarea>
+        </label>
+        <fieldset class="svc-fieldset">
+          <legend>Services interested in</legend>
+          <div class="svc-options">
+            <label class="svc-check"><input type="checkbox" name="services" value="Websites" /><span>Websites</span></label>
+            <label class="svc-check"><input type="checkbox" name="services" value="Platforms" /><span>Platforms</span></label>
+            <label class="svc-check"><input type="checkbox" name="services" value="Automation" /><span>Automation</span></label>
+            <label class="svc-check"><input type="checkbox" name="services" value="AI Systems" /><span>AI Systems</span></label>
+            <label class="svc-check"><input type="checkbox" name="services" value="Custom Project" /><span>Custom Project</span></label>
+          </div>
+        </fieldset>
+        <label>How did you hear about Opra?
+          <select name="source">
+            <option value="">Select one</option>
+            <option value="LinkedIn">LinkedIn</option>
+            <option value="Referral">Referral</option>
+            <option value="Google search">Google search</option>
+            <option value="Other">Other</option>
+          </select>
+        </label>
+        <button class="submit" type="submit" id="submitBtn">Book a free consultation <span class="arrow">→</span></button>
+      </form>
+      <div id="formStatus" role="status" aria-live="polite" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;"></div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="footer-brand">OPRA</div>
+  <div class="f-links">
+    <a href="#services">Services</a>
+    <a href="#work">Work</a>
+    <a href="#process">Process</a>
+    <a href="#contact">Contact</a>
+  </div>
+  <div>Johannesburg · 2026</div>
+</footer>
+
+<script src="globe.js"></script>
+<script src="scroll-controller.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/motion@12/dist/motion.js"></script>
+<script src="motion-controller.js"></script>
+<script>
+/* ── MOBILE NAV ── */
+(function () {
+  const toggle = document.getElementById('navToggle');
+  const links = document.getElementById('navLinks');
+  if (!toggle || !links) return;
+  toggle.addEventListener('click', () => {
+    const open = links.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', open);
+    toggle.innerHTML = open
+      ? `<svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M1 1l16 16M17 1L1 17" stroke="rgba(232,240,250,0.7)" stroke-width="1.5"/></svg>`
+      : `<svg width="20" height="14" viewBox="0 0 20 14" fill="none"><rect width="20" height="1.5" fill="rgba(232,240,250,0.6)"/><rect y="6" width="14" height="1.5" fill="rgba(232,240,250,0.6)"/><rect y="12" width="20" height="1.5" fill="rgba(232,240,250,0.6)"/></svg>`;
+  });
+  links.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      links.classList.remove('open');
+      toggle.setAttribute('aria-expanded', false);
+      toggle.innerHTML = `<svg width="20" height="14" viewBox="0 0 20 14" fill="none"><rect width="20" height="1.5" fill="rgba(232,240,250,0.6)"/><rect y="6" width="14" height="1.5" fill="rgba(232,240,250,0.6)"/><rect y="12" width="20" height="1.5" fill="rgba(232,240,250,0.6)"/></svg>`;
+    });
+  });
+})();
+
+/* ── NAV SCROLL STATE ── */
+(function () {
+  const nav = document.querySelector('.nav');
+  window.addEventListener('scroll', function () {
+    nav.classList.toggle('scrolled', window.scrollY > 40);
+  }, { passive: true });
+})();
+
+/* ── FORM ── */
+function sanitizeText(str) {
+  return String(str).trim()
+    .replace(/[\x00-\x1F\x7F]/g, '')
+    .replace(/<[^>]*>/g, '')
+    .replace(/\s+/g, ' ');
+}
+
+document.getElementById('contactForm').addEventListener('submit', async function (e) {
+  e.preventDefault();
+  const btn = document.getElementById('submitBtn');
+  const form = e.target;
+
+  const nameVal     = sanitizeText(form.name.value);
+  const businessVal = sanitizeText(form.business.value);
+  const emailVal    = sanitizeText(form.email.value);
+
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailVal)) {
+    btn.textContent = 'Please enter a valid email address.';
+    const status = document.getElementById('formStatus');
+    if (status) status.textContent = 'Please enter a valid email address.';
+    return;
+  }
+
+  btn.disabled = true;
+  btn.textContent = 'Sending…';
+
+  try {
+    const res = await fetch('/api/submit', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        name:     nameVal,
+        business: businessVal,
+        email:    emailVal,
+        message:  form.message ? form.message.value.trim().slice(0, 2000) : '',
+        services: Array.from(form.querySelectorAll('input[name="services"]:checked')).map(el => el.value).join(', '),
+        source:   form.source.value,
+      }),
+    });
+
+    if (res.ok) {
+      btn.textContent = 'Submitted. We will be in touch within 4 hours.';
+      btn.style.background = 'rgba(124,227,255,0.15)';
+      btn.style.color = 'var(--accent)';
+      btn.style.borderColor = 'rgba(124,227,255,0.3)';
+      const status = document.getElementById('formStatus');
+      if (status) status.textContent = 'Submitted. We will be in touch within 4 hours.';
+      form.reset();
+    } else {
+      btn.textContent = 'Something went wrong. Email us directly.';
+      const status = document.getElementById('formStatus');
+      if (status) status.textContent = 'Something went wrong. Email us directly.';
+      btn.disabled = false;
+    }
+  } catch (_) {
+    btn.textContent = 'Something went wrong. Email us directly.';
+    const status = document.getElementById('formStatus');
+    if (status) status.textContent = 'Something went wrong. Email us directly.';
+    btn.disabled = false;
+  }
+});
+</script>
+</body>
+</html>

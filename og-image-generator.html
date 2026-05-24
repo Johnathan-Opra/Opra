@@ -1,0 +1,229 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Opra — Asset Generator</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:ital,wght@0,300;1,300&family=Outfit:wght@300;400&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+  body { background: #1a1a1a; display: flex; flex-direction: column; align-items: center; gap: 40px; padding: 40px; font-family: sans-serif; }
+  canvas { border: 1px solid rgba(255,255,255,0.1); }
+  button { background: #7CE3FF; color: #07090d; border: none; padding: 12px 24px; border-radius: 6px; font-size: 14px; font-weight: 600; cursor: pointer; margin: 4px; }
+  button.ghost { background: transparent; color: #7CE3FF; border: 1px solid rgba(124,227,255,0.4); }
+  h2 { color: #e8f0fa; margin: 0 0 8px; font-family: sans-serif; }
+  .section { display: flex; flex-direction: column; align-items: center; gap: 12px; }
+  #status { color: #e8f0fa; font-size: 13px; background: rgba(255,255,255,0.06); padding: 8px 16px; border-radius: 4px; max-width: 700px; text-align: center; line-height: 1.6; }
+</style>
+</head>
+<body>
+
+<!-- Force browser to fetch all font variants -->
+<div style="position:fixed;left:-9999px;top:0;width:1px;height:1px;overflow:hidden;" aria-hidden="true">
+  <span style="font-family:'Bebas Neue',sans-serif;font-size:48px;">OPRA</span>
+  <span style="font-family:'Cormorant Garamond',serif;font-weight:300;font-size:88px;">Operational</span>
+  <span style="font-family:'Cormorant Garamond',serif;font-weight:300;font-style:italic;font-size:88px;">Systems.</span>
+  <span style="font-family:'Outfit',sans-serif;font-weight:300;font-size:22px;">Automation Dashboards</span>
+  <span style="font-family:'JetBrains Mono',monospace;font-weight:400;font-size:18px;">opra.co.za</span>
+</div>
+
+<p id="status">⏳ Loading fonts from Google Fonts…</p>
+
+<div class="section">
+  <h2>og-image.png (1200×630)</h2>
+  <canvas id="og" width="1200" height="630"></canvas>
+  <div style="display:flex;gap:8px;flex-wrap:wrap;justify-content:center;">
+    <button onclick="download('og','og-image.png')">Download og-image.png</button>
+    <button class="ghost" onclick="redraw()">Redraw</button>
+  </div>
+</div>
+<div class="section">
+  <h2>logo.png (512×512)</h2>
+  <canvas id="logo" width="512" height="512"></canvas>
+  <button onclick="download('logo','logo.png')">Download logo.png</button>
+</div>
+
+<script>
+var FONTS = [
+  '400 48px "Bebas Neue"',
+  '300 88px "Cormorant Garamond"',
+  'italic 300 88px "Cormorant Garamond"',
+  '300 22px "Outfit"',
+  '400 18px "JetBrains Mono"',
+];
+
+function waitForFonts() {
+  return Promise.all(FONTS.map(function(f) { return document.fonts.load(f); }));
+}
+
+// Draw the brand mark: two offset squares.
+// ox, oy = top-left origin of the 46-unit bounding box, scale = px per unit
+function drawMark(ctx, ox, oy, scale) {
+  // Back square — subtle
+  ctx.fillStyle = 'rgba(255,255,255,0.08)';
+  ctx.fillRect(ox + 18*scale, oy + 18*scale, 24*scale, 24*scale);
+  // Front square — cyan
+  ctx.fillStyle = '#7CE3FF';
+  ctx.fillRect(ox + 4*scale, oy + 4*scale, 24*scale, 24*scale);
+}
+
+function drawOg() {
+  var c = document.getElementById('og');
+  var ctx = c.getContext('2d');
+  var W = 1200, H = 630;
+
+  // Background
+  ctx.fillStyle = '#07090d';
+  ctx.fillRect(0, 0, W, H);
+
+  // Grid
+  ctx.strokeStyle = 'rgba(255,255,255,0.022)';
+  ctx.lineWidth = 1;
+  for (var x = 0; x < W; x += 72) { ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, H); ctx.stroke(); }
+  for (var y = 0; y < H; y += 72) { ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(W, y); ctx.stroke(); }
+
+  // Radial glow
+  var grad = ctx.createRadialGradient(W/2, H, 0, W/2, H, W * 0.7);
+  grad.addColorStop(0, 'rgba(124,227,255,0.06)');
+  grad.addColorStop(1, 'rgba(0,0,0,0)');
+  ctx.fillStyle = grad;
+  ctx.fillRect(0, 0, W, H);
+
+  // Logo mark — scale=1.5 → 69×69 bounding box
+  var markScale = 1.5;
+  var markX = 80, markY = 52;
+  drawMark(ctx, markX, markY, markScale);
+
+  // Wordmark "OPRA" — Bebas Neue, aligned to mark
+  ctx.fillStyle = '#e8f0fa';
+  ctx.font = '400 38px "Bebas Neue", sans-serif';
+  ctx.letterSpacing = '3px';
+  ctx.textAlign = 'left';
+  ctx.fillText('OPRA', markX + 46*markScale + 14, markY + 38);
+
+  // Tagline "SYSTEMS THAT WORK."
+  ctx.fillStyle = '#7CE3FF';
+  ctx.font = '300 11px "Outfit", sans-serif';
+  ctx.letterSpacing = '2.5px';
+  ctx.fillText('SYSTEMS THAT WORK.', markX + 46*markScale + 15, markY + 56);
+
+  // Divider line
+  ctx.letterSpacing = '0';
+  ctx.strokeStyle = 'rgba(124,227,255,0.25)';
+  ctx.lineWidth = 1;
+  ctx.beginPath();
+  ctx.moveTo(80, 130); ctx.lineTo(W - 80, 130);
+  ctx.stroke();
+
+  // Main headline
+  ctx.fillStyle = '#e8f0fa';
+  ctx.font = '300 96px "Cormorant Garamond", serif';
+  ctx.fillText('Operational', 80, 290);
+
+  ctx.fillStyle = '#7CE3FF';
+  ctx.font = 'italic 300 96px "Cormorant Garamond", serif';
+  ctx.fillText('Systems.', 80, 400);
+
+  // Sub copy
+  ctx.fillStyle = 'rgba(147,163,182,1)';
+  ctx.font = '300 22px "Outfit", sans-serif';
+  ctx.fillText('Websites, Automation, Dashboards, Platforms, AI', 80, 490);
+
+  // URL
+  ctx.fillStyle = 'rgba(86,101,122,1)';
+  ctx.font = '400 15px "JetBrains Mono", monospace';
+  ctx.letterSpacing = '0.12em';
+  ctx.textAlign = 'right';
+  ctx.fillText('opra.co.za', W - 80, H - 44);
+  ctx.letterSpacing = '0';
+  ctx.textAlign = 'left';
+}
+
+function drawLogo() {
+  var c = document.getElementById('logo');
+  var ctx = c.getContext('2d');
+  var W = 512, H = 512;
+
+  // Background
+  ctx.fillStyle = '#07090d';
+  ctx.fillRect(0, 0, W, H);
+
+  // Grid
+  ctx.strokeStyle = 'rgba(255,255,255,0.025)';
+  ctx.lineWidth = 1;
+  for (var x = 0; x < W; x += 64) { ctx.beginPath(); ctx.moveTo(x,0); ctx.lineTo(x,H); ctx.stroke(); }
+  for (var y = 0; y < H; y += 64) { ctx.beginPath(); ctx.moveTo(0,y); ctx.lineTo(W,y); ctx.stroke(); }
+
+  // Radial glow
+  var grad = ctx.createRadialGradient(W/2, W/2, 0, W/2, W/2, 240);
+  grad.addColorStop(0, 'rgba(124,227,255,0.09)');
+  grad.addColorStop(1, 'rgba(0,0,0,0)');
+  ctx.fillStyle = grad;
+  ctx.fillRect(0, 0, W, H);
+
+  // Mark — scale=5.4, bounding box 46*5.4≈248px, centred horizontally, upper half
+  var markScale = 5.4;
+  var markSize = 46 * markScale; // 248
+  var markX = (W - markSize) / 2;
+  var markY = 108;
+  drawMark(ctx, markX, markY, markScale);
+
+  // "OPRA" wordmark
+  ctx.fillStyle = '#e8f0fa';
+  ctx.font = '400 72px "Bebas Neue", sans-serif';
+  ctx.letterSpacing = '6px';
+  ctx.textAlign = 'center';
+  ctx.fillText('OPRA', W/2, markY + markSize + 64);
+
+  // Tagline
+  ctx.fillStyle = '#7CE3FF';
+  ctx.font = '300 13px "Outfit", sans-serif';
+  ctx.letterSpacing = '3px';
+  ctx.fillText('SYSTEMS THAT WORK.', W/2, markY + markSize + 92);
+
+  ctx.letterSpacing = '0';
+  ctx.textAlign = 'left';
+}
+
+function redraw() {
+  document.getElementById('status').textContent = '⏳ Reloading fonts…';
+  waitForFonts().then(function(results) {
+    var loaded = results.reduce(function(n, r) { return n + (r.length > 0 ? 1 : 0); }, 0);
+    document.getElementById('status').textContent =
+      '✓ ' + loaded + ' / ' + FONTS.length + ' font variants confirmed loaded. Canvas redrawn.';
+    drawOg();
+    drawLogo();
+  }).catch(function(err) {
+    document.getElementById('status').textContent = '⚠ Font load error: ' + (err && err.message || err);
+    drawOg();
+    drawLogo();
+  });
+}
+
+function download(id, filename) {
+  var c = document.getElementById(id);
+  var a = document.createElement('a');
+  a.download = filename;
+  a.href = c.toDataURL('image/png');
+  a.click();
+}
+
+document.fonts.ready.then(function() {
+  return waitForFonts();
+}).then(function(results) {
+  var loaded = results.reduce(function(n, r) { return n + (r.length > 0 ? 1 : 0); }, 0);
+  var msg = '✓ ' + loaded + ' / ' + FONTS.length + ' font variants loaded.';
+  if (loaded < FONTS.length) {
+    msg += ' Some fonts may have failed — if text looks wrong, click Redraw or check your network connection.';
+  } else {
+    msg += ' All fonts ready. Download your files below.';
+  }
+  document.getElementById('status').textContent = msg;
+  drawOg();
+  drawLogo();
+}).catch(function(err) {
+  document.getElementById('status').textContent = '⚠ Font error — drawing with system fallbacks. ' + (err && err.message || err);
+  drawOg();
+  drawLogo();
+});
+</script>
+</body>
+</html>
