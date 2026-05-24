@@ -31,6 +31,24 @@
       });
     });
 
+    // ICP cards — same treatment as service cards
+    document.querySelectorAll('.icp-card').forEach(function (card) {
+      const bar = injectBar(card);
+      const arrow = card.querySelector('.icp-arrow');
+      card.addEventListener('mouseenter', function () {
+        card.style.borderColor = 'rgba(124,227,255,0.32)';
+        card.style.boxShadow = '0 0 0 1px rgba(124,227,255,0.08), 0 6px 20px rgba(124,227,255,0.09)';
+        animate(bar, { scaleY: 1 }, { type: 'spring', stiffness: 320, damping: 22 });
+        if (arrow) animate(arrow, { x: 5 }, { type: 'spring', stiffness: 320, damping: 22 });
+      });
+      card.addEventListener('mouseleave', function () {
+        card.style.borderColor = 'rgba(255,255,255,0.11)';
+        card.style.boxShadow = 'none';
+        animate(bar, { scaleY: 0 }, { type: 'spring', stiffness: 320, damping: 22 });
+        if (arrow) animate(arrow, { x: 0 }, { type: 'spring', stiffness: 320, damping: 22 });
+      });
+    });
+
     // Pain list rows — accent bar scales in from centre
     document.querySelectorAll('.pain-list li').forEach(function (item) {
       const bar = injectBar(item);
@@ -133,6 +151,7 @@
     var groups = [
       { parent: '.pain-list',    selector: '.pain-list li' },
       { parent: '.services-list', selector: '.service-card' },
+      { parent: '.icp-grid',     selector: '.icp-card' },
       { parent: '.process-grid', selector: '.process-step' },
       { parent: '.work-grid',    selector: '.work-card' },
     ];
