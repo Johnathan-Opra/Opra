@@ -37,14 +37,16 @@
       const arrow = card.querySelector('.icp-arrow');
       card.addEventListener('mouseenter', function () {
         card.style.borderColor = 'rgba(124,227,255,0.32)';
-        card.style.boxShadow = '0 0 0 1px rgba(124,227,255,0.08), 0 6px 20px rgba(124,227,255,0.09)';
+        card.style.boxShadow = '0 0 0 1px rgba(124,227,255,0.08), 0 8px 28px rgba(124,227,255,0.09)';
         animate(bar, { scaleY: 1 }, { type: 'spring', stiffness: 320, damping: 22 });
+        animate(card, { y: -4 }, { type: 'spring', stiffness: 300, damping: 20 });
         if (arrow) animate(arrow, { x: 5 }, { type: 'spring', stiffness: 320, damping: 22 });
       });
       card.addEventListener('mouseleave', function () {
         card.style.borderColor = 'rgba(255,255,255,0.11)';
         card.style.boxShadow = 'none';
         animate(bar, { scaleY: 0 }, { type: 'spring', stiffness: 320, damping: 22 });
+        animate(card, { y: 0 }, { type: 'spring', stiffness: 300, damping: 20 });
         if (arrow) animate(arrow, { x: 0 }, { type: 'spring', stiffness: 320, damping: 22 });
       });
     });
@@ -62,19 +64,6 @@
       });
     });
 
-    // Process steps — lift with left border flash
-    document.querySelectorAll('.process-step').forEach(function (step) {
-      step.addEventListener('mouseenter', function () {
-        step.style.borderColor = 'rgba(124,227,255,0.4)';
-        step.style.boxShadow = 'inset 2px 0 0 #7CE3FF, 0 8px 28px rgba(124,227,255,0.07)';
-        animate(step, { y: -3 }, { type: 'spring', stiffness: 260, damping: 18 });
-      });
-      step.addEventListener('mouseleave', function () {
-        step.style.borderColor = 'rgba(255,255,255,0.11)';
-        step.style.boxShadow = 'none';
-        animate(step, { y: 0 }, { type: 'spring', stiffness: 260, damping: 18 });
-      });
-    });
 
     // Work cards — lift with glow
     document.querySelectorAll('.work-card').forEach(function (card) {
