@@ -13,3 +13,7 @@ Thumbs.db
 # Editor
 .vscode/
 .idea/
+
+# Local AI tooling
+_bmad/
+docs/superpowers/
