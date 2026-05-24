@@ -1,10 +1,10 @@
 # Opra
 
-> Opra builds operational infrastructure for growing businesses in Johannesburg, South Africa, and remotely across SA and internationally.
+> Opra builds operational infrastructure for growing businesses in Pretoria, South Africa, and remotely across SA and internationally.
 
 ## What Opra Does
 
-Opra helps service businesses, agencies, consulting firms, and operationally heavy SMBs (1-50 people) replace manual processes with modern operational systems. The result: less time lost to admin, full visibility over operations, and systems that scale with the business.
+Opra helps agencies, startups, consulting firms, recruitment firms, and operationally heavy businesses (1-50 people) replace manual processes with modern operational systems. The result: less time lost to admin, full visibility over operations, and systems that scale with the business.
 
 ## Services
 
@@ -16,25 +16,34 @@ Opra helps service businesses, agencies, consulting firms, and operationally hea
 ## Who Opra Serves
 
 Target clients are businesses experiencing operational growing pains:
-- Service businesses and professional services firms
-- Recruitment and consulting agencies
-- Marketing and creative agencies
-- Any operationally heavy SMB with 1-50 people growing fast enough that manual processes are visibly costing time and money
+- Agencies and creative studios
+- Recruitment and staffing firms
+- Consulting and advisory firms
+- Startups building operational infrastructure
+- Any business with 1-50 people growing fast enough that manual processes are visibly costing time and money
 
 ## Location & Coverage
 
-- **Based in:** Johannesburg, South Africa
+- **Based in:** Pretoria, South Africa
 - **Serves:** South Africa and internationally (remote)
 
 ## Contact
 
 - **Email:** johnathan@opra.co.za
-- **Consultation:** Free 20-minute discovery call. Book via the website.
+- **Consultation:** Free discovery call. Book via the website.
 - **Response time:** Within 4 hours during business hours
 
 ## Key Pages
 
 - Homepage: https://www.opra.co.za/
-- Services: https://www.opra.co.za/#services
-- Work: https://www.opra.co.za/#work
+- Websites service: https://www.opra.co.za/services/websites
+- Platforms service: https://www.opra.co.za/services/platforms
+- Automation service: https://www.opra.co.za/services/automation
+- AI Systems service: https://www.opra.co.za/services/ai-systems
+- For agencies: https://www.opra.co.za/for/agencies
+- For recruitment firms: https://www.opra.co.za/for/recruitment-firms
+- For consulting firms: https://www.opra.co.za/for/consulting-firms
+- For service businesses: https://www.opra.co.za/for/service-businesses
+- For startups: https://www.opra.co.za/for/startups
+- Privacy & Terms: https://www.opra.co.za/privacy
 - Contact: https://www.opra.co.za/#contact
