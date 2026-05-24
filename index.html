@@ -486,7 +486,40 @@
     font-family: var(--mono); color: var(--ink-faint);
   }
 
-  /* SECTION 04 — PROCESS */
+  /* SECTION 04 — WHO WE WORK WITH */
+  .icp-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+    margin-bottom: 28px;
+  }
+  .icp-card {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 24px 22px;
+    border: 1px solid rgba(255,255,255,0.11);
+    border-radius: 6px;
+    background: rgba(11,15,21,0.88);
+    backdrop-filter: blur(3px); -webkit-backdrop-filter: blur(3px);
+    text-decoration: none; color: inherit;
+    transition: border-color .2s;
+  }
+  .icp-card:hover { border-color: var(--line-2); }
+  .icp-title {
+    font-family: var(--serif); font-size: 22px;
+    line-height: 1.1; color: var(--ink); margin: 0;
+  }
+  .icp-desc {
+    font-size: 13px; color: var(--ink-dim);
+    line-height: 1.5; margin: 0; flex: 1;
+  }
+  .icp-arrow {
+    font-family: var(--mono); color: var(--ink-faint);
+    font-size: 13px; margin-top: 4px;
+  }
+
+  /* SECTION 05 — PROCESS */
   #process .container { text-align: center; }
   .process-header { max-width: 740px; margin: 0 auto 64px; }
   .process-grid {
@@ -707,6 +740,7 @@
     }
     .services-custom { grid-column: 1; margin-top: 0; }
     .process-grid { grid-template-columns: 1fr 1fr; }
+    .icp-grid { grid-template-columns: 1fr 1fr; }
     .hero-bottom { flex-direction: column; align-items: flex-start; gap: 28px; }
     .corner-tag { justify-self: start; text-align: left; }
     .work-grid { grid-template-columns: 1fr; }
@@ -724,6 +758,7 @@
   }
   @media (max-width: 400px) {
     .process-grid { grid-template-columns: 1fr; }
+    .icp-grid { grid-template-columns: 1fr; }
   }
 
   /* SECTION 06 — FAQ */
@@ -904,11 +939,50 @@
     </div>
   </section>
 
-  <!-- 04 PROCESS -->
+  <!-- 04 WHO WE WORK WITH -->
+  <section id="who">
+    <div class="container">
+      <div class="services-intro">
+        <div class="section-label">04 · Who we work with</div>
+        <h2 class="section-title">Built for businesses <span class="italic">like these.</span></h2>
+        <p class="section-lead"><span class="glass-txt">We work best with service businesses that have outgrown manual processes and need systems built properly. These are the verticals we know well.</span></p>
+      </div>
+      <div class="icp-grid">
+        <a class="icp-card" href="/for/agencies">
+          <div class="icp-title">Agencies</div>
+          <p class="icp-desc">Digital, creative, and marketing agencies managing client work across multiple accounts.</p>
+          <div class="icp-arrow">→</div>
+        </a>
+        <a class="icp-card" href="/for/recruitment-firms">
+          <div class="icp-title">Recruitment Firms</div>
+          <p class="icp-desc">Firms placing candidates across multiple clients with high-volume pipelines to manage.</p>
+          <div class="icp-arrow">→</div>
+        </a>
+        <a class="icp-card" href="/for/consulting-firms">
+          <div class="icp-title">Consulting Firms</div>
+          <p class="icp-desc">Strategy, operations, and advisory firms delivering complex work with lean delivery teams.</p>
+          <div class="icp-arrow">→</div>
+        </a>
+        <a class="icp-card" href="/for/service-businesses">
+          <div class="icp-title">Service Businesses</div>
+          <p class="icp-desc">Any service business managing clients, onboarding, delivery, and reporting with a small team.</p>
+          <div class="icp-arrow">→</div>
+        </a>
+        <a class="icp-card" href="/for/startups">
+          <div class="icp-title">Startups</div>
+          <p class="icp-desc">Founders who need operational infrastructure built right the first time, fast enough to matter.</p>
+          <div class="icp-arrow">→</div>
+        </a>
+      </div>
+      <p class="services-custom">Work in a different industry? We work with any service-based business.<br><a href="#contact">Book a call and tell us what you need.</a></p>
+    </div>
+  </section>
+
+  <!-- 05 PROCESS -->
   <section id="process">
     <div class="container">
       <div class="process-header">
-        <div class="section-label" style="justify-content: center;">04 · How we work</div>
+        <div class="section-label" style="justify-content: center;">05 · How we work</div>
         <h2 class="section-title">Five steps. Every project.<br/><span class="italic">No exceptions.</span></h2>
       </div>
       <div class="process-grid">
@@ -945,7 +1019,7 @@
   <section id="work">
     <div class="container">
       <div>
-        <div class="section-label">05 · Our work</div>
+        <div class="section-label">06 · Our work</div>
         <h2 class="section-title">Systems we have <span class="italic">built.</span></h2>
         <p class="section-lead"><span class="glass-txt">Previous work and concept showcases. Early-stage clients get our full attention and best pricing. Your project becomes a case study.</span></p>
       </div>
@@ -981,7 +1055,7 @@
   <!-- 06 FAQ -->
   <section id="faq">
     <div class="container">
-      <div class="section-label" style="justify-content: center;">06 · FAQ</div>
+      <div class="section-label" style="justify-content: center;">07 · FAQ</div>
       <h2 class="section-title" style="text-align:center;margin:0 auto 48px;max-width:600px;">Common questions,<br/><span class="italic">straight answers.</span></h2>
       <ul class="faq-list">
         <li>
@@ -1028,7 +1102,7 @@
   <section id="contact">
     <div class="container">
       <div>
-        <div class="section-label">07 · Book a consultation</div>
+        <div class="section-label">08 · Book a consultation</div>
         <h2 class="section-title">Let's build something <span class="italic">operational.</span></h2>
         <p class="section-lead"><span class="glass-txt">Tell us what is broken and we will tell you what to build. No hard sell. Just a 20-minute call to understand your operations.</span></p>
 
