@@ -27,20 +27,150 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "ProfessionalService",
-  "name": "Opra",
-  "alternateName": "Opra",
-  "description": "We modernise business operations through automation, dashboards, and AI. Johannesburg-based operational systems studio serving SMBs across South Africa.",
-  "url": "https://www.opra.co.za",
-  "logo": "https://www.opra.co.za/logo.png",
-  "address": {
-    "@type": "PostalAddress",
-    "addressLocality": "Johannesburg",
-    "addressCountry": "ZA"
-  },
-  "areaServed": ["Johannesburg", "South Africa"],
-  "serviceType": ["Workflow Automation", "Business Dashboards", "Client Portals", "AI Systems", "Operational Websites"],
-  "priceRange": "Contact for quote"
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://www.opra.co.za/#organization",
+      "name": "Opra",
+      "url": "https://www.opra.co.za",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.opra.co.za/logo.png"
+      },
+      "description": "Opra builds operational infrastructure for growing businesses in Johannesburg, South Africa. Workflow automation, business dashboards, client portals, and AI systems that reduce manual work and give full operational visibility.",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Johannesburg",
+        "addressRegion": "Gauteng",
+        "addressCountry": "ZA"
+      },
+      "areaServed": ["Johannesburg", "Gauteng", "South Africa"],
+      "email": "johnathan@opra.co.za",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "sales",
+        "email": "johnathan@opra.co.za",
+        "availableLanguage": "English"
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://www.opra.co.za/#website",
+      "url": "https://www.opra.co.za",
+      "name": "Opra",
+      "description": "Operational systems, automation, dashboards, and AI for growing businesses in South Africa.",
+      "publisher": { "@id": "https://www.opra.co.za/#organization" }
+    },
+    {
+      "@type": "ProfessionalService",
+      "@id": "https://www.opra.co.za/#business",
+      "name": "Opra",
+      "url": "https://www.opra.co.za",
+      "logo": "https://www.opra.co.za/logo.png",
+      "image": "https://www.opra.co.za/og-image.png",
+      "description": "We modernise business operations through automation, dashboards, and AI. Johannesburg-based operational systems studio serving SMBs across South Africa.",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Johannesburg",
+        "addressRegion": "Gauteng",
+        "addressCountry": "ZA"
+      },
+      "areaServed": ["Johannesburg", "South Africa"],
+      "email": "johnathan@opra.co.za",
+      "priceRange": "Contact for quote",
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Opra Services",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Operational Websites",
+              "description": "Business websites with lead capture, CRM integration, and routing built in. From one-pagers to full operational sites."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Business Platforms & Dashboards",
+              "description": "Client portals, dashboards, admin and ops systems, reporting hubs, and lightweight business applications."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Workflow Automation",
+              "description": "CRM integrations, client onboarding automation, reporting workflows, lead routing, and approval systems."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "AI Systems",
+              "description": "Practical AI built into real business workflows: proposal generation, document parsing, email triage, and knowledge systems."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What services does Opra offer?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Opra offers four core services: operational websites, business platforms and dashboards, workflow automation, and AI systems. Every service is designed to reduce manual work and give growing businesses full operational visibility."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How long does it take to build a workflow automation system?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Most automation projects deliver in 2–4 weeks. Opra scopes, prices, and plans the full build before writing a single line of code, so timelines are fixed before work begins."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do you work with small businesses?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Opra's target clients are service businesses, agencies, and operationally heavy SMBs with 1–50 people — typically growing fast enough that manual processes are visibly costing time and money."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Where does Opra operate?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Opra is based in Johannesburg, South Africa, and works remotely with clients across South Africa and internationally."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is a client portal?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A client portal is a dedicated web-based interface that gives your clients secure access to project updates, documents, invoices, and communication — replacing email chains with a single system of record."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How much does business automation cost?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Pricing depends on scope. Opra provides fixed quotes before any work begins. Book a free consultation and we will scope and price your specific requirements within 24 hours."
+          }
+        }
+      ]
+    }
+  ]
 }
 </script>
 
@@ -594,6 +724,41 @@
     .process-grid { grid-template-columns: 1fr; }
   }
 
+  /* SECTION 06 — FAQ */
+  #faq .container { max-width: 800px; margin: 0 auto; }
+  .faq-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 8px; }
+  .faq-list li details {
+    border: 1px solid rgba(255,255,255,0.11);
+    border-radius: 6px;
+    background: rgba(11,15,21,0.88);
+    backdrop-filter: blur(3px); -webkit-backdrop-filter: blur(3px);
+    overflow: hidden;
+    transition: border-color .2s;
+  }
+  .faq-list li details[open] { border-color: rgba(124,227,255,0.3); }
+  .faq-list li details summary {
+    list-style: none;
+    display: flex; align-items: center; justify-content: space-between; gap: 16px;
+    padding: 20px 24px;
+    font-family: var(--serif); font-size: 20px; line-height: 1.2;
+    color: var(--ink); cursor: pointer;
+    user-select: none;
+  }
+  .faq-list li details summary::-webkit-details-marker { display: none; }
+  .faq-list li details summary::after {
+    content: "+";
+    font-family: var(--mono); font-size: 18px;
+    color: var(--ink-faint); flex-shrink: 0;
+    transition: transform .2s, color .2s;
+  }
+  .faq-list li details[open] summary::after { content: "−"; color: var(--accent); }
+  .faq-answer {
+    padding: 0 24px 20px;
+    font-size: 14px; line-height: 1.65; color: var(--ink-dim);
+    border-top: 1px solid var(--line);
+    padding-top: 16px;
+  }
+
   /* ── DESIGN REFINEMENTS ── */
 
   /* Anchor scroll clearance for fixed nav */
@@ -643,7 +808,8 @@
   <a href="#services" data-section="services">03 / Services</a>
   <a href="#process" data-section="process">04 / Process</a>
   <a href="#work" data-section="work">05 / Work</a>
-  <a href="#contact" data-section="contact">06 / Contact</a>
+  <a href="#faq" data-section="faq">06 / FAQ</a>
+  <a href="#contact" data-section="contact">07 / Contact</a>
 </aside>
 
 <!-- Sections -->
@@ -810,11 +976,57 @@
     </div>
   </section>
 
-  <!-- 06 CONTACT -->
+  <!-- 06 FAQ -->
+  <section id="faq">
+    <div class="container">
+      <div class="section-label" style="justify-content: center;">06 · FAQ</div>
+      <h2 class="section-title" style="text-align:center;margin:0 auto 48px;max-width:600px;">Common questions,<br/><span class="italic">straight answers.</span></h2>
+      <ul class="faq-list">
+        <li>
+          <details>
+            <summary>What services does Opra offer?</summary>
+            <div class="faq-answer">Opra offers four core services: operational websites, business platforms and dashboards, workflow automation, and AI systems. Every service is designed to reduce manual work and give growing businesses full operational visibility.</div>
+          </details>
+        </li>
+        <li>
+          <details>
+            <summary>How long does a project take?</summary>
+            <div class="faq-answer">Most automation and platform projects deliver in 2–4 weeks. We scope, price, and plan the full build before writing a single line of code — so timelines and costs are fixed before we start.</div>
+          </details>
+        </li>
+        <li>
+          <details>
+            <summary>Do you work with small businesses?</summary>
+            <div class="faq-answer">Yes. Our target clients are service businesses, agencies, and operationally heavy SMBs with 1–50 people — growing fast enough that manual processes are visibly costing time and money. We do not work with enterprises or large corporations.</div>
+          </details>
+        </li>
+        <li>
+          <details>
+            <summary>Where does Opra operate?</summary>
+            <div class="faq-answer">We are based in Johannesburg, South Africa. We work remotely with clients across South Africa and take on international projects. There are no geographic restrictions on what we can build or support.</div>
+          </details>
+        </li>
+        <li>
+          <details>
+            <summary>What is a client portal and do I need one?</summary>
+            <div class="faq-answer">A client portal is a dedicated web interface that gives your clients secure access to project status, documents, invoices, and communication — replacing scattered email threads with a single system. If you manage multiple clients and spend time chasing updates or resending files, a portal typically pays for itself within weeks.</div>
+          </details>
+        </li>
+        <li>
+          <details>
+            <summary>How much does business automation cost?</summary>
+            <div class="faq-answer">Pricing depends on scope and complexity. We provide fixed quotes before any work begins — no surprises. Book a free 20-minute consultation and we will scope and price your specific requirements within 24 hours.</div>
+          </details>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 07 CONTACT -->
   <section id="contact">
     <div class="container">
       <div>
-        <div class="section-label">06 · Book a consultation</div>
+        <div class="section-label">07 · Book a consultation</div>
         <h2 class="section-title">Let's build something <span class="italic">operational.</span></h2>
         <p class="section-lead"><span class="glass-txt">Tell us what is broken and we will tell you what to build. No hard sell. Just a 20-minute call to understand your operations.</span></p>
 
