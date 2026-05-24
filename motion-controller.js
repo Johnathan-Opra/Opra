@@ -65,19 +65,6 @@
     });
 
 
-    // Work cards — lift with glow
-    document.querySelectorAll('.work-card').forEach(function (card) {
-      card.addEventListener('mouseenter', function () {
-        card.style.borderColor = 'rgba(124,227,255,0.2)';
-        card.style.boxShadow = '0 8px 32px rgba(124,227,255,0.08)';
-        animate(card, { y: -3 }, { type: 'spring', stiffness: 260, damping: 20 });
-      });
-      card.addEventListener('mouseleave', function () {
-        card.style.borderColor = 'rgba(255,255,255,0.11)';
-        card.style.boxShadow = 'none';
-        animate(card, { y: 0 }, { type: 'spring', stiffness: 260, damping: 20 });
-      });
-    });
 
     // Primary button and form submit — scale bounce + arrow slide
     document.querySelectorAll('.btn-primary, .submit').forEach(function (btn) {
